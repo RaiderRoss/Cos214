@@ -1,3 +1,0 @@
-C:/Users/2MGOU/CLionProjects/COS214Prac2/cmake-build-debug/CMakeFiles/COS214Prac2.dir
-C:/Users/2MGOU/CLionProjects/COS214Prac2/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/2MGOU/CLionProjects/COS214Prac2/cmake-build-debug/CMakeFiles/rebuild_cache.dir
