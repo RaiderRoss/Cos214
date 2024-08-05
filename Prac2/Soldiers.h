@@ -5,7 +5,8 @@
 #ifndef SOLDIERS_H
 #define SOLDIERS_H
 #include <string>
-
+#include <iostream>
+using namespace std;
 #include "Memento.h"
 class Soldiers {
  private:

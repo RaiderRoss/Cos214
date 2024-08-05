@@ -4,13 +4,28 @@
 
 #include "Infantry.h"
 
-void Infantry::prepare() {}
+void Infantry::prepare() {
+  cout << "Drinks a nice cold beer in preperation for the short lived battle "
+          "ahead."
+       << endl;
+}
 
-void Infantry::execute() {}
+void Infantry::execute() {
+  cout << "Plot twist the infantary are modern day soldiers with guns and "
+          "obliterate anything in their way."
+       << endl;
+}
 
-void Infantry::retreat() {}
+void Infantry::retreat() {
+  cout << "Drinks another well deserved beer before passing away." << endl;
+}
 
-void Infantry::rest() {}
+void Infantry::rest() {
+  cout << "All infantary died heroically in battle and there are none to "
+          "retreat."
+       << endl;
+  delete this;
+}
 
 void Infantry::engage() {
   prepare();
