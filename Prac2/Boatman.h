@@ -8,16 +8,21 @@
 
 #include "Soldiers.h"
 
-
 class Boatman : public Soldiers {
-private:
-    int healthPerSoldier;
-    int damagePerSoldier;
-    int defencePerSoldifer;
-    int amountOfSoldiersPerUnit;
-    std::string unitName;
+ private:
+  int healthPerSoldier;
+  int damagePerSoldier;
+  int defencePerSoldifer;
+  int amountOfSoldiersPerUnit;
+  std::string unitName;
+  virtual void prepare();
+  virtual void execute();
+    virtual void retreat();
+  virtual void rest();
+
+ public:
+  virtual void engage();
+  virtual void disengage();
 };
 
-
-
-#endif //BOATMAN_H
+#endif  // BOATMAN_H

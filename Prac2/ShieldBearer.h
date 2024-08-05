@@ -8,16 +8,21 @@
 
 #include "Soldiers.h"
 
+class ShieldBearer : public Soldiers {
+ private:
+  int healthPerSoldier;
+  int damagePerSoldier;
+  int defencePerSoldifer;
+  int amountOfSoldiersPerUnit;
+  std::string unitName;
+  virtual void prepare();
+  virtual void execute();
+    virtual void retreat();
+  virtual void rest();
 
-class ShieldBearer : public Soldiers{
-private:
-    int healthPerSoldier;
-    int damagePerSoldier;
-    int defencePerSoldifer;
-    int amountOfSoldiersPerUnit;
-    std::string unitName;
+ public:
+  virtual void engage();
+  virtual void disengage();
 };
 
-
-
-#endif //SHIELDBEARER_H
+#endif  // SHIELDBEARER_H
