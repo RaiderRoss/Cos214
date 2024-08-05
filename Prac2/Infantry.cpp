@@ -17,13 +17,14 @@ void Infantry::execute() {
 }
 
 void Infantry::retreat() {
-  cout << "Drinks another well deserved beer before passing away." << endl;
+    cout << "All infantary died heroically in battle and there are none to "
+          "retreat."
+       << endl;
 }
 
 void Infantry::rest() {
-  cout << "All infantary died heroically in battle and there are none to "
-          "retreat."
-       << endl;
+  cout << "Drinks another well deserved beer before passing away." << endl;
+
   delete this;
 }
 
