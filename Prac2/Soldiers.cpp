@@ -3,3 +3,9 @@
 //
 
 #include "Soldiers.h"
+
+Memento* Soldiers::militusMemento() {
+  return nullptr;
+}
+
+void Soldiers::vivificaMemento(Memento* mem) {}

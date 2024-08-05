@@ -9,6 +9,8 @@
 #include "Soldiers.h"
 
 class Memento {
+  friend class Soldiers;
+
  private:
   int healthPerSoldier;
   int damagePerSoldier;
@@ -16,10 +18,7 @@ class Memento {
   int amountOfSoldiersPerUnit;
   std::string unitName;
   Memento(int value1, int value2, int value3, int value4, std::string value5);
-
- public:
-  virtual void engage();
-  virtual void disengage();
+  
 };
 
 #endif  // MEMENTO_H
