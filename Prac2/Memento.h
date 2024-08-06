@@ -10,7 +10,11 @@
 
 class Memento {
   friend class Soldiers;
-
+  int getHealth();
+  int getDamage();
+  int getDefence();
+  int getAmount();
+  std::string getName();
  private:
   int healthPerSoldier;
   int damagePerSoldier;
@@ -18,7 +22,6 @@ class Memento {
   int amountOfSoldiersPerUnit;
   std::string unitName;
   Memento(int value1, int value2, int value3, int value4, std::string value5);
-  
 };
 
 #endif  // MEMENTO_H

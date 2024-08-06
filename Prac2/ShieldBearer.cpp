@@ -11,17 +11,18 @@ void ShieldBearer::prepare() {
 }
 
 void ShieldBearer::execute() {
-  cout << "Raises their shiel in an epic scened moment and runs into battle "
+   
+  cout << "Raises their shield in an epic scened moment and runs into battle "
           "picking up all the arrows that would\n"
-       << "have struck down the infantary." << endl;
+       << "have struck down the infantry." << endl;
 }
 
 void ShieldBearer::retreat() {
-  cout << "Gets wacked on the head with a chain axe and raises the shield to "
-          "protect\n"
+  cout << "Gets wacked on the head with a chain-axe and raises the shield to "
+          "protect,\n"
        << "themself/himself/herself/theyself/itself/boxself/apacheself/.../"
           "inclusiveself/monkeyself/boiself\n"
-       << "from a fatal blow to the croch/chets/noggin/something important by "
+       << "from a fatal blow to the croch/chest/noggin/something important by "
           "a sword\n"
        << "and runs away with their head half open with the axe like nearly "
           "headless Neck.\n"
@@ -32,6 +33,7 @@ void ShieldBearer::rest() {
   cout << "Chucks their shield down in frustration and exhuastion. While doing "
           "so all the arrows shoot out of the shield like a porcupine. And hits random bystanders."
        << endl;
+        healthPerSoldier * 2.1;
 }
 
 void ShieldBearer::engage() {

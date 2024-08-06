@@ -5,7 +5,13 @@
 #include "Soldiers.h"
 
 Memento* Soldiers::militusMemento() {
-  return nullptr;
+  return new Memento(healthPerSoldier,damagePerSoldier,defencePerSoldifer,amountOfSoldiersPerUnit,unitName);
 }
 
-void Soldiers::vivificaMemento(Memento* mem) {}
+void Soldiers::vivificaMemento(Memento* mem) {
+  this->unitName = mem->getName();
+  this->healthPerSoldier = mem->getHealth();
+  this->damagePerSoldier = mem->getDamage();
+  this->defencePerSoldifer = mem->getDefence();
+  this->amountOfSoldiersPerUnit = mem->getAmount();
+}
