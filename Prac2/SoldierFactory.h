@@ -11,10 +11,10 @@ class SoldierFactory {
 private:
     Soldiers* soldiers;
 protected:
-    virtual Soldiers* createUnit();
-    virtual int calculateTotalHealthPerUnit();
-    virtual int calcualteTotalDamagePerUnit();
-    virtual int TotalDefencePerUnit();
+    virtual Soldiers* createUnit() = 0;
+    virtual int calculateTotalHealthPerUnit(Soldiers* soldier) = 0;
+    virtual int calculateTotalDamagePerUnit(Soldiers* soldier) = 0;
+    virtual int calculateTotalDefencePerUnit(Soldiers* soldier) = 0;
 };
 
 

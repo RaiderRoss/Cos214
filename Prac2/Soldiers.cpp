@@ -9,3 +9,5 @@ Memento* Soldiers::militusMemento() {
 }
 
 void Soldiers::vivificaMemento(Memento* mem) {}
+
+Soldiers::get

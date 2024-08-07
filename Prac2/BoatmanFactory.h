@@ -7,13 +7,14 @@
 
 #include "Soldiers.h"
 #include "SoldierFactory.h"
+#include "Boatman.h"
 
 class BoatmanFactory: public SoldierFactory{
 public:
     Soldiers* createUnit() override;
-    int calculateTotalHealthPerUnit() override;
-    int calcualteTotalDamagePerUnit() override;
-    int TotalDefencePerUnit() override;
+    int calculateTotalHealthPerUnit(Soldiers* soldier) override;
+    int calculateTotalDamagePerUnit(Soldiers* soldier) override;
+    int calculateTotalDefencePerUnit(Soldiers* soldier) override;
 };
 
 

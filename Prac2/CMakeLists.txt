@@ -1,9 +1,9 @@
 cmake_minimum_required(VERSION 3.28)
-project(COS214Prac2)
+project(Prac2)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(COS214Prac2 main.cpp
+add_executable(Prac2 main.cpp
         SoldierFactory.cpp
         SoldierFactory.h
         InfantryFactory.cpp

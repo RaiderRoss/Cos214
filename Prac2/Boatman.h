@@ -9,20 +9,24 @@
 #include "Soldiers.h"
 
 class Boatman : public Soldiers {
- private:
-  int healthPerSoldier;
-  int damagePerSoldier;
-  int defencePerSoldifer;
-  int amountOfSoldiersPerUnit;
-  std::string unitName;
-  virtual void prepare();
-  virtual void execute();
+private:
+    int healthPerSoldier = 30;
+    int damagePerSoldier = 20;
+    int defencePerSoldier = 20;
+    int amountOfSoldiersPerUnit = 4;
+    std::string unitName = "Boatman";
+    virtual void prepare();
+    virtual void execute();
     virtual void retreat();
-  virtual void rest();
+    virtual void rest();
 
- public:
-  virtual void engage();
-  virtual void disengage();
+public:
+    virtual void engage();
+    virtual void disengage();
+    int getHealthPerSoldier() override;
+    int getDamagePerSoldier() override;
+    int getDefencePerSoldier() override;
+    int getAmountOfSoldiersPerUnit() override;
 };
 
 #endif  // BOATMAN_H
