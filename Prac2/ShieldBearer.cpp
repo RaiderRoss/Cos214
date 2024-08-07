@@ -60,3 +60,8 @@ int ShieldBearer::getHealthPerSoldier() {
 int ShieldBearer::getAmountOfSoldiersPerUnit() {
     return this->amountOfSoldiersPerUnit;
 }
+
+Soldiers *ShieldBearer::clonis() {
+    ShieldBearer* clone = new ShieldBearer(*this);
+    return clone;
+}

@@ -27,6 +27,7 @@ public:
     int getDamagePerSoldier() override;
     int getDefencePerSoldier() override;
     int getAmountOfSoldiersPerUnit() override;
+    Soldiers* clonis() override;
 };
 
 #endif  // BOATMAN_H

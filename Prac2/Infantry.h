@@ -28,6 +28,7 @@ class Infantry : public Soldiers {
   int getDamagePerSoldier() override;
   int getDefencePerSoldier() override;
   int getAmountOfSoldiersPerUnit() override;
+  Soldiers* clonis() override;
 };
 
 #endif  // INFANTRY_H

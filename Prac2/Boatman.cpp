@@ -50,6 +50,12 @@ int Boatman::getAmountOfSoldiersPerUnit() {
   return this->amountOfSoldiersPerUnit;
 }
 
+Soldiers *Boatman::clonis() {
+    Boatman* clone = new Boatman(*this);
+    return clone;
+}
+
+
 
 
 
