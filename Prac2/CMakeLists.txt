@@ -19,4 +19,6 @@ add_executable(Prac2 main.cpp
         Boatman.cpp
         Boatman.h
         Soldiers.cpp
-        Soldiers.h)
+        Soldiers.h
+        Memento.cpp
+        Memento.cpp)

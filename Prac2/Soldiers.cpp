@@ -25,4 +25,3 @@ void Soldiers::disengage() {
   retreat();
   rest();
 }
-

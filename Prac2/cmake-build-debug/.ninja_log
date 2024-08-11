@@ -1,0 +1,20 @@
+# ninja log v6
+138	3628	7450898249294201	CMakeFiles/Prac2.dir/SoldierFactory.cpp.obj	56096ec6d96c9ebe
+16	621	7450963474727151	CMakeFiles/Prac2.dir/main.cpp.obj	7660c597de19c02f
+196	3652	7450898249872652	CMakeFiles/Prac2.dir/Infantry.cpp.obj	70edd4b56f088c35
+159	3670	7450898249503715	CMakeFiles/Prac2.dir/InfantryFactory.cpp.obj	6842aab156f1d5d8
+622	755	7450963480773719	Prac2.exe	12b3457758f4d92b
+187	3671	7450898249782883	CMakeFiles/Prac2.dir/BoatmanFactory.cpp.obj	f556b95f2eb66309
+175	3672	7450898249663221	CMakeFiles/Prac2.dir/ShieldBearerFactory.cpp.obj	a14c5183d1dd51bd
+3634	5544	7450898284252872	CMakeFiles/Prac2.dir/ShieldBearer.cpp.obj	756aa870ee4b7046
+3643	5557	7450898284343006	CMakeFiles/Prac2.dir/Boatman.cpp.obj	30ff5dc59581f973
+20	820	7450898642259983	CMakeFiles/Prac2.dir/Soldiers.cpp.obj	114b387e86daf489
+21	1057	7450967598297617	CMakeFiles/Prac2.dir/SoldierFactory.cpp.obj	56096ec6d96c9ebe
+14	1112	7450967598227795	CMakeFiles/Prac2.dir/main.cpp.obj	7660c597de19c02f
+33	1137	7450967598417296	CMakeFiles/Prac2.dir/ShieldBearerFactory.cpp.obj	a14c5183d1dd51bd
+25	1145	7450967598347494	CMakeFiles/Prac2.dir/InfantryFactory.cpp.obj	6842aab156f1d5d8
+48	1152	7450967598566889	CMakeFiles/Prac2.dir/Infantry.cpp.obj	70edd4b56f088c35
+40	1195	7450967598487101	CMakeFiles/Prac2.dir/BoatmanFactory.cpp.obj	f556b95f2eb66309
+1145	1787	7450967609547024	CMakeFiles/Prac2.dir/Memento.cpp.obj	3aca9b1c4a71085
+1058	1908	7450967608668688	CMakeFiles/Prac2.dir/ShieldBearer.cpp.obj	756aa870ee4b7046
+18	666	7450968959576827	CMakeFiles/Prac2.dir/Boatman.cpp.obj	30ff5dc59581f973
