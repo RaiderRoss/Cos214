@@ -15,3 +15,5 @@ void Soldiers::vivificaMemento(Memento* mem) {
   this->defencePerSoldifer = mem->getDefence();
   this->amountOfSoldiersPerUnit = mem->getAmount();
 }
+
+Soldiers::get

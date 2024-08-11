@@ -10,11 +10,11 @@
 
 class ShieldBearer : public Soldiers {
  private:
-  int healthPerSoldier;
-  int damagePerSoldier;
-  int defencePerSoldifer;
-  int amountOfSoldiersPerUnit;
-  std::string unitName;
+    int healthPerSoldier = 50;
+    int damagePerSoldier = 20;
+    int defencePerSoldier = 50;
+    int amountOfSoldiersPerUnit = 10;
+    std::string unitName = "ShieldBearer";
   virtual void prepare();
   virtual void execute();
     virtual void retreat();
@@ -23,6 +23,11 @@ class ShieldBearer : public Soldiers {
  public:
   virtual void engage();
   virtual void disengage();
+    int getHealthPerSoldier() override;
+    int getDamagePerSoldier() override;
+    int getDefencePerSoldier() override;
+    int getAmountOfSoldiersPerUnit() override;
+    Soldiers* clonis() override;
 };
 
 #endif  // SHIELDBEARER_H

@@ -45,3 +45,25 @@ void ShieldBearer::disengage() {
   retreat();
   rest();
 }
+
+
+int ShieldBearer::getDamagePerSoldier() {
+    return this->damagePerSoldier;
+}
+
+int ShieldBearer::getDefencePerSoldier() {
+    return this->defencePerSoldier;
+}
+
+int ShieldBearer::getHealthPerSoldier() {
+    return this->healthPerSoldier;
+}
+
+int ShieldBearer::getAmountOfSoldiersPerUnit() {
+    return this->amountOfSoldiersPerUnit;
+}
+
+Soldiers *ShieldBearer::clonis() {
+    ShieldBearer* clone = new ShieldBearer(*this);
+    return clone;
+}

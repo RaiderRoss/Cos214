@@ -7,13 +7,14 @@
 
 #include "SoldierFactory.h"
 #include "Soldiers.h"
+#include "ShieldBearer.h"
 
 class ShieldBearerFactory : public SoldierFactory {
 public:
-    Soldiers* createUnit();
-    int calculateTotalHealthPerUnit();
-    int calcualteTotalDamagePerUnit();
-    int TotalDefencePerUnit();
+    Soldiers* createUnit() override;
+    int calculateTotalHealthPerUnit(Soldiers* soldier) override;
+    int calculateTotalDamagePerUnit(Soldiers* soldier) override;
+    int calculateTotalDefencePerUnit(Soldiers* soldier) override;
 };
 
 

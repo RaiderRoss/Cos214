@@ -25,6 +25,11 @@ class Soldiers {
   virtual void disengage() = 0;
   Memento* militusMemento();
   void vivificaMemento( Memento* mem);
+  virtual int getHealthPerSoldier() = 0;
+  virtual int getDamagePerSoldier() = 0;
+  virtual int getDefencePerSoldier() = 0;
+  virtual int getAmountOfSoldiersPerUnit() = 0;
+  virtual Soldiers* clonis() = 0;
 };
 
 #endif  // SOLDIERS_H
