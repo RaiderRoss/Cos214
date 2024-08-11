@@ -45,7 +45,8 @@ int Infantry::getAmountOfSoldiersPerUnit() {
 }
 
 Soldiers *Infantry::clonis() {
-    Infantry* clone = new Infantry(*this);
+    Soldiers* clone = new Infantry(*this);
+  
     return clone;
 }
 

@@ -54,6 +54,6 @@ int ShieldBearer::getAmountOfSoldiersPerUnit() {
 }
 
 Soldiers *ShieldBearer::clonis() {
-    ShieldBearer* clone = new ShieldBearer(*this);
+    Soldiers* clone = new ShieldBearer(*this);
     return clone;
 }
