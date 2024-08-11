@@ -6,8 +6,6 @@
 #define MEMENTO_H
 #include <string>
 
-#include "Soldiers.h"
-
 class Memento {
   friend class Soldiers;
   int getHealth();
