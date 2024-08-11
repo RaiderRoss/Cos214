@@ -1,0 +1,1 @@
+CMakeLists.txt not found in C:\Users\2MGOU\CLionProjects\Cos214\COS214Prac2\.idea Select CMakeLists.txt

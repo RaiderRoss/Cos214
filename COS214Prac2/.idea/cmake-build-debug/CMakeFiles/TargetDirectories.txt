@@ -1,0 +1,2 @@
+C:/Users/2MGOU/CLionProjects/Cos214/COS214Prac2/.idea/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/2MGOU/CLionProjects/Cos214/COS214Prac2/.idea/cmake-build-debug/CMakeFiles/rebuild_cache.dir

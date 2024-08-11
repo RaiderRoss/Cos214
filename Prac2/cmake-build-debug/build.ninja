@@ -103,6 +103,12 @@ build CMakeFiles/Prac2.dir/Soldiers.cpp.obj: CXX_COMPILER__Prac2_unscanned_Debug
   OBJECT_DIR = CMakeFiles\Prac2.dir
   OBJECT_FILE_DIR = CMakeFiles\Prac2.dir
 
+build CMakeFiles/Prac2.dir/Memento.cpp.obj: CXX_COMPILER__Prac2_unscanned_Debug C$:/Users/2MGOU/CLionProjects/Cos214/Prac2/Memento.cpp || cmake_object_order_depends_target_Prac2
+  DEP_FILE = CMakeFiles\Prac2.dir\Memento.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\Prac2.dir
+  OBJECT_FILE_DIR = CMakeFiles\Prac2.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Prac2
@@ -111,7 +117,7 @@ build CMakeFiles/Prac2.dir/Soldiers.cpp.obj: CXX_COMPILER__Prac2_unscanned_Debug
 #############################################
 # Link the executable Prac2.exe
 
-build Prac2.exe: CXX_EXECUTABLE_LINKER__Prac2_Debug CMakeFiles/Prac2.dir/main.cpp.obj CMakeFiles/Prac2.dir/SoldierFactory.cpp.obj CMakeFiles/Prac2.dir/InfantryFactory.cpp.obj CMakeFiles/Prac2.dir/ShieldBearerFactory.cpp.obj CMakeFiles/Prac2.dir/BoatmanFactory.cpp.obj CMakeFiles/Prac2.dir/Infantry.cpp.obj CMakeFiles/Prac2.dir/ShieldBearer.cpp.obj CMakeFiles/Prac2.dir/Boatman.cpp.obj CMakeFiles/Prac2.dir/Soldiers.cpp.obj
+build Prac2.exe: CXX_EXECUTABLE_LINKER__Prac2_Debug CMakeFiles/Prac2.dir/main.cpp.obj CMakeFiles/Prac2.dir/SoldierFactory.cpp.obj CMakeFiles/Prac2.dir/InfantryFactory.cpp.obj CMakeFiles/Prac2.dir/ShieldBearerFactory.cpp.obj CMakeFiles/Prac2.dir/BoatmanFactory.cpp.obj CMakeFiles/Prac2.dir/Infantry.cpp.obj CMakeFiles/Prac2.dir/ShieldBearer.cpp.obj CMakeFiles/Prac2.dir/Boatman.cpp.obj CMakeFiles/Prac2.dir/Soldiers.cpp.obj CMakeFiles/Prac2.dir/Memento.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\Prac2.dir

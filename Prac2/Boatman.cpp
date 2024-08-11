@@ -20,10 +20,7 @@ void Boatman::retreat() {
 
 void Boatman::rest() {
   cout << "The boatment find a tropical island and enjoy some refreshign lemonade on the beach." << endl;
-   healthPerSoldier * 2.4;
 }
-
-
 
 int Boatman::getDamagePerSoldier() {
   return this->damagePerSoldier;
