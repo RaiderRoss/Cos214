@@ -21,8 +21,6 @@ private:
     virtual void rest();
 
 public:
-    virtual void engage();
-    virtual void disengage();
     int getHealthPerSoldier() override;
     int getDamagePerSoldier() override;
     int getDefencePerSoldier() override;

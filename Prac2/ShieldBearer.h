@@ -17,12 +17,10 @@ class ShieldBearer : public Soldiers {
     std::string unitName = "ShieldBearer";
   virtual void prepare();
   virtual void execute();
-    virtual void retreat();
+  virtual void retreat();
   virtual void rest();
 
  public:
-  virtual void engage();
-  virtual void disengage();
     int getHealthPerSoldier() override;
     int getDamagePerSoldier() override;
     int getDefencePerSoldier() override;

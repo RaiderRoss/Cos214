@@ -23,16 +23,6 @@ void Boatman::rest() {
    healthPerSoldier * 2.4;
 }
 
-void Boatman::engage() {
-  prepare();
-  execute();
-}
-
-void Boatman::disengage() {
-  retreat();
-  rest();
-}
-
 
 
 int Boatman::getDamagePerSoldier() {

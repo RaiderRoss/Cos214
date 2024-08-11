@@ -27,15 +27,6 @@ void Infantry::rest() {
   delete this;
 }
 
-void Infantry::engage() {
-  prepare();
-  execute();
-}
-
-void Infantry::disengage() {
-  retreat();
-  rest();
-}
 
 int Infantry::getDamagePerSoldier() {
   return this->damagePerSoldier;

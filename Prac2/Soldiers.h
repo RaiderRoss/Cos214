@@ -21,8 +21,8 @@ class Soldiers {
   virtual void rest() = 0;
 
  public:
-  virtual void engage() = 0;
-  virtual void disengage() = 0;
+  void engage();
+  void disengage();
   Memento* militusMemento();
   void vivificaMemento( Memento* mem);
   virtual int getHealthPerSoldier() = 0;

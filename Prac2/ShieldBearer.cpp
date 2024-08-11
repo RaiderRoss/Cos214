@@ -36,16 +36,6 @@ void ShieldBearer::rest() {
         healthPerSoldier * 2.1;
 }
 
-void ShieldBearer::engage() {
-  prepare();
-  execute();
-}
-
-void ShieldBearer::disengage() {
-  retreat();
-  rest();
-}
-
 
 int ShieldBearer::getDamagePerSoldier() {
     return this->damagePerSoldier;
