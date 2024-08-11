@@ -4,8 +4,8 @@
 
 #ifndef SOLDIERS_H
 #define SOLDIERS_H
-#include <string>
 #include <iostream>
+#include <string>
 using namespace std;
 #include "Memento.h"
 class Soldiers {
@@ -24,7 +24,7 @@ class Soldiers {
   void engage();
   void disengage();
   Memento* militusMemento();
-  void vivificaMemento( Memento* mem);
+  void vivificaMemento(Memento* mem);
   virtual int getHealthPerSoldier() = 0;
   virtual int getDamagePerSoldier() = 0;
   virtual int getDefencePerSoldier() = 0;
