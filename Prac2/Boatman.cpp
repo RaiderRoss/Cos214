@@ -4,12 +4,8 @@
 
 #include "Boatman.h"
 
-Boatman::Boatman(int health, int damage, int defence, int amount, std::string name) {
-  healthPerSoldier = health;
-  damagePerSoldier = damage;
-  defencePerSoldier = defence;
-  amountOfSoldiersPerUnit = amount;
-  unitName = name;
+Boatman::Boatman(int health, int damage, int defence, int amount, std::string name) : Soldiers (health,damage,defence,amount,name) {
+  
 }
 void Boatman::prepare() {
     cout << "Rows towards certain death." << endl;;
@@ -42,6 +38,10 @@ int Boatman::getHealthPerSoldier() {
 
 int Boatman::getAmountOfSoldiersPerUnit() {
   return this->amountOfSoldiersPerUnit;
+}
+
+std::string Boatman::getUnitName() {
+  return this->unitName;
 }
 
 Soldiers *Boatman::clonis() {

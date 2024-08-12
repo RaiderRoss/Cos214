@@ -26,6 +26,7 @@ class ShieldBearer : public Soldiers {
   int getDamagePerSoldier() override;
   int getDefencePerSoldier() override;
   int getAmountOfSoldiersPerUnit() override;
+  std::string getUnitName() override;
   Soldiers* clonis() override;
 };
 
