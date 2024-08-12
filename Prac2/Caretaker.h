@@ -8,8 +8,8 @@ class Caretaker
 private:
     std::stack<Memento *> myStack;
 public:
-   void restore();
-   void undo();
+   void clear();
+   Memento * undo();
    void save(Memento * m);
 };
 

@@ -1,16 +1,19 @@
 #include "Caretaker.h"
 
-void Caretaker::restore() {
-    
+void Caretaker::clear() {
+  while (!myStack.empty()) {
+    Memento* m = myStack.top();
+    if (m != NULL) {
+      delete m;
+      m = NULL;
+    }
+  }
 }
 
-void Caretaker::undo() {
+Memento* Caretaker::undo() {
   Memento* m = myStack.top();
   myStack.pop();
-  if (m != NULL) {
-    delete m;
-    m = NULL;
-  }
+  return m;
 }
 
 void Caretaker::save(Memento* m) {
