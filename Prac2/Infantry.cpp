@@ -30,28 +30,10 @@ void Infantry::rest() {
 	delete this;
 }
 
-int Infantry::getDamagePerSoldier() {
-	return this->damagePerSoldier;
-}
-
-int Infantry::getDefencePerSoldier() {
-	return this->defencePerSoldier;
-}
-
-int Infantry::getHealthPerSoldier() {
-	return this->healthPerSoldier;
-}
-
-int Infantry::getAmountOfSoldiersPerUnit() {
-	return this->amountOfSoldiersPerUnit;
-}
 void Infantry::printStats() {
 	std::cout << "Health: " << getHealthPerSoldier() << " Damage "
 			  << getDamagePerSoldier() << " Defence " << getDefencePerSoldier()
 			  << "\n";
-}
-std::string Infantry::getUnitName() {
-	return this->unitName;
 }
 Soldiers* Infantry::clonis() {
    Soldiers* clone = new Infantry(this->healthPerSoldier,this->damagePerSoldier,this->defencePerSoldier,this->amountOfSoldiersPerUnit,this->unitName);

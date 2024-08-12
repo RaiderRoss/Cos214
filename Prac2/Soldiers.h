@@ -24,11 +24,10 @@ class Soldiers {
     void disengage();
     Memento* militusMemento();
     void vivificaMemento(Memento* mem);
-    virtual int getHealthPerSoldier() = 0;
-    virtual int getDamagePerSoldier() = 0;
-    virtual int getDefencePerSoldier() = 0;
-    virtual int getAmountOfSoldiersPerUnit() = 0;
-    virtual std::string getUnitName() = 0;
+    virtual int getHealthPerSoldier();
+    virtual int getDamagePerSoldier();
+    virtual int getDefencePerSoldier();
+    virtual int getAmountOfSoldiersPerUnit();
     virtual Soldiers* clonis() = 0;
     virtual void printStats() = 0;
     protected:

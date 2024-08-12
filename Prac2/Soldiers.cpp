@@ -34,3 +34,21 @@ void Soldiers::disengage() {
 	retreat();
 	rest();
 }
+
+int Soldiers::getDamagePerSoldier() {
+	return this->damagePerSoldier;
+}
+
+int Soldiers::getDefencePerSoldier() {
+	return this->defencePerSoldier;
+}
+
+int Soldiers::getHealthPerSoldier() {
+	return this->healthPerSoldier;
+}
+
+int Soldiers::getAmountOfSoldiersPerUnit() {
+	return this->amountOfSoldiersPerUnit;
+}
+
+

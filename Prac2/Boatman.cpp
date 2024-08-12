@@ -23,26 +23,6 @@ void Boatman::retreat() {
 void Boatman::rest() {
   cout << "The boatment find a tropical island and enjoy some refreshign lemonade on the beach." << endl;
 }
-
-int Boatman::getDamagePerSoldier() {
-  return this->damagePerSoldier;
-}
-
-int Boatman::getDefencePerSoldier() {
-  return this->defencePerSoldier;
-}
-
-int Boatman::getHealthPerSoldier() {
-  return this->healthPerSoldier;
-}
-
-int Boatman::getAmountOfSoldiersPerUnit() {
-  return this->amountOfSoldiersPerUnit;
-}
-
-std::string Boatman::getUnitName() {
-  return this->unitName;
-}
 void Boatman::printStats() {
    std::cout << "Health: " << getHealthPerSoldier() << " Damage "
             << getDamagePerSoldier() << " Defence " << getDefencePerSoldier()

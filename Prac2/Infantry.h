@@ -22,12 +22,7 @@ class Infantry : public Soldiers {
 
  public:
   Infantry(int health, int damage, int defence, int amount, std::string name);
-  int getHealthPerSoldier() override;
-  int getDamagePerSoldier() override;
-  int getDefencePerSoldier() override;
-  int getAmountOfSoldiersPerUnit() override;
   void printStats() override;
-  std::string getUnitName() override;
   Soldiers* clonis() override;
 };
 

@@ -40,24 +40,6 @@ void ShieldBearer::rest() {
   healthPerSoldier * 2.1;
 }
 
-int ShieldBearer::getDamagePerSoldier() {
-  return this->damagePerSoldier;
-}
-
-int ShieldBearer::getDefencePerSoldier() {
-  return this->defencePerSoldier;
-}
-
-int ShieldBearer::getHealthPerSoldier() {
-  return this->healthPerSoldier;
-}
-
-int ShieldBearer::getAmountOfSoldiersPerUnit() {
-  return this->amountOfSoldiersPerUnit;
-}
-std::string ShieldBearer::getUnitName() {
-  return this->unitName;
-}
 void ShieldBearer::printStats() {
    std::cout << "Health: " << getHealthPerSoldier() << " Damage "
             << getDamagePerSoldier() << " Defence " << getDefencePerSoldier()
