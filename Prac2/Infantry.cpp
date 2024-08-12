@@ -6,7 +6,9 @@
 
 Infantry::Infantry(int health, int damage, int defence, int amount,
                    std::string name)
-    : Soldiers(health, damage, defence, amount, name) {}
+    : Soldiers(health, damage, defence, amount, name) {
+   
+    }
 
 void Infantry::prepare() {
   cout << "Drinks a nice cold beer in preperation for the short lived battle "
@@ -46,11 +48,15 @@ int Infantry::getHealthPerSoldier() {
 int Infantry::getAmountOfSoldiersPerUnit() {
   return this->amountOfSoldiersPerUnit;
 }
+void Infantry::printStats() {
+   std::cout << "Health: " << getHealthPerSoldier() << " Damage "
+            << getDamagePerSoldier() << " Defence " << getDefencePerSoldier()
+            << "\n";
+}
 std::string Infantry::getUnitName() {
-  return this->unitName;
+	return this->unitName;
 }
 Soldiers* Infantry::clonis() {
   Soldiers* clone = new Infantry(*this);
-
   return clone;
 }

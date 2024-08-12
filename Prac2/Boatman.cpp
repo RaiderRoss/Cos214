@@ -43,6 +43,11 @@ int Boatman::getAmountOfSoldiersPerUnit() {
 std::string Boatman::getUnitName() {
   return this->unitName;
 }
+void Boatman::printStats() {
+   std::cout << "Health: " << getHealthPerSoldier() << " Damage "
+            << getDamagePerSoldier() << " Defence " << getDefencePerSoldier()
+            << "\n";
+}
 
 Soldiers *Boatman::clonis() {
     Soldiers* clone = new Boatman(*this);

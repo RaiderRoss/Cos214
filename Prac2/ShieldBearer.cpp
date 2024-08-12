@@ -58,6 +58,11 @@ int ShieldBearer::getAmountOfSoldiersPerUnit() {
 std::string ShieldBearer::getUnitName() {
   return this->unitName;
 }
+void ShieldBearer::printStats() {
+   std::cout << "Health: " << getHealthPerSoldier() << " Damage "
+            << getDamagePerSoldier() << " Defence " << getDefencePerSoldier()
+            << "\n";
+}
 Soldiers* ShieldBearer::clonis() {
   Soldiers* clone = new ShieldBearer(*this);
   return clone;

@@ -30,7 +30,7 @@ class Soldiers {
     virtual int getAmountOfSoldiersPerUnit() = 0;
     virtual std::string getUnitName() = 0;
     virtual Soldiers* clonis() = 0;
-    void printStats();
+    virtual void printStats() = 0;
     protected:
      Soldiers(int health, int damage, int defence, int amount, std::string name);
 };
