@@ -4,11 +4,9 @@
 
 #include "Infantry.h"
 
-Infantry::Infantry(int health, int damage, int defence, int amount, std::string name)
-	: Soldiers(health, damage, defence, amount, name) {
-		std::cout << "Called infant with health: " << health << std::endl;
+Infantry::Infantry(int health, int damage, int defence, int amount, std::string name) : Soldiers (health,damage,defence,amount,name) {
+  
 }
-
 void Infantry::prepare() {
 	cout << "Drinks a nice cold beer in preperation for the short lived battle "
 			"ahead."
@@ -56,6 +54,6 @@ std::string Infantry::getUnitName() {
 	return this->unitName;
 }
 Soldiers* Infantry::clonis() {
-	Soldiers* clone = new Infantry(this->healthPerSoldier,this->damagePerSoldier,this->defencePerSoldier,this->amountOfSoldiersPerUnit,this->unitName);
-	return clone;
+   Soldiers* clone = new Infantry(this->healthPerSoldier,this->damagePerSoldier,this->defencePerSoldier,this->amountOfSoldiersPerUnit,this->unitName);
+    return clone;
 }

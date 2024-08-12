@@ -102,8 +102,8 @@ void infantTest() {
 	unit1->printStats();
 	unit1->vivificaMemento(saver);
 	unit1->printStats();
-	delete clone;
-	clone = NULL;
+	//delete clone;
+	//clone = NULL;
 	delete factory;
 	factory = NULL;
 	delete unit1;
@@ -116,11 +116,7 @@ void infantTest() {
 	saver = NULL;
 }
 int main() {
-	// boatTest();
-	// infantTest();
-	// shieldTest();
-	InfantryFactory* factory = new InfantryFactory();
-	Soldiers* unit1 = factory->createUnit(12, 13, 14, 2, "Infant");
-	std::cout << "Type of object bill points to: " << typeid(*unit1).name() << std::endl;
-	unit1->printStats();
+	 boatTest();
+	 infantTest();
+	 shieldTest();
 }

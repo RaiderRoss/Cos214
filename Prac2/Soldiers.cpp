@@ -17,7 +17,7 @@ void Soldiers::vivificaMemento(Memento* mem) {
 
 Soldiers::Soldiers(int health, int damage, int defence, int amount,
 				   std::string name) {
-	std::cout << " here creating with health: " + health << std::endl;
+
 	healthPerSoldier = health;
 	damagePerSoldier = damage;
 	defencePerSoldier = defence;
