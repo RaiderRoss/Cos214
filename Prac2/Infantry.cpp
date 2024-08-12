@@ -35,7 +35,7 @@ void Infantry::printStats() {
 			  << getDamagePerSoldier() << " Defence " << getDefencePerSoldier()
 			  << "\n";
 }
+
 Soldiers* Infantry::clonis() {
-   Soldiers* clone = new Infantry(this->healthPerSoldier,this->damagePerSoldier,this->defencePerSoldier,this->amountOfSoldiersPerUnit,this->unitName);
-    return clone;
+	return new Infantry(*this);
 }

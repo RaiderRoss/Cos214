@@ -15,9 +15,7 @@ void Soldiers::vivificaMemento(Memento* mem) {
 	this->amountOfSoldiersPerUnit = mem->getAmount();
 }
 
-Soldiers::Soldiers(int health, int damage, int defence, int amount,
-				   std::string name) {
-
+Soldiers::Soldiers(int health, int damage, int defence, int amount,	std::string name) {
 	healthPerSoldier = health;
 	damagePerSoldier = damage;
 	defencePerSoldier = defence;
@@ -50,5 +48,3 @@ int Soldiers::getHealthPerSoldier() {
 int Soldiers::getAmountOfSoldiersPerUnit() {
 	return this->amountOfSoldiersPerUnit;
 }
-
-

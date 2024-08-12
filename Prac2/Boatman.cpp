@@ -4,6 +4,8 @@
 
 #include "Boatman.h"
 
+#include "Infantry.h"
+
 Boatman::Boatman(int health, int damage, int defence, int amount, std::string name) : Soldiers (health,damage,defence,amount,name) {
   
 }
@@ -29,9 +31,8 @@ void Boatman::printStats() {
             << "\n";
 }
 
-Soldiers *Boatman::clonis() {
-    Soldiers* clone = new Boatman(this->healthPerSoldier,this->damagePerSoldier,this->defencePerSoldier,this->amountOfSoldiersPerUnit,this->unitName);
-    return clone;
+Soldiers* Boatman::clonis() {
+    return new Boatman(*this);
 }
 
 
