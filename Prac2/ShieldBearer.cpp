@@ -64,6 +64,6 @@ void ShieldBearer::printStats() {
             << "\n";
 }
 Soldiers* ShieldBearer::clonis() {
-  Soldiers* clone = new ShieldBearer(*this);
+  Soldiers* clone = new ShieldBearer(this->healthPerSoldier,this->damagePerSoldier,this->defencePerSoldier,this->amountOfSoldiersPerUnit,this->unitName);
   return clone;
 }

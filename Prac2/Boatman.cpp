@@ -50,7 +50,7 @@ void Boatman::printStats() {
 }
 
 Soldiers *Boatman::clonis() {
-    Soldiers* clone = new Boatman(*this);
+    Soldiers* clone = new Boatman(this->healthPerSoldier,this->damagePerSoldier,this->defencePerSoldier,this->amountOfSoldiersPerUnit,this->unitName);
     return clone;
 }
 

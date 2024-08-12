@@ -116,10 +116,9 @@ void infantTest() {
 	saver = NULL;
 }
 int main() {
-	// boatTest();
-	// infantTest();
-	// shieldTest();
-	InfantryFactory* factory = new InfantryFactory();
-	Soldiers* unit1 = factory->createUnit(12, 13, 14, 2, "Infant");
-	unit1->printStats();
+	//boatTest();
+	//infantTest();
+	Soldiers * defaulDt = new Infantry(2,3,4,5,"Test");
+	defaulDt->printStats();
+	//shieldTest();
 }
