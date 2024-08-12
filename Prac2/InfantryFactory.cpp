@@ -6,7 +6,8 @@
 
 
 Soldiers *InfantryFactory::createUnit(int health, int damage, int defence, int amount, std::string name) {
-    return new Infantry(health, damage, defence, amount, name);
+    Infantry *infantry = new Infantry(health, damage, defence, amount, name);
+    return infantry;
 }
 
 int InfantryFactory::calculateTotalDamagePerUnit(Soldiers* infantry) {

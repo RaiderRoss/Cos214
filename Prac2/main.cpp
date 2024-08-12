@@ -1,6 +1,6 @@
 #include <iostream>
 #include <typeinfo>
-
+#include "SoldierFactory.h"
 #include "BoatmanFactory.h"
 #include "InfantryFactory.h"
 #include "ShieldBearerFactory.h"
@@ -121,5 +121,6 @@ int main() {
 	// shieldTest();
 	InfantryFactory* factory = new InfantryFactory();
 	Soldiers* unit1 = factory->createUnit(12, 13, 14, 2, "Infant");
+	std::cout << "Type of object bill points to: " << typeid(*unit1).name() << std::endl;
 	unit1->printStats();
 }
