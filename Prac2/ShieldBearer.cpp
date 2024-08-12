@@ -4,14 +4,9 @@
 
 #include "ShieldBearer.h"
 
-
-ShieldBearer::ShieldBearer(int health, int damage, int defence, int amount, std::string name) {
-    healthPerSoldier = health;
-    damagePerSoldier = damage;
-    defencePerSoldier = defence;
-    amountOfSoldiersPerUnit = amount;
-    unitName = name;
-}
+ShieldBearer::ShieldBearer(int health, int damage, int defence, int amount,
+                           std::string name)
+    : Soldiers(health, damage, defence, amount, name) {}
 
 void ShieldBearer::prepare() {
   cout << "A shield bearer tries to pick up a lead shield but it is too heavy "
@@ -20,7 +15,6 @@ void ShieldBearer::prepare() {
 }
 
 void ShieldBearer::execute() {
-   
   cout << "Raises their shield in an epic scened moment and runs into battle "
           "picking up all the arrows that would\n"
        << "have struck down the infantry." << endl;
@@ -40,29 +34,31 @@ void ShieldBearer::retreat() {
 
 void ShieldBearer::rest() {
   cout << "Chucks their shield down in frustration and exhuastion. While doing "
-          "so all the arrows shoot out of the shield like a porcupine. And hits random bystanders."
+          "so all the arrows shoot out of the shield like a porcupine. And "
+          "hits random bystanders."
        << endl;
-        healthPerSoldier * 2.1;
+  healthPerSoldier * 2.1;
 }
 
-
 int ShieldBearer::getDamagePerSoldier() {
-    return this->damagePerSoldier;
+  return this->damagePerSoldier;
 }
 
 int ShieldBearer::getDefencePerSoldier() {
-    return this->defencePerSoldier;
+  return this->defencePerSoldier;
 }
 
 int ShieldBearer::getHealthPerSoldier() {
-    return this->healthPerSoldier;
+  return this->healthPerSoldier;
 }
 
 int ShieldBearer::getAmountOfSoldiersPerUnit() {
-    return this->amountOfSoldiersPerUnit;
+  return this->amountOfSoldiersPerUnit;
 }
-
-Soldiers *ShieldBearer::clonis() {
-    Soldiers* clone = new ShieldBearer(*this);
-    return clone;
+std::string ShieldBearer::getUnitName() {
+  return this->unitName;
+}
+Soldiers* ShieldBearer::clonis() {
+  Soldiers* clone = new ShieldBearer(*this);
+  return clone;
 }

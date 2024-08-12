@@ -1,47 +1,36 @@
 #include <iostream>
 #include <typeinfo>
+
 #include "BoatmanFactory.h"
 #include "InfantryFactory.h"
 #include "ShieldBearerFactory.h"
 
 int main() {
-
-   InfantryFactory* infantryfactory = new InfantryFactory();
-   ShieldBearerFactory* shieldbearerfactory = new ShieldBearerFactory;
-   BoatmanFactory* boatmanfactory = new BoatmanFactory;
-
-   Soldiers* rifleman = infantryfactory->createUnit(30, 50, 20, 5, "Rifleman");
-   Soldiers* shieldman = shieldbearerfactory->createUnit(60, 20, 100, 10, "Shieldman");
-   Soldiers* boatman  = boatmanfactory->createUnit(20, 20, 10, 5, "Boatman");
-   Soldiers* clonerifle = rifleman->clonis();
-   Soldiers* cloneshieldman = shieldman->clonis();
-   Soldiers* cloneboatman = boatman->clonis();
-
-   std::cout << rifleman->getDamagePerSoldier() << std::endl;
-
-   clonerifle->engage();
-   cloneshieldman->engage();
-   cloneboatman->engage();
-   clonerifle->disengage();
-   cloneshieldman->disengage();
-   cloneboatman->disengage();
-
-
-   std::cout << "Infantry : " << typeid(*rifleman).name() << std::endl;
-   std::cout << "Shieldman : " << typeid(*shieldman).name() << std::endl;
-   std::cout << "Boatman : " << typeid(*boatman).name() << std::endl;
-<<<<<<< HEAD
-=======
-
-   Memento* goodRifleman = rifleman->militusMemento();
-   rifleman = new Infantry(10, 10, 10, 10, "Not rifleman");
-
-   std::cout << rifleman->getDamagePerSoldier() << std::endl;
-
-   rifleman->vivificaMemento(goodRifleman);
-
-   std::cout << rifleman->getDamagePerSoldier() << std::endl;
-
-
->>>>>>> 847e47897ec897e5e37004ee1245c0cd02d7da1d
+	std::cout << "==========================Boatman Testing==========================" << std::endl;
+	BoatmanFactory* boatFact = new BoatmanFactory();
+	std::cout << "==========================Shield Testing==========================" << std::endl;
+	ShieldBearerFactory* shieldFact = new ShieldBearerFactory();
+	std::cout << "==========================Infantry Testing==========================" << std::endl;
+	InfantryFactory* infFact = new InfantryFactory();
+	Soldiers* shieldRunner = infFact->createUnit(12, 13, 14, 2, "Infant");
+	Soldiers* gunnerPerson = infFact->createUnit(10, 9, 12, 5, "Infant");
+	Soldiers* rowwer = infFact->createUnit(17, 13, 123, 23, "Infant");
+	shieldRunner->printStats();
+	gunnerPerson->printStats();
+	rowwer->printStats();
+	std::cout << "Modifying\n";
+	Memento* saver = rowwer->militusMemento();
+	delete rowwer;
+   rowwer = NULL;
+	rowwer = infFact->createUnit(10, 10, 10, 2, "Infant");
+	rowwer->printStats();
+	// rowwer->vivificaMemento(saver);
+   // rowwer->printStats();
+	delete infFact;
+	delete shieldRunner;
+   delete gunnerPerson;
+	delete rowwer;
+	delete saver;
+	delete shieldFact;
+	delete boatFact;
 }
