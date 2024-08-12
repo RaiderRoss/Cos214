@@ -13,3 +13,11 @@
 21	573	7451755556068509	CMakeFiles/Prac2.dir/BoatmanFactory.cpp.obj	f556b95f2eb66309
 7	498	7451755782876451	CMakeFiles/Prac2.dir/ShieldBearerFactory.cpp.obj	a14c5183d1dd51bd
 499	640	7451755787805895	Prac2.exe	56d7cd2e491e12e1
+23	910	7451799876520032	CMakeFiles/Prac2.dir/ShieldBearerFactory.cpp.obj	a14c5183d1dd51bd
+17	929	7451799876460168	CMakeFiles/Prac2.dir/InfantryFactory.cpp.obj	6842aab156f1d5d8
+27	940	7451799876559911	CMakeFiles/Prac2.dir/BoatmanFactory.cpp.obj	f556b95f2eb66309
+32	968	7451799876609767	CMakeFiles/Prac2.dir/Infantry.cpp.obj	70edd4b56f088c35
+39	1000	7451799876679584	CMakeFiles/Prac2.dir/ShieldBearer.cpp.obj	756aa870ee4b7046
+12	1028	7451799876410297	CMakeFiles/Prac2.dir/main.cpp.obj	7660c597de19c02f
+911	1438	7451799885394486	CMakeFiles/Prac2.dir/Boatman.cpp.obj	30ff5dc59581f973
+1438	1568	7451799890665587	Prac2.exe	56d7cd2e491e12e1

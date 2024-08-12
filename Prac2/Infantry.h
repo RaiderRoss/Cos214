@@ -26,7 +26,7 @@ class Infantry : public Soldiers {
   int getDamagePerSoldier() override;
   int getDefencePerSoldier() override;
   int getAmountOfSoldiersPerUnit() override;
-  void printStats();
+  void printStats() override;
   std::string getUnitName() override;
   Soldiers* clonis() override;
 };
