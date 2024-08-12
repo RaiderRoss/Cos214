@@ -29,10 +29,4 @@ int main() {
    std::cout << "Infantry : " << typeid(*rifleman).name() << std::endl;
    std::cout << "Shieldman : " << typeid(*shieldman).name() << std::endl;
    std::cout << "Boatman : " << typeid(*boatman).name() << std::endl;
-
-
-
-
-
-
 }
