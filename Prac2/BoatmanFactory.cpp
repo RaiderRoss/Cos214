@@ -5,7 +5,8 @@
 #include "BoatmanFactory.h"
 
 Soldiers *BoatmanFactory::createUnit(int health, int damage, int defence, int amount, std::string name) {
-    return new Boatman(health, damage, defence, amount, name);
+    Boatman* boatman = new Boatman(health, damage, defence, amount, name);
+    return boatman;
 }
 
 

@@ -5,7 +5,8 @@
 #include "ShieldBearerFactory.h"
 
 Soldiers *ShieldBearerFactory::createUnit(int health, int damage, int defence, int amount, std::string name) {
-    return new ShieldBearer(health, damage, defence, amount, name);
+    ShieldBearer* shieldbearer = new ShieldBearer(health, damage, defence, amount, name);
+    return shieldbearer;
 }
 
 int ShieldBearerFactory::calculateTotalDamagePerUnit(Soldiers* shieldbearer) {
