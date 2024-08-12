@@ -4,7 +4,13 @@
 
 #include "Boatman.h"
 
-
+Boatman::Boatman(int health, int damage, int defence, int amount, std::string name) {
+  healthPerSoldier = health;
+  damagePerSoldier = damage;
+  defencePerSoldier = defence;
+  amountOfSoldiersPerUnit = amount;
+  unitName = name;
+}
 void Boatman::prepare() {
     cout << "Rows towards certain death." << endl;;
 }

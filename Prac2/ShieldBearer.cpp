@@ -4,6 +4,15 @@
 
 #include "ShieldBearer.h"
 
+
+ShieldBearer::ShieldBearer(int health, int damage, int defence, int amount, std::string name) {
+    healthPerSoldier = health;
+    damagePerSoldier = damage;
+    defencePerSoldier = defence;
+    amountOfSoldiersPerUnit = amount;
+    unitName = name;
+}
+
 void ShieldBearer::prepare() {
   cout << "A shield bearer tries to pick up a lead shield but it is too heavy "
           "and uses a wooden one instead."

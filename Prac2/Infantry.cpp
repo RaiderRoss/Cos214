@@ -4,6 +4,14 @@
 
 #include "Infantry.h"
 
+Infantry::Infantry(int health, int damage, int defence, int amount, std::string name) {
+  healthPerSoldier = health;
+  damagePerSoldier = damage;
+  defencePerSoldier = defence;
+  amountOfSoldiersPerUnit = amount;
+  unitName = name;
+}
+
 void Infantry::prepare() {
   cout << "Drinks a nice cold beer in preperation for the short lived battle "
           "ahead."
@@ -27,13 +35,12 @@ void Infantry::rest() {
   delete this;
 }
 
-
 int Infantry::getDamagePerSoldier() {
   return this->damagePerSoldier;
 }
 
 int Infantry::getDefencePerSoldier() {
-  return this->defencePerSoldifer;
+  return this->defencePerSoldier;
 }
 
 int Infantry::getHealthPerSoldier() {
@@ -48,6 +55,3 @@ Soldiers *Infantry::clonis() {
     Infantry* clone = new Infantry(*this);
     return clone;
 }
-
-
-
