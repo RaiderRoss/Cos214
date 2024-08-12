@@ -6,6 +6,7 @@
 
 
 Soldiers *InfantryFactory::createUnit(int health, int damage, int defence, int amount, std::string name) {
+    std::cout << "Here" << health << std::endl;
     return new Infantry(health, damage, defence, amount, name);
 }
 
