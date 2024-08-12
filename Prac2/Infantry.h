@@ -10,10 +10,10 @@
 
 class Infantry : public Soldiers {
  private:
-  int healthPerSoldier = 40;
-  int damagePerSoldier = 50;
-  int defencePerSoldier = 30;
-  int amountOfSoldiersPerUnit = 15;
+  int healthPerSoldier;
+  int damagePerSoldier;
+  int defencePerSoldier;
+  int amountOfSoldiersPerUnit;
   std::string unitName = "Infantry";
   virtual void prepare();
   virtual void execute();

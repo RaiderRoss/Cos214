@@ -10,10 +10,10 @@
 
 class ShieldBearer : public Soldiers {
  private:
-  int healthPerSoldier = 50;
-  int damagePerSoldier = 20;
-  int defencePerSoldier = 50;
-  int amountOfSoldiersPerUnit = 10;
+  int healthPerSoldier;
+  int damagePerSoldier;
+  int defencePerSoldier;
+  int amountOfSoldiersPerUnit;
   std::string unitName = "ShieldBearer";
   virtual void prepare();
   virtual void execute();
