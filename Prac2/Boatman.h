@@ -10,17 +10,18 @@
 
 class Boatman : public Soldiers {
 private:
-    int healthPerSoldier = 30;
-    int damagePerSoldier = 20;
-    int defencePerSoldier = 20;
-    int amountOfSoldiersPerUnit = 4;
-    std::string unitName = "Boatman";
+    int healthPerSoldier;
+    int damagePerSoldier;
+    int defencePerSoldier;
+    int amountOfSoldiersPerUnit;
+    std::string unitName;
     virtual void prepare();
     virtual void execute();
     virtual void retreat();
     virtual void rest();
 
 public:
+    Boatman(int health, int damage, int defence, int amount, std::string name);
     int getHealthPerSoldier() override;
     int getDamagePerSoldier() override;
     int getDefencePerSoldier() override;

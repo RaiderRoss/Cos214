@@ -11,7 +11,7 @@ class SoldierFactory {
 private:
     Soldiers* soldiers;
 protected:
-    virtual Soldiers* createUnit() = 0;
+    virtual Soldiers* createUnit(int health, int damage, int defence, int amount, std::string name) = 0;
     virtual int calculateTotalHealthPerUnit(Soldiers* soldier) = 0;
     virtual int calculateTotalDamagePerUnit(Soldiers* soldier) = 0;
     virtual int calculateTotalDefencePerUnit(Soldiers* soldier) = 0;

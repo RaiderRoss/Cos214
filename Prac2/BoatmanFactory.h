@@ -11,7 +11,7 @@
 
 class BoatmanFactory: public SoldierFactory{
 public:
-    Soldiers* createUnit() override;
+    Soldiers* createUnit(int health, int damage, int defence, int amount, std::string name) override;
     int calculateTotalHealthPerUnit(Soldiers* soldier) override;
     int calculateTotalDamagePerUnit(Soldiers* soldier) override;
     int calculateTotalDefencePerUnit(Soldiers* soldier) override;

@@ -12,7 +12,7 @@ class Infantry : public Soldiers {
  private:
   int healthPerSoldier = 40;
   int damagePerSoldier = 50;
-  int defencePerSoldifer = 30;
+  int defencePerSoldier = 30;
   int amountOfSoldiersPerUnit = 15;
   std::string unitName = "Infantry";
   virtual void prepare();
@@ -21,6 +21,7 @@ class Infantry : public Soldiers {
   virtual void rest();
 
  public:
+  Infantry(int health, int damage, int defence, int amount, std::string name);
   int getHealthPerSoldier() override;
   int getDamagePerSoldier() override;
   int getDefencePerSoldier() override;
