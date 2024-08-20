@@ -9,7 +9,6 @@ Soldiers *BoatmanFactory::createUnit(int health, int damage, int defence, int am
     return boatman;
 }
 
-
 int BoatmanFactory::calculateTotalDamagePerUnit(Soldiers* boatman) {
     return boatman->getDamagePerSoldier() * boatman->getAmountOfSoldiersPerUnit();
 }

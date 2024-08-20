@@ -109,6 +109,126 @@ build CMakeFiles/Prac2.dir/Memento.cpp.obj: CXX_COMPILER__Prac2_unscanned_Debug 
   OBJECT_DIR = CMakeFiles\Prac2.dir
   OBJECT_FILE_DIR = CMakeFiles\Prac2.dir
 
+build CMakeFiles/Prac2.dir/C_/Users/2MGOU/CLionProjects/Cos214/Prac3/LegionFactory.cpp.obj: CXX_COMPILER__Prac2_unscanned_Debug C$:/Users/2MGOU/CLionProjects/Cos214/Prac3/LegionFactory.cpp || cmake_object_order_depends_target_Prac2
+  DEP_FILE = CMakeFiles\Prac2.dir\C_\Users\2MGOU\CLionProjects\Cos214\Prac3\LegionFactory.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\Prac2.dir
+  OBJECT_FILE_DIR = CMakeFiles\Prac2.dir\C_\Users\2MGOU\CLionProjects\Cos214\Prac3
+
+build CMakeFiles/Prac2.dir/C_/Users/2MGOU/CLionProjects/Cos214/Prac3/LegionUnit.cpp.obj: CXX_COMPILER__Prac2_unscanned_Debug C$:/Users/2MGOU/CLionProjects/Cos214/Prac3/LegionUnit.cpp || cmake_object_order_depends_target_Prac2
+  DEP_FILE = CMakeFiles\Prac2.dir\C_\Users\2MGOU\CLionProjects\Cos214\Prac3\LegionUnit.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\Prac2.dir
+  OBJECT_FILE_DIR = CMakeFiles\Prac2.dir\C_\Users\2MGOU\CLionProjects\Cos214\Prac3
+
+build CMakeFiles/Prac2.dir/C_/Users/2MGOU/CLionProjects/Cos214/Prac3/Infantry.cpp.obj: CXX_COMPILER__Prac2_unscanned_Debug C$:/Users/2MGOU/CLionProjects/Cos214/Prac3/Infantry.cpp || cmake_object_order_depends_target_Prac2
+  DEP_FILE = CMakeFiles\Prac2.dir\C_\Users\2MGOU\CLionProjects\Cos214\Prac3\Infantry.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\Prac2.dir
+  OBJECT_FILE_DIR = CMakeFiles\Prac2.dir\C_\Users\2MGOU\CLionProjects\Cos214\Prac3
+
+build CMakeFiles/Prac2.dir/C_/Users/2MGOU/CLionProjects/Cos214/Prac3/Artillery.cpp.obj: CXX_COMPILER__Prac2_unscanned_Debug C$:/Users/2MGOU/CLionProjects/Cos214/Prac3/Artillery.cpp || cmake_object_order_depends_target_Prac2
+  DEP_FILE = CMakeFiles\Prac2.dir\C_\Users\2MGOU\CLionProjects\Cos214\Prac3\Artillery.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\Prac2.dir
+  OBJECT_FILE_DIR = CMakeFiles\Prac2.dir\C_\Users\2MGOU\CLionProjects\Cos214\Prac3
+
+build CMakeFiles/Prac2.dir/C_/Users/2MGOU/CLionProjects/Cos214/Prac3/Cavalry.cpp.obj: CXX_COMPILER__Prac2_unscanned_Debug C$:/Users/2MGOU/CLionProjects/Cos214/Prac3/Cavalry.cpp || cmake_object_order_depends_target_Prac2
+  DEP_FILE = CMakeFiles\Prac2.dir\C_\Users\2MGOU\CLionProjects\Cos214\Prac3\Cavalry.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\Prac2.dir
+  OBJECT_FILE_DIR = CMakeFiles\Prac2.dir\C_\Users\2MGOU\CLionProjects\Cos214\Prac3
+
+build CMakeFiles/Prac2.dir/C_/Users/2MGOU/CLionProjects/Cos214/Prac3/RiverbankFactory.cpp.obj: CXX_COMPILER__Prac2_unscanned_Debug C$:/Users/2MGOU/CLionProjects/Cos214/Prac3/RiverbankFactory.cpp || cmake_object_order_depends_target_Prac2
+  DEP_FILE = CMakeFiles\Prac2.dir\C_\Users\2MGOU\CLionProjects\Cos214\Prac3\RiverbankFactory.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\Prac2.dir
+  OBJECT_FILE_DIR = CMakeFiles\Prac2.dir\C_\Users\2MGOU\CLionProjects\Cos214\Prac3
+
+build CMakeFiles/Prac2.dir/C_/Users/2MGOU/CLionProjects/Cos214/Prac3/WoodlandFactory.cpp.obj: CXX_COMPILER__Prac2_unscanned_Debug C$:/Users/2MGOU/CLionProjects/Cos214/Prac3/WoodlandFactory.cpp || cmake_object_order_depends_target_Prac2
+  DEP_FILE = CMakeFiles\Prac2.dir\C_\Users\2MGOU\CLionProjects\Cos214\Prac3\WoodlandFactory.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\Prac2.dir
+  OBJECT_FILE_DIR = CMakeFiles\Prac2.dir\C_\Users\2MGOU\CLionProjects\Cos214\Prac3
+
+build CMakeFiles/Prac2.dir/C_/Users/2MGOU/CLionProjects/Cos214/Prac3/OpenFieldFactory.cpp.obj: CXX_COMPILER__Prac2_unscanned_Debug C$:/Users/2MGOU/CLionProjects/Cos214/Prac3/OpenFieldFactory.cpp || cmake_object_order_depends_target_Prac2
+  DEP_FILE = CMakeFiles\Prac2.dir\C_\Users\2MGOU\CLionProjects\Cos214\Prac3\OpenFieldFactory.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\Prac2.dir
+  OBJECT_FILE_DIR = CMakeFiles\Prac2.dir\C_\Users\2MGOU\CLionProjects\Cos214\Prac3
+
+build CMakeFiles/Prac2.dir/C_/Users/2MGOU/CLionProjects/Cos214/Prac3/Woodland.cpp.obj: CXX_COMPILER__Prac2_unscanned_Debug C$:/Users/2MGOU/CLionProjects/Cos214/Prac3/Woodland.cpp || cmake_object_order_depends_target_Prac2
+  DEP_FILE = CMakeFiles\Prac2.dir\C_\Users\2MGOU\CLionProjects\Cos214\Prac3\Woodland.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\Prac2.dir
+  OBJECT_FILE_DIR = CMakeFiles\Prac2.dir\C_\Users\2MGOU\CLionProjects\Cos214\Prac3
+
+build CMakeFiles/Prac2.dir/C_/Users/2MGOU/CLionProjects/Cos214/Prac3/Riverbank.cpp.obj: CXX_COMPILER__Prac2_unscanned_Debug C$:/Users/2MGOU/CLionProjects/Cos214/Prac3/Riverbank.cpp || cmake_object_order_depends_target_Prac2
+  DEP_FILE = CMakeFiles\Prac2.dir\C_\Users\2MGOU\CLionProjects\Cos214\Prac3\Riverbank.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\Prac2.dir
+  OBJECT_FILE_DIR = CMakeFiles\Prac2.dir\C_\Users\2MGOU\CLionProjects\Cos214\Prac3
+
+build CMakeFiles/Prac2.dir/C_/Users/2MGOU/CLionProjects/Cos214/Prac3/OpenField.cpp.obj: CXX_COMPILER__Prac2_unscanned_Debug C$:/Users/2MGOU/CLionProjects/Cos214/Prac3/OpenField.cpp || cmake_object_order_depends_target_Prac2
+  DEP_FILE = CMakeFiles\Prac2.dir\C_\Users\2MGOU\CLionProjects\Cos214\Prac3\OpenField.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\Prac2.dir
+  OBJECT_FILE_DIR = CMakeFiles\Prac2.dir\C_\Users\2MGOU\CLionProjects\Cos214\Prac3
+
+build CMakeFiles/Prac2.dir/C_/Users/2MGOU/CLionProjects/Cos214/Prac3/TacticalCommand.cpp.obj: CXX_COMPILER__Prac2_unscanned_Debug C$:/Users/2MGOU/CLionProjects/Cos214/Prac3/TacticalCommand.cpp || cmake_object_order_depends_target_Prac2
+  DEP_FILE = CMakeFiles\Prac2.dir\C_\Users\2MGOU\CLionProjects\Cos214\Prac3\TacticalCommand.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\Prac2.dir
+  OBJECT_FILE_DIR = CMakeFiles\Prac2.dir\C_\Users\2MGOU\CLionProjects\Cos214\Prac3
+
+build CMakeFiles/Prac2.dir/C_/Users/2MGOU/CLionProjects/Cos214/Prac3/BattleStrategy.cpp.obj: CXX_COMPILER__Prac2_unscanned_Debug C$:/Users/2MGOU/CLionProjects/Cos214/Prac3/BattleStrategy.cpp || cmake_object_order_depends_target_Prac2
+  DEP_FILE = CMakeFiles\Prac2.dir\C_\Users\2MGOU\CLionProjects\Cos214\Prac3\BattleStrategy.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\Prac2.dir
+  OBJECT_FILE_DIR = CMakeFiles\Prac2.dir\C_\Users\2MGOU\CLionProjects\Cos214\Prac3
+
+build CMakeFiles/Prac2.dir/C_/Users/2MGOU/CLionProjects/Cos214/Prac3/Flanking.cpp.obj: CXX_COMPILER__Prac2_unscanned_Debug C$:/Users/2MGOU/CLionProjects/Cos214/Prac3/Flanking.cpp || cmake_object_order_depends_target_Prac2
+  DEP_FILE = CMakeFiles\Prac2.dir\C_\Users\2MGOU\CLionProjects\Cos214\Prac3\Flanking.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\Prac2.dir
+  OBJECT_FILE_DIR = CMakeFiles\Prac2.dir\C_\Users\2MGOU\CLionProjects\Cos214\Prac3
+
+build CMakeFiles/Prac2.dir/C_/Users/2MGOU/CLionProjects/Cos214/Prac3/Fortification.cpp.obj: CXX_COMPILER__Prac2_unscanned_Debug C$:/Users/2MGOU/CLionProjects/Cos214/Prac3/Fortification.cpp || cmake_object_order_depends_target_Prac2
+  DEP_FILE = CMakeFiles\Prac2.dir\C_\Users\2MGOU\CLionProjects\Cos214\Prac3\Fortification.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\Prac2.dir
+  OBJECT_FILE_DIR = CMakeFiles\Prac2.dir\C_\Users\2MGOU\CLionProjects\Cos214\Prac3
+
+build CMakeFiles/Prac2.dir/C_/Users/2MGOU/CLionProjects/Cos214/Prac3/Ambush.cpp.obj: CXX_COMPILER__Prac2_unscanned_Debug C$:/Users/2MGOU/CLionProjects/Cos214/Prac3/Ambush.cpp || cmake_object_order_depends_target_Prac2
+  DEP_FILE = CMakeFiles\Prac2.dir\C_\Users\2MGOU\CLionProjects\Cos214\Prac3\Ambush.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\Prac2.dir
+  OBJECT_FILE_DIR = CMakeFiles\Prac2.dir\C_\Users\2MGOU\CLionProjects\Cos214\Prac3
+
+build CMakeFiles/Prac2.dir/C_/Users/2MGOU/CLionProjects/Cos214/Prac3/TacticalPlanner.cpp.obj: CXX_COMPILER__Prac2_unscanned_Debug C$:/Users/2MGOU/CLionProjects/Cos214/Prac3/TacticalPlanner.cpp || cmake_object_order_depends_target_Prac2
+  DEP_FILE = CMakeFiles\Prac2.dir\C_\Users\2MGOU\CLionProjects\Cos214\Prac3\TacticalPlanner.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\Prac2.dir
+  OBJECT_FILE_DIR = CMakeFiles\Prac2.dir\C_\Users\2MGOU\CLionProjects\Cos214\Prac3
+
+build CMakeFiles/Prac2.dir/C_/Users/2MGOU/CLionProjects/Cos214/Prac3/TacticalMemento.cpp.obj: CXX_COMPILER__Prac2_unscanned_Debug C$:/Users/2MGOU/CLionProjects/Cos214/Prac3/TacticalMemento.cpp || cmake_object_order_depends_target_Prac2
+  DEP_FILE = CMakeFiles\Prac2.dir\C_\Users\2MGOU\CLionProjects\Cos214\Prac3\TacticalMemento.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\Prac2.dir
+  OBJECT_FILE_DIR = CMakeFiles\Prac2.dir\C_\Users\2MGOU\CLionProjects\Cos214\Prac3
+
+build CMakeFiles/Prac2.dir/C_/Users/2MGOU/CLionProjects/Cos214/Prac3/WarArchives.cpp.obj: CXX_COMPILER__Prac2_unscanned_Debug C$:/Users/2MGOU/CLionProjects/Cos214/Prac3/WarArchives.cpp || cmake_object_order_depends_target_Prac2
+  DEP_FILE = CMakeFiles\Prac2.dir\C_\Users\2MGOU\CLionProjects\Cos214\Prac3\WarArchives.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\Prac2.dir
+  OBJECT_FILE_DIR = CMakeFiles\Prac2.dir\C_\Users\2MGOU\CLionProjects\Cos214\Prac3
+
+build CMakeFiles/Prac2.dir/C_/Users/2MGOU/CLionProjects/Cos214/Prac3/UnitComponent.cpp.obj: CXX_COMPILER__Prac2_unscanned_Debug C$:/Users/2MGOU/CLionProjects/Cos214/Prac3/UnitComponent.cpp || cmake_object_order_depends_target_Prac2
+  DEP_FILE = CMakeFiles\Prac2.dir\C_\Users\2MGOU\CLionProjects\Cos214\Prac3\UnitComponent.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\Prac2.dir
+  OBJECT_FILE_DIR = CMakeFiles\Prac2.dir\C_\Users\2MGOU\CLionProjects\Cos214\Prac3
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Prac2
@@ -117,7 +237,7 @@ build CMakeFiles/Prac2.dir/Memento.cpp.obj: CXX_COMPILER__Prac2_unscanned_Debug 
 #############################################
 # Link the executable Prac2.exe
 
-build Prac2.exe: CXX_EXECUTABLE_LINKER__Prac2_Debug CMakeFiles/Prac2.dir/main.cpp.obj CMakeFiles/Prac2.dir/SoldierFactory.cpp.obj CMakeFiles/Prac2.dir/InfantryFactory.cpp.obj CMakeFiles/Prac2.dir/ShieldBearerFactory.cpp.obj CMakeFiles/Prac2.dir/BoatmanFactory.cpp.obj CMakeFiles/Prac2.dir/Infantry.cpp.obj CMakeFiles/Prac2.dir/ShieldBearer.cpp.obj CMakeFiles/Prac2.dir/Boatman.cpp.obj CMakeFiles/Prac2.dir/Soldiers.cpp.obj CMakeFiles/Prac2.dir/Memento.cpp.obj
+build Prac2.exe: CXX_EXECUTABLE_LINKER__Prac2_Debug CMakeFiles/Prac2.dir/main.cpp.obj CMakeFiles/Prac2.dir/SoldierFactory.cpp.obj CMakeFiles/Prac2.dir/InfantryFactory.cpp.obj CMakeFiles/Prac2.dir/ShieldBearerFactory.cpp.obj CMakeFiles/Prac2.dir/BoatmanFactory.cpp.obj CMakeFiles/Prac2.dir/Infantry.cpp.obj CMakeFiles/Prac2.dir/ShieldBearer.cpp.obj CMakeFiles/Prac2.dir/Boatman.cpp.obj CMakeFiles/Prac2.dir/Soldiers.cpp.obj CMakeFiles/Prac2.dir/Memento.cpp.obj CMakeFiles/Prac2.dir/C_/Users/2MGOU/CLionProjects/Cos214/Prac3/LegionFactory.cpp.obj CMakeFiles/Prac2.dir/C_/Users/2MGOU/CLionProjects/Cos214/Prac3/LegionUnit.cpp.obj CMakeFiles/Prac2.dir/C_/Users/2MGOU/CLionProjects/Cos214/Prac3/Infantry.cpp.obj CMakeFiles/Prac2.dir/C_/Users/2MGOU/CLionProjects/Cos214/Prac3/Artillery.cpp.obj CMakeFiles/Prac2.dir/C_/Users/2MGOU/CLionProjects/Cos214/Prac3/Cavalry.cpp.obj CMakeFiles/Prac2.dir/C_/Users/2MGOU/CLionProjects/Cos214/Prac3/RiverbankFactory.cpp.obj CMakeFiles/Prac2.dir/C_/Users/2MGOU/CLionProjects/Cos214/Prac3/WoodlandFactory.cpp.obj CMakeFiles/Prac2.dir/C_/Users/2MGOU/CLionProjects/Cos214/Prac3/OpenFieldFactory.cpp.obj CMakeFiles/Prac2.dir/C_/Users/2MGOU/CLionProjects/Cos214/Prac3/Woodland.cpp.obj CMakeFiles/Prac2.dir/C_/Users/2MGOU/CLionProjects/Cos214/Prac3/Riverbank.cpp.obj CMakeFiles/Prac2.dir/C_/Users/2MGOU/CLionProjects/Cos214/Prac3/OpenField.cpp.obj CMakeFiles/Prac2.dir/C_/Users/2MGOU/CLionProjects/Cos214/Prac3/TacticalCommand.cpp.obj CMakeFiles/Prac2.dir/C_/Users/2MGOU/CLionProjects/Cos214/Prac3/BattleStrategy.cpp.obj CMakeFiles/Prac2.dir/C_/Users/2MGOU/CLionProjects/Cos214/Prac3/Flanking.cpp.obj CMakeFiles/Prac2.dir/C_/Users/2MGOU/CLionProjects/Cos214/Prac3/Fortification.cpp.obj CMakeFiles/Prac2.dir/C_/Users/2MGOU/CLionProjects/Cos214/Prac3/Ambush.cpp.obj CMakeFiles/Prac2.dir/C_/Users/2MGOU/CLionProjects/Cos214/Prac3/TacticalPlanner.cpp.obj CMakeFiles/Prac2.dir/C_/Users/2MGOU/CLionProjects/Cos214/Prac3/TacticalMemento.cpp.obj CMakeFiles/Prac2.dir/C_/Users/2MGOU/CLionProjects/Cos214/Prac3/WarArchives.cpp.obj CMakeFiles/Prac2.dir/C_/Users/2MGOU/CLionProjects/Cos214/Prac3/UnitComponent.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\Prac2.dir

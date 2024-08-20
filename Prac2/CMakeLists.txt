@@ -21,4 +21,45 @@ add_executable(Prac2 main.cpp
         Soldiers.cpp
         Soldiers.h
         Memento.cpp
-        Memento.cpp)
+        Memento.cpp
+        ../Prac3/LegionFactory.h
+        ../Prac3/LegionFactory.cpp
+        ../Prac3/LegionUnit.cpp
+        ../Prac3/LegionUnit.h
+        ../Prac3/Infantry.cpp
+        ../Prac3/Infantry.h
+        ../Prac3/Artillery.cpp
+        ../Prac3/Artillery.h
+        ../Prac3/Cavalry.cpp
+        ../Prac3/Cavalry.h
+        ../Prac3/RiverbankFactory.cpp
+        ../Prac3/RiverbankFactory.h
+        ../Prac3/WoodlandFactory.cpp
+        ../Prac3/WoodlandFactory.h
+        ../Prac3/WoodlandFactory.h
+        ../Prac3/OpenFieldFactory.cpp
+        ../Prac3/OpenFieldFactory.h
+        ../Prac3/Woodland.cpp
+        ../Prac3/Woodland.h
+        ../Prac3/Riverbank.cpp
+        ../Prac3/Riverbank.h
+        ../Prac3/OpenField.cpp
+        ../Prac3/OpenField.h
+        ../Prac3/TacticalCommand.cpp
+        ../Prac3/TacticalCommand.h
+        ../Prac3/BattleStrategy.cpp
+        ../Prac3/BattleStrategy.h
+        ../Prac3/Flanking.cpp
+        ../Prac3/Flanking.h
+        ../Prac3/Fortification.cpp
+        ../Prac3/Fortification.h
+        ../Prac3/Ambush.cpp
+        ../Prac3/Ambush.h
+        ../Prac3/TacticalPlanner.cpp
+        ../Prac3/TacticalPlanner.h
+        ../Prac3/TacticalMemento.cpp
+        ../Prac3/TacticalMemento.h
+        ../Prac3/WarArchives.cpp
+        ../Prac3/WarArchives.h
+        ../Prac3/UnitComponent.cpp
+        ../Prac3/UnitComponent.h)
