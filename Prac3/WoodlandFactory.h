@@ -8,7 +8,7 @@
 
 
 class WoodlandFactory {
-
+    void deployArtillery();
 };
 
 

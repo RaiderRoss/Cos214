@@ -4,10 +4,10 @@
 
 #ifndef INFANTRY_H
 #define INFANTRY_H
+#include "LegionUnit.h"
 
 
-
-class Infantry {
+class Infantry : public LegionUnit {
 
 };
 

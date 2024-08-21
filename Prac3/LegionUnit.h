@@ -8,7 +8,8 @@
 
 
 class LegionUnit {
-
+    virtual void move();
+    virtual void attack();
 };
 
 

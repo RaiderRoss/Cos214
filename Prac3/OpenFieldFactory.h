@@ -8,7 +8,7 @@
 
 
 class OpenFieldFactory {
-
+    void deployArtillery();
 };
 
 
