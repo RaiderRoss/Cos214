@@ -8,10 +8,10 @@
 
 
 class LegionUnit {
-    virtual void move() = 0;
-    virtual void attack() = 0;
+    virtual void move();
+    virtual void attack();
 };
 
 
 
-#endif 
+#endif //LEGIONUNIT_H

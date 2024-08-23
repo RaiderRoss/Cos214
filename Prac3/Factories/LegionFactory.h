@@ -8,13 +8,11 @@
 #include "Cavalry.h"
 #include "Infantry.h"
 
-
 class LegionFactory {
-    Infantry* createInfantry();
-    Cavalry* createCavalry();
-    Artillery* createArtillery();
+    public:
+    virtual Infantry* createInfantry() = 0 ;
+    virtual Cavalry* createCavalry() = 0;
+    virtual Artillery* createArtillery() = 0;
 };
 
-
-
-#endif //LEGIONFACTORY_H
+#endif
