@@ -6,7 +6,7 @@
 #define OPENFIELD_CAVALRY_H
 #include "Cavalry.h"
 
-
+#include <iostream>
 class OpenfieldCavalry : public Cavalry {
 public:
 	virtual void move();

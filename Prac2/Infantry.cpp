@@ -39,3 +39,5 @@ void Infantry::printStats() {
 Soldiers* Infantry::clonis() {
 	return new Infantry(*this);
 }
+
+

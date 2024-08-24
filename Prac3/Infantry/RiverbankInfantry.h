@@ -5,15 +5,12 @@
 #ifndef RIVERBANK_INFANTRY_H
 #define RIVERBANK_INFANTRY_H
 #include "Infantry.h"
-
-
+#include <iostream>
 class RiverbankInfantry : public Infantry {
- public:
+   public:
 	virtual void move();
 	virtual void attack();
 	RiverbankInfantry();
 };
 
-
-
-#endif //INFANTRY_H
+#endif	// INFANTRY_H

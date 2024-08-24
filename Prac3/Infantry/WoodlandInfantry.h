@@ -5,7 +5,7 @@
 #ifndef WOODLAND_INFANTRY_H
 #define WOODLAND_INFANTRY_H
 #include "Infantry.h"
-
+#include <iostream>
 class WoodlandInfatry : public Infantry {
    public:
 	virtual void move();
