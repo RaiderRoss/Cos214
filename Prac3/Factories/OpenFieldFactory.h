@@ -8,7 +8,7 @@
 #include "OpenFieldInfantry.h"
 #include "OpenFieldCavalry.h"
 #include "OpenFieldArtillery.h"
-class OpenFieldFactory {
+class OpenFieldFactory : public LegionFactory {
     public:
 	virtual Infantry* createInfantry();
 	virtual Cavalry* createCavalry();

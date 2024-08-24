@@ -9,7 +9,7 @@
 #include "RiverbankInfantry.h"
 #include "RiverbankCavalry.h"
 #include "RiverbankArtillery.h"
-class RiverbankFactory {
+class RiverbankFactory : public LegionFactory{
    public:
 	virtual Infantry* createInfantry();
 	virtual Cavalry* createCavalry();

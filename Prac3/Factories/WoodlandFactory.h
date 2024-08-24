@@ -8,7 +8,7 @@
 #include "WoodlandInfantry.h"
 #include "WoodlandCavalry.h"
 #include "WoodlandArtillery.h"
-class WoodlandFactory {
+class WoodlandFactory : public LegionFactory {
    public:
 	virtual Infantry* createInfantry();
 	virtual Cavalry* createCavalry();
