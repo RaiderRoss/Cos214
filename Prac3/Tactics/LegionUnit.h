@@ -2,12 +2,11 @@
 #define LEGIONUNIT_H
 
 #include <iostream>
-
-class LegionUnit {
+#include "UnitComponent.h"
+class LegionUnit : public UnitComponent {
 public:
     LegionUnit(); 
     virtual ~LegionUnit();  
-
     virtual void move() = 0;
     virtual void attack() = 0;
 };

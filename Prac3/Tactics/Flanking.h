@@ -6,9 +6,10 @@
 #define FLANKING_H
 
 
-
-class Flanking {
-
+#include "BattleStrategy.h"
+class Flanking : public BattleStrategy {
+public:
+	void engage();
 };
 
 

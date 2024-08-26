@@ -5,12 +5,10 @@
 #ifndef FORTIFICATION_H
 #define FORTIFICATION_H
 
-
-
-class Fortification {
-
+#include "BattleStrategy.h"
+class Fortification : public BattleStrategy {
+   public:
+	void engage();
 };
 
-
-
-#endif //FORTIFICATION_H
+#endif	// FORTIFICATION_H

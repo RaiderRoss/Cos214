@@ -3,3 +3,16 @@
 //
 
 #include "TacticalPlanner.h"
+
+TacticalMemento* TacticalPlanner::createMemento() {
+	TacticalMemento * memeto = new TacticalMemento();
+	memeto->storeStrategy(current);
+	return ;
+}
+
+void TacticalPlanner::restoreMemento(TacticalMemento* memento) {
+	if(current != nullptr){
+		delete current;
+	}
+	current = memento->getStrategy();
+}

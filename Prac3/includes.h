@@ -5,5 +5,6 @@
 #include "WoodlandFactory.h"
 #include "OpenFieldFactory.h"
 #include "RiverbankFactory.h"
-
+#include "TacticalCommand.h"
+#include "TacticalPlanner.h"
 #endif

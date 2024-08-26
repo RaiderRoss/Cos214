@@ -6,9 +6,14 @@
 #define TACTICALPLANNER_H
 
 
-
+#include "BattleStrategy.h"
+#include "TacticalMemento.h"
 class TacticalPlanner {
-
+public:
+TacticalMemento* createMemento();
+void restoreMemento(TacticalMemento * memento);
+private:
+BattleStrategy * current;
 };
 
 

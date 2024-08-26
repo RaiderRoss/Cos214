@@ -6,9 +6,16 @@
 #define WARARCHIVES_H
 
 
-
+#include "TacticalMemento.h"
+#include <string>
+#include <map>
 class WarArchives {
-
+public:
+void addTacticalMemento(TacticalMemento* memento, std::string label);
+void removeTatcticalMemento(std::string label);
+TacticalMemento* getMemento(std::string label);
+private:
+std::map <std::string, TacticalMemento*>  mementolist;
 };
 
 

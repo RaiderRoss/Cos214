@@ -8,7 +8,8 @@
 
 
 class BattleStrategy {
-
+public:
+virtual void engage() = 0;
 };
 
 

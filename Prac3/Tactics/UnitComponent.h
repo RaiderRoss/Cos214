@@ -8,7 +8,13 @@
 
 
 class UnitComponent {
-
+public:
+virtual void move() = 0;
+virtual void attack() = 0;
+virtual void add(UnitComponent * unit) = 0;
+virtual void remove(UnitComponent * unit) = 0;
+UnitComponent();
+virtual ~UnitComponent();
 };
 
 

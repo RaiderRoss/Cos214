@@ -3,3 +3,6 @@
 //
 
 #include "Flanking.h"
+
+void Flanking::engage() {
+}

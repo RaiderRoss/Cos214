@@ -3,3 +3,6 @@
 //
 
 #include "Ambush.h"
+
+void Ambush::engage() {
+}

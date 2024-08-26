@@ -3,3 +3,9 @@
 //
 
 #include "UnitComponent.h"
+
+UnitComponent::UnitComponent() {
+}
+
+UnitComponent::~UnitComponent() {
+}

@@ -3,3 +3,6 @@
 //
 
 #include "Fortification.h"
+
+void Fortification::engage() {
+}

@@ -39,7 +39,7 @@ void openFieldTesting() {
 	delete factory;
 }
 void woodlandTesting() {
-	std::cout << "\033[32m############################============ WoodlandTesting ============############################\033[0m" << std::endl;
+	std::cout << "\033[32m############################============ Woodland Testing ============############################\033[0m" << std::endl;
 	LegionFactory* factory = new WoodlandFactory();
 	Cavalry* riverHorsies1 = factory->createCavalry();
 	Infantry* riverSwords1 = factory->createInfantry();
@@ -57,12 +57,20 @@ void woodlandTesting() {
 	delete riverSwords1;
 	delete factory;
 }
-int main()
-
-{
+void tacticalTesting() {
+	std::cout << "\033[32m############################============ Tactical Testong ============############################\033[0m" << std::endl;
+}
+int main() {
+		std::cout << "\033[31m-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-" << std::endl
+			  << "            █▓▒░░Factory Testing now ░░▒▓█" << std::endl
+			  << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\033[0m" << std::endl;
+	std::cout << "\033[32m############################============ The End ============############################\033[0m" << std::endl;
 	riverbankTesting();
 	openFieldTesting();
 	woodlandTesting();
+	std::cout << "\033[31m-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-" << std::endl
+			  << "            █▓▒░░Tactics Testing now ░░▒▓█" << std::endl
+			  << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\033[0m" << std::endl;
 	std::cout << "\033[32m############################============ The End ============############################\033[0m" << std::endl;
 	return 0;
 }
