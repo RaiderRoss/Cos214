@@ -3,9 +3,9 @@
 void riverbankTesting() {
 	std::cout << "\033[32m############################============ River Bank Testing ============############################\033[0m" << std::endl;
 	LegionFactory* factory = new RiverbankFactory();
-	Cavalry* riverHorsies1 = factory->createCavalry();
-	Infantry* riverSwords1 = factory->createInfantry();
-	Artillery* riverShooters1 = factory->createArtillery();
+	UnitComponent* riverHorsies1 = factory->createCavalry();
+	UnitComponent* riverSwords1 = factory->createInfantry();
+	UnitComponent* riverShooters1 = factory->createArtillery();
 	std::cout << "============Moving============" << std::endl;
 	riverSwords1->move();
 	riverShooters1->move();
@@ -24,9 +24,9 @@ void riverbankTesting() {
 void openFieldTesting() {
 	std::cout << "\033[32m############################============ Open Field Testing ============############################\033[0m" << std::endl;
 	LegionFactory* factory = new OpenFieldFactory();
-	Cavalry* riverHorsies1 = factory->createCavalry();
-	Infantry* riverSwords1 = factory->createInfantry();
-	Artillery* riverShooters1 = factory->createArtillery();
+	UnitComponent* riverHorsies1 = factory->createCavalry();
+	UnitComponent* riverSwords1 = factory->createInfantry();
+	UnitComponent* riverShooters1 = factory->createArtillery();
 	std::cout << "============Moving============" << std::endl;
 	riverSwords1->move();
 	riverShooters1->move();
@@ -45,9 +45,9 @@ void openFieldTesting() {
 void woodlandTesting() {
 	std::cout << "\033[32m############################============ Woodland Testing ============############################\033[0m" << std::endl;
 	LegionFactory* factory = new WoodlandFactory();
-	Cavalry* riverHorsies1 = factory->createCavalry();
-	Infantry* riverSwords1 = factory->createInfantry();
-	Artillery* riverShooters1 = factory->createArtillery();
+	UnitComponent* riverHorsies1 = factory->createCavalry();
+	UnitComponent* riverSwords1 = factory->createInfantry();
+	UnitComponent* riverShooters1 = factory->createArtillery();
 	std::cout << "============Moving============" << std::endl;
 	riverSwords1->move();
 	riverShooters1->move();
@@ -70,6 +70,24 @@ void tacticalTesting() {
 	std::cout << "============Changing strategy============" << std::endl;
 	command->chooseBestStrategy();
 	command->executeStategy();
+	std::cout << "============Changing strategy============" << std::endl;
+	command->chooseBestStrategy();
+	command->executeStategy();
+	std::cout << "============Changing strategy============" << std::endl;
+	command->chooseBestStrategy();
+	command->executeStategy();
+	std::cout << "============Changing strategy============" << std::endl;
+	command->chooseBestStrategy();
+	command->executeStategy();
+	std::cout << "============Changing strategy============" << std::endl;
+	command->chooseBestStrategy();
+	command->executeStategy();
+	std::cout << "============Changing strategy============" << std::endl;
+	command->chooseBestStrategy();
+	command->executeStategy();
+	std::cout << "============Changing strategy============" << std::endl;
+	command->chooseBestStrategy();
+	command->executeStategy();
 	delete command;
 	command = nullptr;
 }
@@ -77,7 +95,6 @@ int main() {
 	std::cout << "\033[31m-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-" << std::endl
 			  << "            █▓▒░░Factory Testing now ░░▒▓█" << std::endl
 			  << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\033[0m" << std::endl;
-	std::cout << "\033[32m############################============ The End ============############################\033[0m" << std::endl;
 	riverbankTesting();
 	openFieldTesting();
 	woodlandTesting();

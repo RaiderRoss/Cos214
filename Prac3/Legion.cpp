@@ -1,7 +1,7 @@
 #include "Legion.h"
 
 Legion::Legion() {
-    components = new std::list<LegionUnit*>();
+    components = new std::list<UnitComponent*>();
 }
 
 Legion::~Legion() {
@@ -11,22 +11,22 @@ Legion::~Legion() {
 }
 
 void Legion::move() {
-    for (LegionUnit* unit : *components) {
+    for (UnitComponent* unit : *components) {
         unit->move();
     }
 }
 
 void Legion::attack() {
-    for (LegionUnit* unit : *components) {
+    for (UnitComponent* unit : *components) {
         unit->attack();
     }
 }
 
-void Legion::add(LegionUnit* unit) {
+void Legion::add(UnitComponent* unit) {
     components->push_back(unit);
 }
 
-void Legion::remove(LegionUnit* unit) {
+void Legion::remove(UnitComponent* unit) {
     if (unit != nullptr) {
         components->remove(unit);  
         delete unit;               
@@ -35,7 +35,7 @@ void Legion::remove(LegionUnit* unit) {
 }
 
 void Legion::clear() {
-    for (LegionUnit* unit : *components) {
+    for (UnitComponent* unit : *components) {
         delete unit; 
     }
     components->clear(); 

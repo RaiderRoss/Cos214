@@ -11,8 +11,8 @@ class UnitComponent {
 public:
 virtual void move() = 0;
 virtual void attack() = 0;
-virtual void add(LegionUnit * unit) = 0;
-virtual void remove(LegionUnit * unit) = 0;
+virtual void add(UnitComponent * unit);
+virtual void remove(UnitComponent * unit);
 virtual void clear() = 0;
 UnitComponent();
 virtual ~UnitComponent();

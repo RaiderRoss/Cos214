@@ -4,6 +4,12 @@
 
 #include "UnitComponent.h"
 
+void UnitComponent::add(UnitComponent* unit) {
+}
+
+void UnitComponent::remove(UnitComponent* unit) {
+}
+
 UnitComponent::UnitComponent() {
 }
 

@@ -4,15 +4,12 @@
 
 #include "Ambush.h"
 
-void Ambush::engage(UnitComponent * component)
-{
-    LegionFactory* woodland = new WoodlandFactory();
-	LegionFactory* open = new OpenFieldFactory();
-	LegionFactory* river = new RiverbankFactory();
+void Ambush::engage(UnitComponent* component) {
+	LegionFactory* woodland = new WoodlandFactory();
+	component->add(woodland->createInfantry());
+	component->add(woodland->createInfantry());
+	component->add(woodland->createInfantry());
 	component->add(woodland->createCavalry());
-    component->add(open->createCavalry());
-    component->add(river->createCavalry());
+	component->add(woodland->createCavalry());
 	delete woodland;
-	delete open;
-	delete river;
 }

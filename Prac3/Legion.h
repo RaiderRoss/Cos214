@@ -10,11 +10,11 @@ class Legion : public UnitComponent {
 	~Legion();
 	virtual void move();
 	virtual void attack();
-	virtual void add(LegionUnit* unit);
-	virtual void remove(LegionUnit* unit);
+	virtual void add(UnitComponent* unit);
+	virtual void remove(UnitComponent* unit);
 	void clear();
    private:
-   std::list<LegionUnit*> * components;
+   std::list<UnitComponent*> * components;
 };
 
 #endif	// LEGION_H

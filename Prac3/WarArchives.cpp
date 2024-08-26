@@ -26,14 +26,35 @@ TacticalMemento* WarArchives::getMemento(std::string label) {
 	return mementolist[label];
 }
 TacticalMemento* WarArchives::getBest() {
-	double lowest = INFINITY;
-	TacticalMemento * best = NULL;
+	int lowest = INFINITY;
+	TacticalMemento* best = NULL;
+	std::string strat = "";
 	for (const auto& pair : mementolist) {
-		TacticalMemento * mem = pair.second;
-		if(mem->getNumtimesUsed()==0){
+		TacticalMemento* mem = pair.second;
+		int timesUsed = mem->getNumtimesUsed();
+		char last = pair.first.back();
+		timesUsed += 1;
+		switch (last) {
+			case 'g':
+				timesUsed *= 2;
+				break;
+				timesUsed *= 4;
+			case 'n':
+				break;
+			case 'h':
+				timesUsed *= 3;
+				break;
+			default:
+				break;
+		}
 
+		if (timesUsed < lowest) {
+			lowest = timesUsed;
+			best = mem;
+			strat = pair.first;
 		}
 	}
+	std::cout << "To use : " << strat << std::endl;
 	best->use();
 	return best;
 }
