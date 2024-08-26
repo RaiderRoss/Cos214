@@ -4,5 +4,6 @@
 
 #include "Ambush.h"
 
-void Ambush::engage() {
+void Ambush::engage(UnitComponent * component)
+{
 }

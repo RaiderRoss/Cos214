@@ -9,18 +9,25 @@ TacticalCommand::TacticalCommand() {
 }
 
 void TacticalCommand::setStrategy(BattleStrategy* s) {
-	if(strategy!=nullptr){
+    if(s == NULL){
+        strategy = new Ambush();
+        s = strategy;
+        return;
+    } 
+    if(strategy!=nullptr){
         delete strategy;
     }
     strategy = s;
 }
 
 void TacticalCommand::chooseBestStrategy() {
-    
+
 }
 
 void TacticalCommand::executeStategy() {
-    strategy->engage();
+    strategy->engage(component);
+    component->move();
+    component->attack();
 }
 
 TacticalCommand::~TacticalCommand()

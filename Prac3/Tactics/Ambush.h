@@ -9,7 +9,7 @@
 
 class Ambush : public BattleStrategy {
 public:
-	void engage();
+	void engage(UnitComponent * component);
 };
 
 

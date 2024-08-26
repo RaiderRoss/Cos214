@@ -9,7 +9,7 @@
 #include "BattleStrategy.h"
 class Flanking : public BattleStrategy {
 public:
-	void engage();
+	void engage(UnitComponent * component);
 };
 
 

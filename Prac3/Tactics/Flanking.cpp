@@ -4,6 +4,7 @@
 
 #include "Flanking.h"
 
-void Flanking::engage() {
-    
+void Flanking::engage(UnitComponent * component)
+{
 }
+

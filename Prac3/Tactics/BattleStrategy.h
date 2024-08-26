@@ -9,9 +9,10 @@
 #include "OpenFieldFactory.h"
 #include "RiverbankFactory.h"
 #include "WoodlandFactory.h"
+#include "UnitComponent.h"
 class BattleStrategy {
 public:
-virtual void engage() = 0;
+virtual void engage(UnitComponent * component) = 0;
 };
 
 

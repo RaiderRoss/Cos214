@@ -8,7 +8,7 @@
 #include "BattleStrategy.h"
 class Fortification : public BattleStrategy {
    public:
-	void engage();
+	void engage(UnitComponent * component);
 };
 
 #endif	// FORTIFICATION_H

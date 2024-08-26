@@ -4,6 +4,9 @@ Legion::Legion() {
 }
 
 Legion::~Legion() {
+    for (UnitComponent* unit : components) {
+        remove(unit);
+	}
 }
 
 void Legion::move() {
@@ -24,4 +27,6 @@ void Legion::add(UnitComponent* unit) {
 
 void Legion::remove(UnitComponent* unit) {
     components.remove(unit);
+    delete unit;
+    unit = NULL;
 }

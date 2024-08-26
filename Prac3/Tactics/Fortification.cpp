@@ -4,5 +4,7 @@
 
 #include "Fortification.h"
 
-void Fortification::engage() {
+void Fortification::engage(UnitComponent* component) {
+    LegionFactory * fact = new WoodlandFactory();
+    delete fact;
 }
