@@ -45,6 +45,7 @@ void TacticalCommand::executeStategy() {
 TacticalCommand::~TacticalCommand() {
 	delete component;
 	component = nullptr;
+	archives->clear();
 	delete archives;
 	archives = nullptr;
 }

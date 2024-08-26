@@ -27,3 +27,10 @@ TacticalMemento* WarArchives::getMemento(std::string label) {
 int WarArchives::getNumMementos(){
 	return mementolist.size();
 }
+
+void WarArchives::clear() {
+	  for (auto it = mementolist.begin(); it != mementolist.end(); ++it) {
+        delete it->second;
+    }
+	mementolist.clear();
+}

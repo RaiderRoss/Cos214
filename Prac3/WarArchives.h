@@ -14,6 +14,7 @@ public:
 void addTacticalMemento(TacticalMemento* memento, std::string label);
 void removeTatcticalMemento(std::string label);
 int getNumMementos();
+void clear();
 TacticalMemento* getMemento(std::string label);
 private:
 std::map <std::string, TacticalMemento*>  mementolist;
