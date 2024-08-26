@@ -19,7 +19,9 @@ void Legion::attack() {
 }
 
 void Legion::add(UnitComponent* unit) {
+    components.push_back(unit);
 }
 
 void Legion::remove(UnitComponent* unit) {
+    components.remove(unit);
 }

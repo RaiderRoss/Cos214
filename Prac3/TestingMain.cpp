@@ -58,7 +58,9 @@ void woodlandTesting() {
 	delete factory;
 }
 void tacticalTesting() {
-	std::cout << "\033[32m############################============ Tactical Testong ============############################\033[0m" << std::endl;
+	std::cout << "\033[32m############################============ Tactical Testing ============############################\033[0m" << std::endl;
+	TacticalCommand * command = new TacticalCommand();
+	command->executeStategy();
 }
 int main() {
 		std::cout << "\033[31m-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-" << std::endl

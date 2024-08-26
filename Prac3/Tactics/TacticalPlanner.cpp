@@ -7,7 +7,7 @@
 TacticalMemento* TacticalPlanner::createMemento() {
 	TacticalMemento * memeto = new TacticalMemento();
 	memeto->storeStrategy(current);
-	return ;
+	return memeto;
 }
 
 void TacticalPlanner::restoreMemento(TacticalMemento* memento) {
