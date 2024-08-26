@@ -30,6 +30,7 @@ void TacticalCommand::chooseBestStrategy() {
 	archives->addTacticalMemento(planner->createMemento(), "best");
 	planner->restoreMemento(archives->getMemento("best"));
 	strategy = planner->getStrategy();
+	component->clear();
 	delete planner;
 }
 

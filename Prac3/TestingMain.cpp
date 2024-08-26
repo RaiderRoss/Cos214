@@ -69,6 +69,7 @@ void tacticalTesting() {
 	BattleStrategy* strat = nullptr;
 	command->setStrategy(strat);
 	command->executeStategy();
+	std::cout << "============Changing strategy============" << std::endl;
 	command->chooseBestStrategy();
 	command->executeStategy();
 	delete strat;
