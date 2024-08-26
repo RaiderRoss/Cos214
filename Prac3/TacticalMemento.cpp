@@ -5,9 +5,6 @@
 #include "TacticalMemento.h"
 
 void TacticalMemento::storeStrategy(BattleStrategy* strategy) {
-    if(strategy != nullptr){
-        delete strategy;
-    }
     this->strategy = strategy;
 }
 

@@ -7,4 +7,5 @@
 #include "RiverbankFactory.h"
 #include "TacticalCommand.h"
 #include "TacticalPlanner.h"
+#include "WarArchives.h"
 #endif

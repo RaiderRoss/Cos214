@@ -24,3 +24,6 @@ TacticalMemento* WarArchives::getMemento(std::string label) {
 	}
 	return mementolist[label];
 }
+int WarArchives::getNumMementos(){
+	return mementolist.size();
+}

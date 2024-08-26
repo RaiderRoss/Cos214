@@ -9,6 +9,9 @@
 #include "Fortification.h"
 #include "Ambush.h"
 #include "Flanking.h"
+#include "Legion.h"
+#include "WarArchives.h"
+#include "TacticalPlanner.h"
 class TacticalCommand {
 public:
 TacticalCommand();
@@ -19,6 +22,7 @@ void executeStategy();
 private:
 BattleStrategy * strategy;
 UnitComponent * component;
+WarArchives * archives;
 };
 
 

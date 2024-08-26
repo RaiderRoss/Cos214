@@ -17,4 +17,5 @@ Artillery* OpenFieldFactory::createArtillery() {
 }
 
 void OpenFieldFactory::deployArtillery() {
+	std::cout << "LOOOOOK A DAISy wait the artillery got distracted" << std::endl;
 }

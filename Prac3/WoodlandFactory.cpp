@@ -18,4 +18,5 @@ Artillery* WoodlandFactory::createArtillery() {
 }
 
 void WoodlandFactory::deployArtillery() {
+	std::cout << "No idea what this does but bet bro in the woodland btw" << std::endl;
 }

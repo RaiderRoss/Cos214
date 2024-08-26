@@ -14,6 +14,8 @@ void riverbankTesting() {
 	riverSwords1->attack();
 	riverShooters1->attack();
 	riverHorsies1->attack();
+	std::cout << "============Deploying============" << std::endl;
+	factory->deployArtillery();
 	delete riverHorsies1;
 	delete riverShooters1;
 	delete riverSwords1;
@@ -33,6 +35,8 @@ void openFieldTesting() {
 	riverSwords1->attack();
 	riverShooters1->attack();
 	riverHorsies1->attack();
+	std::cout << "============Deploying============" << std::endl;
+	factory->deployArtillery();
 	delete riverHorsies1;
 	delete riverShooters1;
 	delete riverSwords1;
@@ -52,6 +56,8 @@ void woodlandTesting() {
 	riverSwords1->attack();
 	riverShooters1->attack();
 	riverHorsies1->attack();
+	std::cout << "============Deploying============" << std::endl;
+	factory->deployArtillery();
 	delete riverHorsies1;
 	delete riverShooters1;
 	delete riverSwords1;
@@ -59,13 +65,18 @@ void woodlandTesting() {
 }
 void tacticalTesting() {
 	std::cout << "\033[32m############################============ Tactical Testing ============############################\033[0m" << std::endl;
-	TacticalCommand * command = new TacticalCommand();
-	BattleStrategy * strat = NULL;
+	TacticalCommand* command = new TacticalCommand();
+	BattleStrategy* strat = nullptr;
 	command->setStrategy(strat);
+	command->executeStategy();
+	command->chooseBestStrategy();
+	command->executeStategy();
 	delete strat;
+	strat = nullptr;
+	delete command;
 }
 int main() {
-		std::cout << "\033[31m-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-" << std::endl
+	std::cout << "\033[31m-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-" << std::endl
 			  << "            █▓▒░░Factory Testing now ░░▒▓█" << std::endl
 			  << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\033[0m" << std::endl;
 	std::cout << "\033[32m############################============ The End ============############################\033[0m" << std::endl;
@@ -75,6 +86,7 @@ int main() {
 	std::cout << "\033[31m-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-" << std::endl
 			  << "            █▓▒░░Tactics Testing now ░░▒▓█" << std::endl
 			  << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\033[0m" << std::endl;
+	tacticalTesting();
 	std::cout << "\033[32m############################============ The End ============############################\033[0m" << std::endl;
 	return 0;
 }

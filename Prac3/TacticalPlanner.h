@@ -12,8 +12,11 @@ class TacticalPlanner {
 public:
 TacticalMemento* createMemento();
 void restoreMemento(TacticalMemento * memento);
+BattleStrategy * getStrategy();
+void setStrategy(BattleStrategy * strat);
 private:
 BattleStrategy * current;
+
 };
 
 

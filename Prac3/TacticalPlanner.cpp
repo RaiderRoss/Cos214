@@ -11,8 +11,11 @@ TacticalMemento* TacticalPlanner::createMemento() {
 }
 
 void TacticalPlanner::restoreMemento(TacticalMemento* memento) {
-	if(current != nullptr){
-		delete current;
-	}
 	current = memento->getStrategy();
+}
+BattleStrategy* TacticalPlanner::getStrategy(){
+	return current;
+}
+void TacticalPlanner::setStrategy(BattleStrategy * strat){
+	current = strat;
 }

@@ -8,11 +8,11 @@
 
 #include "BattleStrategy.h"
 class TacticalMemento {
-public:
+private:
 void storeStrategy(BattleStrategy * strategy);
 BattleStrategy * getStrategy();
-private:
 BattleStrategy * strategy;
+friend class TacticalPlanner;
 };
 
 

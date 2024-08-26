@@ -17,4 +17,5 @@ Artillery* RiverbankFactory::createArtillery() {
 }
 
 void RiverbankFactory::deployArtillery() {
+	std::cout << "Deplyoing j ajaja on river cause sand ew" << std::endl;
 }

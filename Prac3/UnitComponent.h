@@ -6,13 +6,14 @@
 #define UNITCOMPONENT_H
 
 
-
+class LegionUnit;
 class UnitComponent {
 public:
 virtual void move() = 0;
 virtual void attack() = 0;
-virtual void add(UnitComponent * unit) = 0;
-virtual void remove(UnitComponent * unit) = 0;
+virtual void add(LegionUnit * unit) = 0;
+virtual void remove(LegionUnit * unit) = 0;
+virtual void clear() = 0;
 UnitComponent();
 virtual ~UnitComponent();
 };

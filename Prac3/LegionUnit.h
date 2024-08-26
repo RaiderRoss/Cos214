@@ -10,11 +10,14 @@ class LegionUnit : public UnitComponent {
 	virtual ~LegionUnit();
 	virtual void move() = 0;
 	virtual void attack() = 0;
-	void add(UnitComponent* unit) {
+	void add(LegionUnit* unit) {
 	}
 
-	void remove(UnitComponent* unit) {
+	void remove(LegionUnit* unit) {
 
+	}
+	void clear(){
+		
 	}
 };
 
