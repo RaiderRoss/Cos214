@@ -6,29 +6,22 @@ TacticalCommand::TacticalCommand() {
 	archives = new WarArchives();
 }
 
-void TacticalCommand::setStrategy(BattleStrategy* s) {
-	if (strategy != nullptr) {
-		delete strategy;
-	}
-
-	if (s == nullptr) {
-		strategy = new Ambush();
-		s = strategy;
-		return;
-	}
-
-	strategy = s;
-}
 void TacticalCommand::chooseBestStrategy() {
 	TacticalPlanner* planner = new TacticalPlanner();
-	planner->setStrategy(strategy);
-	if (archives->getNumMementos() == 0) {
+	if (strategy == NULL) {
 		strategy = new Fortification();
+		planner->setStrategy(strategy);
+		archives->addTacticalMemento(planner->createMemento(), "Fortification");
+		strategy = new Ambush();
+		planner->setStrategy(strategy);
+		archives->addTacticalMemento(planner->createMemento(), "Ambush");
+		strategy = new Flanking();
+		planner->setStrategy(strategy);
+		archives->addTacticalMemento(planner->createMemento(), "Flank");
 	}
-	archives->addTacticalMemento(planner->createMemento(), "current");
-	planner->setStrategy(strategy);
-	archives->addTacticalMemento(planner->createMemento(), "best");
-	planner->restoreMemento(archives->getMemento("best"));
+	
+	TacticalMemento * best = archives->getBest();
+	planner->restoreMemento(best);
 	strategy = planner->getStrategy();
 	component->clear();
 	delete planner;

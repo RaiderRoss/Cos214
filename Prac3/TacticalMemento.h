@@ -5,16 +5,17 @@
 #ifndef TACTICALMEMENTO_H
 #define TACTICALMEMENTO_H
 
-
 #include "BattleStrategy.h"
 class TacticalMemento {
-private:
-void storeStrategy(BattleStrategy * strategy);
-BattleStrategy * getStrategy();
-BattleStrategy * strategy;
-friend class TacticalPlanner;
+    public:
+	int getNumtimesUsed();
+	void use();
+   private:
+	int numTimesUsed;
+	void storeStrategy(BattleStrategy* strategy);
+	BattleStrategy* getStrategy();
+	BattleStrategy* strategy;
+	friend class TacticalPlanner;
 };
 
-
-
-#endif //TACTICALMEMENTO_H
+#endif	// TACTICALMEMENTO_H

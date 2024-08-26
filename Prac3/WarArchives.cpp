@@ -4,6 +4,7 @@
 
 #include "WarArchives.h"
 
+#include <cmath>
 void WarArchives::addTacticalMemento(TacticalMemento* memento, std::string label) {
 	if (mementolist.count(label) != 0) {
 		return;
@@ -24,13 +25,22 @@ TacticalMemento* WarArchives::getMemento(std::string label) {
 	}
 	return mementolist[label];
 }
-int WarArchives::getNumMementos(){
-	return mementolist.size();
+TacticalMemento* WarArchives::getBest() {
+	double lowest = INFINITY;
+	TacticalMemento * best = NULL;
+	for (const auto& pair : mementolist) {
+		TacticalMemento * mem = pair.second;
+		if(mem->getNumtimesUsed()==0){
+
+		}
+	}
+	best->use();
+	return best;
 }
 
 void WarArchives::clear() {
-	  for (auto it = mementolist.begin(); it != mementolist.end(); ++it) {
-        delete it->second;
-    }
+	for (auto it = mementolist.begin(); it != mementolist.end(); ++it) {
+		delete it->second;
+	}
 	mementolist.clear();
 }

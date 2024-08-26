@@ -15,7 +15,6 @@
 class TacticalCommand {
 public:
 TacticalCommand();
-void setStrategy(BattleStrategy *s);
 void chooseBestStrategy();
 void executeStategy();
 ~TacticalCommand();

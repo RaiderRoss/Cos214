@@ -4,8 +4,15 @@
 
 #include "TacticalMemento.h"
 
+int TacticalMemento::getNumtimesUsed() {
+	return numTimesUsed;
+}
+
+void TacticalMemento::use() {
+    numTimesUsed++;
+}
 void TacticalMemento::storeStrategy(BattleStrategy* strategy) {
-    this->strategy = strategy;
+	this->strategy = strategy;
 }
 
 BattleStrategy* TacticalMemento::getStrategy() {

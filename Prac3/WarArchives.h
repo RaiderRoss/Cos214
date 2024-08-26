@@ -13,7 +13,7 @@ class WarArchives {
 public:
 void addTacticalMemento(TacticalMemento* memento, std::string label);
 void removeTatcticalMemento(std::string label);
-int getNumMementos();
+TacticalMemento * getBest();
 void clear();
 TacticalMemento* getMemento(std::string label);
 private:

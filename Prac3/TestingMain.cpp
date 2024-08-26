@@ -66,15 +66,12 @@ void woodlandTesting() {
 void tacticalTesting() {
 	std::cout << "\033[32m############################============ Tactical Testing ============############################\033[0m" << std::endl;
 	TacticalCommand* command = new TacticalCommand();
-	BattleStrategy* strat = nullptr;
-	command->setStrategy(strat);
 	command->executeStategy();
 	std::cout << "============Changing strategy============" << std::endl;
 	command->chooseBestStrategy();
 	command->executeStategy();
-	delete strat;
-	strat = nullptr;
 	delete command;
+	command = nullptr;
 }
 int main() {
 	std::cout << "\033[31m-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-" << std::endl
