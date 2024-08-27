@@ -38,8 +38,8 @@ TacticalMemento* WarArchives::getBest() {
 			case 'g':
 				timesUsed *= 2;
 				break;
-				timesUsed *= 4;
 			case 'n':
+				timesUsed *= 4;
 				break;
 			case 'h':
 				timesUsed *= 3;
