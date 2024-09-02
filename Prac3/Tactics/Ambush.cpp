@@ -13,3 +13,6 @@ void Ambush::engage(UnitComponent* component) {
 	component->add(woodland->createCavalry());
 	delete woodland;
 }
+
+Ambush::~Ambush() {
+}

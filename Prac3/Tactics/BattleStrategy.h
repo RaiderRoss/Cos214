@@ -12,6 +12,7 @@
 #include "UnitComponent.h"
 class BattleStrategy {
 public:
+virtual ~BattleStrategy() = default;
 virtual void engage(UnitComponent * component) = 0;
 };
 

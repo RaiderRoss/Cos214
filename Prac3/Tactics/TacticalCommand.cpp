@@ -27,6 +27,7 @@ void TacticalCommand::chooseBestStrategy() {
 	delete planner;
 }
 
+
 void TacticalCommand::executeStategy() {
 	if (strategy != nullptr) {
 		strategy->engage(component);

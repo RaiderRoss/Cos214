@@ -92,6 +92,17 @@ void tacticalTesting() {
 	command = nullptr;
 }
 int main() {
+	std::cout << "\033[90m" << std::endl;
+	std::cout << "                           ___                           " << std::endl;
+	std::cout << "                          ( (((                         " << std::endl;
+	std::cout << "                           ) )))                        " << std::endl;
+	std::cout << "  .::.                    / /((                        " << std::endl;
+	std::cout << " 'M .-;-.-.-.-.-.-.-.-.-/| ((::::::::::::::::::::::::::::::::::::::::::::::.._ " << std::endl;
+	std::cout << "(J ( ( ( ( ( ( ( ( ( ( ( |  ))   -====================================-      _.> " << std::endl;
+	std::cout << " `P `-;-`-`-`-`-`-`-`-`-\\| ((::::::::::::::::::::::::::::::::::::::::::::::'' " << std::endl;
+	std::cout << "  `::'                    \\ \\(                       " << std::endl;
+	std::cout << "                           ) ))                        " << std::endl;
+	std::cout << "                          (_(((                        " << std::endl;
 	std::cout << "\033[31m-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-" << std::endl
 			  << "            █▓▒░░Factory Testing now ░░▒▓█" << std::endl
 			  << "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\033[0m" << std::endl;

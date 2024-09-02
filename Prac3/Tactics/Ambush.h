@@ -10,6 +10,7 @@
 class Ambush : public BattleStrategy {
 public:
 	void engage(UnitComponent * component);
+	virtual ~Ambush();
 };
 
 
