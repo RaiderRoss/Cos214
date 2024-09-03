@@ -61,6 +61,10 @@ TacticalMemento* WarArchives::getBest() {
 
 void WarArchives::clear() {
 	for (auto it = mementolist.begin(); it != mementolist.end(); ++it) {
+		TacticalPlanner* planner = new TacticalPlanner();
+		planner->restoreMemento(it->second);
+		delete planner->getStrategy();
+		delete planner;
 		delete it->second;
 	}
 	mementolist.clear();

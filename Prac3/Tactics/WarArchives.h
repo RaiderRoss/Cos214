@@ -7,6 +7,7 @@
 
 
 #include "TacticalMemento.h"
+#include "TacticalPlanner.h"
 #include <string>
 #include <map>
 class WarArchives {

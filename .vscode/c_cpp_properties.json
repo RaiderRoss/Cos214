@@ -7,7 +7,8 @@
                 "${workspaceFolder}/Prac3/Artillery",
                 "${workspaceFolder}/Prac3/Cavalry",
                 "${workspaceFolder}/Prac3/Infantry",
-                "${workspaceFolder}/Practical_4/include"
+                "${workspaceFolder}/Prac3/Factories",
+                "${workspaceFolder}/Prac3/Tactics"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/gcc",
