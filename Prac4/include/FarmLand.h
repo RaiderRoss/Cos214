@@ -4,15 +4,16 @@
 #include "FarmUnit.h"
 
 
-class  FarmLand  {
+class  FarmLand : public FarmUnit {
 public:
-     FarmLand ();
-    ~ FarmLand ();
-private:
-    int capacity;
-    std::vector<FarmUnit*> farmUnits;
+    FarmLand ();
+    ~FarmLand ();
     bool add();
     bool remove();
+
+private:
+    int capacity;
+    std::vector<FarmUnit*> farmUnit;
 };
 
 #endif //  FARMLAND_H

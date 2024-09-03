@@ -6,8 +6,8 @@
 #include "Soil.h"
 class  CropField : public FarmUnit {
 public:
-     CropField ();
-    ~ CropField ();
+    CropField (std::string crop, int capacity, Soil soil);
+    ~CropField ();
 private:
     std::string cropType;
     Soil soil;
