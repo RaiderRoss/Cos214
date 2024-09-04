@@ -8,3 +8,6 @@ FloodedSoil ::~ FloodedSoil () {
     // Destructor implementation
 }
 
+std::string FloodedSoil::getName() {
+    return "Flooded";
+}

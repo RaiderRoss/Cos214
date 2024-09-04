@@ -10,7 +10,7 @@ public:
     ~FarmLand ();
     bool add();
     bool remove();
-
+    
 private:
     int capacity;
     std::vector<FarmUnit*> farmUnit;

@@ -8,3 +8,6 @@ DrySoil ::~ DrySoil () {
     // Destructor implementation
 }
 
+std::string DrySoil::getName() {
+    return "Dry";
+}

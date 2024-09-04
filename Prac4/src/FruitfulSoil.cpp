@@ -8,3 +8,7 @@ FruitfulSoil ::~ FruitfulSoil () {
     // Destructor implementation
 }
 
+
+std::string FruitfulSoil::getName() {
+    return "Fruitful";
+}
