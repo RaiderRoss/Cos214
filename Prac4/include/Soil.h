@@ -1,15 +1,16 @@
 #ifndef  SOIL_H
 #define  SOIL_H
 #include <string>
-
+#include "FloodedSoil.h"
 class  Soil  {
 public:
     Soil();
     ~Soil();
-protected:
-    virtual void rain();
-    virtual void harvestCrops();
+    virtual void rain(Soil* soil);
+    virtual void harvestCrops(Soil* soil);
     virtual std::string getName();
+protected:
+    int productivityMultiplier;
 };
 
 #endif //  SOIL_H

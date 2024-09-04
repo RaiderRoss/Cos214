@@ -2,12 +2,14 @@
 #define  FRUITFULSOIL_H
 #include <string>
 #include "Soil.h"
+#include "FloodedSoil.h"
+#include "DrySoil.h"
 class  FruitfulSoil : public Soil {
 public:
     FruitfulSoil ();
     ~FruitfulSoil ();
-    void rain();
-    void harvestCrops();
+    void rain(Soil* soil);
+    void harvestCrops(Soil* soil);
     std::string getName();
 };
 

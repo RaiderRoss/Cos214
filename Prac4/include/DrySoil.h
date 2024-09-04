@@ -2,13 +2,13 @@
 #define  DRYSOIL_H
 
 #include <string>
-
-class  DrySoil  {
+#include "Soil.h"
+class  DrySoil : public Soil {
 public:
     DrySoil ();
     ~DrySoil ();
-    void rain();
-    void harvestCrops();
+    void rain(Soil* soil);
+    void harvestCrops(Soil* soil);
     std::string getName();
 };
 

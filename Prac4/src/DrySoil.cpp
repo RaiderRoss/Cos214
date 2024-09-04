@@ -1,13 +1,17 @@
 #include "DrySoil.h"
 
 DrySoil :: DrySoil () {
-    // Constructor implementation
+    this->productivityMultiplier = 0.5;
 }
 
 DrySoil ::~ DrySoil () {
-    // Destructor implementation
+    delete this;
 }
 
 std::string DrySoil::getName() {
-    return "Dry";
+    return "Dry soil";
+}
+
+void DrySoil::harvestCrops(Soil* soil) {
+    return;
 }

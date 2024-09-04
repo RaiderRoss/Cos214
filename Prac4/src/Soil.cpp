@@ -1,10 +1,21 @@
 #include "Soil.h"
 
-Soil :: Soil () {
-    // Constructor implementation
+Soil::Soil (){
+    this->productivityMultiplier = 1;
 }
 
 Soil ::~ Soil () {
-    // Destructor implementation
+    delete this;
 }
 
+void Soil::rain(Soil* soil) {
+    soil = new FloodedSoil();
+}
+
+void Soil::harvestCrops(Soil* soil) {
+    soil = new DrySoil();
+}
+
+std::string Soil::getName() {
+    return "Normal soil";
+}

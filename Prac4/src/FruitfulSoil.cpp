@@ -1,14 +1,22 @@
 #include "FruitfulSoil.h"
 
 FruitfulSoil :: FruitfulSoil () {
-    // Constructor implementation
+    this->productivityMultiplier = 2;
 }
 
 FruitfulSoil ::~ FruitfulSoil () {
-    // Destructor implementation
+    delete this;
 }
 
 
 std::string FruitfulSoil::getName() {
-    return "Fruitful";
+    return "Fruitful soil";
+}
+
+void FruitfulSoil::rain(Soil* soil) {
+    soil = new FloodedSoil();
+}
+
+void FruitfulSoil::harvestCrops(Soil* soil) {
+    soil = new DrySoil();
 }
