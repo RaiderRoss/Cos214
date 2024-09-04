@@ -9,7 +9,7 @@ public:
     int getTotalCapacity();
     std::string getCropType();
     int getAmountStored();
-    void storeCrops();
+    void storeCrops(int store);
 private:
     std::string cropType;
     int amountStored;
