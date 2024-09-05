@@ -5,10 +5,10 @@ class  FarmUnit  {
 public:
      FarmUnit ();
     ~ FarmUnit ();
-protected:
-    int capacity;
-    virtual bool add();
-    virtual bool remove();
+        int capacity;
+    virtual bool add(FarmUnit* add);
+    virtual bool remove(FarmUnit* remove);
+    virtual void storeCrops(int store);
 };
 
 #endif //  FARMUNIT_H
