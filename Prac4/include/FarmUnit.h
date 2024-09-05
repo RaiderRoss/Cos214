@@ -20,12 +20,12 @@ class FarmUnit {
 	virtual bool remove(FarmUnit* remove);
 	virtual void storeCrops(int store);
 	virtual int getTotalCapacity();
-	virtual void buyTruck();
-	virtual void sellTruck();
-	virtual void callTruck();
-	virtual void startEngine();
-	virtual void assignTrucker(TruckerMan* truck);
-	virtual void removeTruck();
+	virtual void buyTruck() = 0;
+	virtual void sellTruck() = 0;
+	virtual void callTruck() = 0;
+	virtual void startEngine() = 0;
+	virtual void assignTrucker(TruckerMan* truck) = 0;
+	virtual void removeTruck() = 0;
 };
 
 #endif	//  FARMUNIT_H

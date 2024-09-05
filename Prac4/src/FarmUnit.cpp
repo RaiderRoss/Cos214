@@ -23,3 +23,6 @@ bool FarmUnit :: remove(FarmUnit* remove) {
 int FarmUnit :: getTotalCapacity() {
     return this->capacity;
 }
+
+void FarmUnit::buyTruck() {
+}

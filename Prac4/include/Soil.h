@@ -5,7 +5,7 @@
 class  Soil  {
 public:
     Soil();
-    ~Soil();
+    virtual ~Soil();
     virtual void rain(Soil* soil);
     virtual void harvestCrops(Soil* soil);
     virtual std::string getName();
