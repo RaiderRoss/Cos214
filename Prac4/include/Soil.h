@@ -1,7 +1,6 @@
 #ifndef  SOIL_H
 #define  SOIL_H
 #include <string>
-#include "FloodedSoil.h"
 #include "FarmUnit.h"
 class  Soil  {
 public:

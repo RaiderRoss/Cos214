@@ -14,7 +14,7 @@ class FarmUnit {
 
    public:
 	FarmUnit();
-	~FarmUnit();
+	virtual ~FarmUnit();
 
 	virtual bool add(FarmUnit* add);
 	virtual bool remove(FarmUnit* remove);

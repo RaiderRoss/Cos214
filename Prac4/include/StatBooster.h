@@ -13,7 +13,7 @@ virtual void buyTruck();
 virtual void sellTruck();
 virtual void callTruck();
 virtual void startEngine();
-virtual void assignTrucker();
+virtual void assignTrucker(TruckerMan * trucker);
 virtual std::string getCropType();
 virtual int getTotalCapacity();
 };

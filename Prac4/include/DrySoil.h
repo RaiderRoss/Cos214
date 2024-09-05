@@ -1,6 +1,5 @@
 #ifndef  DRYSOIL_H
 #define  DRYSOIL_H
-
 #include <string>
 #include "Soil.h"
 class  DrySoil : public Soil {
