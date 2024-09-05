@@ -8,6 +8,9 @@ DrySoil ::~ DrySoil () {
     delete this;
 }
 
+void DrySoil::rain(Soil* soil) {
+}
+
 std::string DrySoil::getName() {
     return "Dry soil";
 }

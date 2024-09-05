@@ -5,7 +5,7 @@
 class  Barn  : public FarmUnit {
 public:
     Barn(std::string crop, int amountStored, int capacity);
-    ~ Barn();
+    virtual ~ Barn();
     std::string getCropType();
     int getAmountStored();
     void storeCrops(int store);
