@@ -1,5 +1,8 @@
 #include "FarmUnit.h"
 
+FarmUnit :: FarmUnit() {
+    this->capacity = 0;
+}
 
 FarmUnit ::~ FarmUnit () {
     delete this;
