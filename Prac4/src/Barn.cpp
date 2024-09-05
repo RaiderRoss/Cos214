@@ -18,10 +18,6 @@ int Barn::getAmountStored() {
     return this->amountStored;
 }
 
-int Barn::getTotalCapacity() {
-    return this->capacity;
-}
-
 void Barn::storeCrops(int store) {
     if(this->amountStored+store < this->capacity) {
         this->amountStored += store;

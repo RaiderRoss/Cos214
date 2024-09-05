@@ -4,7 +4,6 @@
 class FarmUnit {
    protected:
 	int capacity;
-
    public:
 	FarmUnit();
 	~FarmUnit();

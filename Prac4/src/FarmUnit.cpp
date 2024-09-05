@@ -1,10 +1,25 @@
 #include "FarmUnit.h"
 
-FarmUnit :: FarmUnit () {
-    // Constructor implementation
+FarmUnit :: FarmUnit() {
+    this->capacity = 0;
 }
 
 FarmUnit ::~ FarmUnit () {
-    // Destructor implementation
+    delete this;
 }
 
+void FarmUnit :: storeCrops(int store) {
+    return;
+}
+
+bool FarmUnit :: add(FarmUnit* add) {
+    return false;
+} 
+
+bool FarmUnit :: remove(FarmUnit* remove) {
+    return false;
+}
+
+int FarmUnit :: getTotalCapacity() {
+    return this->capacity;
+}
