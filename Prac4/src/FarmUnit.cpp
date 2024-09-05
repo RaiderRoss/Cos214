@@ -16,3 +16,7 @@ bool FarmUnit :: add(FarmUnit* add) {
 bool FarmUnit :: remove(FarmUnit* remove) {
     return false;
 }
+
+int FarmUnit :: getTotalCapacity() {
+    return this->capacity;
+}

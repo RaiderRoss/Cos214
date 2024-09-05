@@ -11,10 +11,6 @@ CropField ::~ CropField () {
     delete this;
 }
 
-int CropField::getTotalCapacity() {
-    return this->capacity;
-}
-
 void CropField::plantCrops(int planted) {
     if(this->planted + planted < this->capacity ) {
         this->planted += planted;

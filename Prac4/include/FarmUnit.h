@@ -9,6 +9,7 @@ public:
     virtual bool add(FarmUnit* add);
     virtual bool remove(FarmUnit* remove);
     virtual void storeCrops(int store);
+    virtual int getTotalCapacity();
 };
 
 #endif //  FARMUNIT_H
