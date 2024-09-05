@@ -22,8 +22,8 @@ void StatBooster::startEngine() {
     unit->startEngine();
 }
 
-void StatBooster::assignTrucker() {
-    unit->assignTrucker();
+void StatBooster::assignTrucker(TruckerMan * trucker) {
+    unit->assignTrucker(trucker);
 }
 
 std::string StatBooster::getCropType()
