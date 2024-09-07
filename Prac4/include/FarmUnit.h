@@ -22,10 +22,10 @@ class FarmUnit {
 	virtual int getTotalCapacity();
 	virtual void buyTruck() = 0;
 	virtual void sellTruck() = 0;
-	virtual void callTruck() = 0;
+	virtual void callTruck(TruckerMan* truck) = 0;
 	virtual void startEngine() = 0;
 	virtual void assignTrucker(TruckerMan* truck) = 0;
-	virtual void removeTruck() = 0;
+	virtual void removeTruck(TruckerMan* truck) = 0;
 };
 
 #endif	//  FARMUNIT_H

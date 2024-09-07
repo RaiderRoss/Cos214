@@ -16,6 +16,12 @@ private:
     Soil* soil;
     int capacity;
     int planted;
+    virtual void buyTruck();
+	virtual void sellTruck();
+	virtual void callTruck(TruckerMan* truck);
+	virtual void startEngine();
+	virtual void assignTrucker(TruckerMan* truck);
+	virtual void removeTruck(TruckerMan* truck);
 };
 
 #endif //  CROPFIELD_H

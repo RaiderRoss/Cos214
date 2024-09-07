@@ -14,8 +14,8 @@ void StatBooster::sellTruck() {
     unit->sellTruck();
 }
 
-void StatBooster::callTruck() {
-    unit->callTruck();
+void StatBooster::callTruck(TruckerMan* truck) {
+    unit->callTruck(truck);
 }
 
 void StatBooster::startEngine() {
@@ -24,6 +24,10 @@ void StatBooster::startEngine() {
 
 void StatBooster::assignTrucker(TruckerMan * trucker) {
     unit->assignTrucker(trucker);
+}
+
+void StatBooster::removeTruck(TruckerMan* truck) {
+    unit->removeTruck(truck);
 }
 
 std::string StatBooster::getCropType()

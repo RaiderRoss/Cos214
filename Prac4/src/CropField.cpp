@@ -25,3 +25,26 @@ std::string CropField::getCropType() {
 std::string CropField::getSoilState() {
     return this->soil->getName();
 }
+
+void CropField::buyTruck() {
+
+}
+
+void CropField::sellTruck() {
+
+}
+
+void CropField::callTruck(TruckerMan* truck) {
+
+}
+
+void CropField::startEngine() {
+}
+
+
+void CropField::assignTrucker(TruckerMan* truck) {
+}
+
+void CropField::removeTruck(TruckerMan* truck) {
+    
+}
