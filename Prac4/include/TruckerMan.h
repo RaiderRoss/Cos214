@@ -7,7 +7,7 @@ private:
 public:
     TruckerMan();
     virtual ~TruckerMan();
-    virtual void update() = 0;
+    virtual void update(FarmUnit * unit) = 0;
 };
 
 #endif

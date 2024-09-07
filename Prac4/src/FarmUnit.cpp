@@ -12,7 +12,7 @@ void FarmUnit :: storeCrops(int store) {
     return;
 }
 
-bool FarmUnit :: add(FarmUnit* add) {
+bool FarmUnit ::add(FarmUnit* add) {
     return false;
 } 
 
@@ -22,7 +22,4 @@ bool FarmUnit :: remove(FarmUnit* remove) {
 
 int FarmUnit :: getTotalCapacity() {
     return this->capacity;
-}
-
-void FarmUnit::buyTruck() {
 }

@@ -1,18 +1,28 @@
-#ifndef  BARN_H
-#define  BARN_H
+#ifndef BARN_H
+#define BARN_H
 #include <string>
+
 #include "FarmUnit.h"
-class  Barn  : public FarmUnit {
-public:
-    Barn(std::string crop, int amountStored, int capacity);
-    virtual ~ Barn();
-    std::string getCropType();
-    int getAmountStored();
-    void storeCrops(int store);
-private:
-    std::string cropType;
-    int amountStored;
-    int capacity;
+#include "DeliveryTruck.h"
+class Barn : public FarmUnit {
+   public:
+	Barn(std::string crop, int amountStored, int capacity);
+	virtual ~Barn();
+	std::string getCropType();
+	int getAmountStored();
+	void storeCrops(int store);
+	virtual void clear();
+	virtual void buyTruck();
+	virtual void sellTruck();
+	virtual void callTruck();
+	virtual void startEngine();
+	virtual void assignTrucker(TruckerMan* truck);
+	virtual void removeTruck(TruckerMan* truck);
+
+   private:
+	std::string cropType;
+	int amountStored;
+	int capacity;
 };
 
-#endif //  BARN_H
+#endif	//  BARN_H

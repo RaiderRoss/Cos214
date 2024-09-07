@@ -4,6 +4,7 @@
 #include <string>
 #include "FarmUnit.h"
 #include "Soil.h"
+#include "FertilizerTruck.h"
 class  CropField : public FarmUnit {
 public:
     CropField (std::string crop, int capacity, Soil* soil);
@@ -18,7 +19,7 @@ private:
     int planted;
     virtual void buyTruck();
 	virtual void sellTruck();
-	virtual void callTruck(TruckerMan* truck);
+	virtual void callTruck();
 	virtual void startEngine();
 	virtual void assignTrucker(TruckerMan* truck);
 	virtual void removeTruck(TruckerMan* truck);

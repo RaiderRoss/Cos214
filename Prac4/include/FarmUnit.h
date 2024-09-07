@@ -6,11 +6,9 @@
 
 #include "TruckerMan.h"
 class FarmUnit {
-   private:
-	std::vector<TruckerMan*> truckWatch;
-
    protected:
 	int capacity;
+	std::vector<TruckerMan*> truckWatch;
 
    public:
 	FarmUnit();
@@ -18,11 +16,12 @@ class FarmUnit {
 
 	virtual bool add(FarmUnit* add);
 	virtual bool remove(FarmUnit* remove);
-	virtual void storeCrops(int store);
+	virtual void storeCrops(int store) = 0;
 	virtual int getTotalCapacity();
 	virtual void buyTruck() = 0;
+	virtual void clear() = 0;
 	virtual void sellTruck() = 0;
-	virtual void callTruck(TruckerMan* truck) = 0;
+	virtual void callTruck() = 0;
 	virtual void startEngine() = 0;
 	virtual void assignTrucker(TruckerMan* truck) = 0;
 	virtual void removeTruck(TruckerMan* truck) = 0;

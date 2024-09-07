@@ -9,7 +9,6 @@ int main() {
         std::string type = "Carrots";
         Soil * soil = new DrySoil();
         FarmUnit * crop = new CropField(type, 4 , soil);
-        
     }
 
     return 0;
