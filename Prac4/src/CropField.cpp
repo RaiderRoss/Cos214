@@ -27,8 +27,8 @@ std::string CropField::getSoilState() {
 }
 
 void CropField::buyTruck() {
-	TruckerMan* fert = new FertilizerTruck();
-	assignTrucker(fert);
+	TruckerMan* fent = new FertilizerTruck();
+	assignTrucker(fent);
 }
 
 void CropField::sellTruck() {

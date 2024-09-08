@@ -9,7 +9,7 @@ public:
     FruitfulSoil ();
     ~FruitfulSoil ();
     void rain(Soil* soil);
-    void harvestCrops(Soil* soil);
+    void harvestCrops();
     std::string getName();
 };
 

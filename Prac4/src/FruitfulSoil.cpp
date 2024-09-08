@@ -17,6 +17,7 @@ void FruitfulSoil::rain(Soil* soil) {
     soil = new FloodedSoil();
 }
 
-void FruitfulSoil::harvestCrops(Soil* soil) {
-    soil = new DrySoil();
+void FruitfulSoil::harvestCrops() {
+    Soil* dry = new DrySoil();
+    this->setState(dry);
 }

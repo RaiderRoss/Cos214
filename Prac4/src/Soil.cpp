@@ -19,3 +19,8 @@ void Soil::harvestCrops(Soil* soil) {
 std::string Soil::getName() {
     return "Normal soil";
 }
+
+void Soil::setState(Soil* newState) {
+    delete currentSoilState;
+    currentSoilState = newState;
+}
