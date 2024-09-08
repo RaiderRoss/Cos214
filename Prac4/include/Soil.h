@@ -9,7 +9,9 @@ public:
     virtual void rain(Soil* soil);
     virtual void harvestCrops(Soil* soil);
     virtual std::string getName();
+    void setState(Soil* newState);
 protected:
+    Soil* currentSoilState;
     int productivityMultiplier;
 };
 

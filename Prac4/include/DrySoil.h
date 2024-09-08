@@ -7,7 +7,7 @@ public:
     DrySoil ();
     virtual ~DrySoil ();
     void rain(Soil* soil);
-    void harvestCrops(Soil* soil);
+    void harvestCrops();
     std::string getName();
 };
 

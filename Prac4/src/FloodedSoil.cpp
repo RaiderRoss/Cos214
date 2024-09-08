@@ -15,6 +15,7 @@ std::string FloodedSoil::getName() {
 	return "Flooded soil";
 }
 
-void FloodedSoil::harvestCrops(Soil* soil) {
-	soil = new FruitfulSoil();
+void FloodedSoil::harvestCrops() {
+	Soil* fruitful = new FruitfulSoil();
+	this->setState(fruitful);
 }

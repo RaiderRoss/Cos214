@@ -15,6 +15,6 @@ std::string DrySoil::getName() {
     return "Dry soil";
 }
 
-void DrySoil::harvestCrops(Soil* soil) {
+void DrySoil::harvestCrops() {
     return;
 }

@@ -9,7 +9,7 @@ public:
     FloodedSoil ();
     virtual ~FloodedSoil ();
     void rain(Soil* soil);
-    void harvestCrops(Soil* soil);
+    void harvestCrops();
     std::string getName();
 private:
     int productivityMultiplier;
