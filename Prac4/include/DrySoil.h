@@ -6,7 +6,7 @@ class  DrySoil : public Soil {
 public:
     DrySoil ();
     virtual ~DrySoil ();
-    void rain(Soil* soil);
+    void rain();
     void harvestCrops();
     std::string getName();
 };

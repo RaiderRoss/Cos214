@@ -8,7 +8,7 @@ class  FruitfulSoil : public Soil {
 public:
     FruitfulSoil ();
     ~FruitfulSoil ();
-    void rain(Soil* soil);
+    void rain();
     void harvestCrops();
     std::string getName();
 };

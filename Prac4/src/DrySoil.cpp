@@ -8,7 +8,9 @@ DrySoil ::~ DrySoil () {
     delete this;
 }
 
-void DrySoil::rain(Soil* soil) {
+void DrySoil::rain() {
+    Soil* fruitful = new FruitfulSoil();
+    this->setState(fruitful);
 }
 
 std::string DrySoil::getName() {

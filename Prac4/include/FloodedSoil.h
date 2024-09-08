@@ -8,7 +8,7 @@ class  FloodedSoil : public Soil {
 public:
     FloodedSoil ();
     virtual ~FloodedSoil ();
-    void rain(Soil* soil);
+    void rain();
     void harvestCrops();
     std::string getName();
 private:

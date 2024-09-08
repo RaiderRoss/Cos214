@@ -8,7 +8,8 @@ FloodedSoil::~FloodedSoil() {
 	delete this;
 }
 
-void FloodedSoil::rain(Soil* soil) {
+void FloodedSoil::rain() {
+	return;
 }
 
 std::string FloodedSoil::getName() {
