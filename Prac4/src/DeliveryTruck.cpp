@@ -7,10 +7,6 @@ DeliveryTruck::~DeliveryTruck()
 {
 }
 
-void DeliveryTruck::update(Barn* barn) {
-    barn->clear();
+void DeliveryTruck::update(FarmUnit* barn) {
+    barn->update();
 }
-
-
-
-

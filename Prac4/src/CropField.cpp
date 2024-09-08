@@ -35,10 +35,15 @@ void CropField::sellTruck() {
 }
 
 void CropField::callTruck() {
-    truckWatch.back()->update();
+    truckWatch.back()->update(this);
 }
 
 void CropField::startEngine() {
+}
+
+void CropField::update() {
+    soil->rain(soil);
+    this = new DemolishEcosystem();
 }
 
 void CropField::assignTrucker(TruckerMan* truck) {
@@ -46,4 +51,12 @@ void CropField::assignTrucker(TruckerMan* truck) {
 }
 
 void CropField::removeTruck(TruckerMan* truck) {
+}
+
+void CropField::storeCrops(int store) {
+    if(store < planted){
+        planted - store;
+        return;
+    }
+    std::cout << "" << std::endl;
 }

@@ -5,6 +5,7 @@
 #include "FarmUnit.h"
 #include "Soil.h"
 #include "FertilizerTruck.h"
+#include "DemolishEcosystem.h"
 class  CropField : public FarmUnit {
 public:
     CropField (std::string crop, int capacity, Soil* soil);
@@ -21,8 +22,10 @@ private:
 	virtual void sellTruck();
 	virtual void callTruck();
 	virtual void startEngine();
+    virtual void update();
 	virtual void assignTrucker(TruckerMan* truck);
 	virtual void removeTruck(TruckerMan* truck);
+    virtual void storeCrops(int store);
 };
 
 #endif //  CROPFIELD_H

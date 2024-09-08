@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <string>
 #include <vector>
-
+#include <iostream>
 #include "TruckerMan.h"
 class FarmUnit {
    protected:
@@ -19,7 +19,7 @@ class FarmUnit {
 	virtual void storeCrops(int store) = 0;
 	virtual int getTotalCapacity();
 	virtual void buyTruck() = 0;
-	virtual void clear() = 0;
+	virtual void update() = 0;
 	virtual void sellTruck() = 0;
 	virtual void callTruck() = 0;
 	virtual void startEngine() = 0;

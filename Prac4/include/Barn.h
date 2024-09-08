@@ -10,8 +10,8 @@ class Barn : public FarmUnit {
 	virtual ~Barn();
 	std::string getCropType();
 	int getAmountStored();
-	void storeCrops(int store);
-	virtual void clear();
+	virtual void storeCrops(int store);
+	virtual void update();
 	virtual void buyTruck();
 	virtual void sellTruck();
 	virtual void callTruck();
