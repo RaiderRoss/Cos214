@@ -14,8 +14,9 @@ CropField ::~CropField() {
 void CropField::plantCrops(int planted) {
 	if (this->planted + planted < this->capacity) {
 		this->planted += planted;
+		return;
 	}
-	return;
+	harvestField(this->planted += planted, );
 }
 
 std::string CropField::getCropType() {
@@ -42,8 +43,7 @@ void CropField::startEngine() {
 }
 
 void CropField::update() {
-    soil->rain(soil);
-	
+    soil->rain();
 }
 
 void CropField::assignTrucker(TruckerMan* truck) {
@@ -51,6 +51,12 @@ void CropField::assignTrucker(TruckerMan* truck) {
 }
 
 void CropField::removeTruck(TruckerMan* truck) {
+	TruckerMan* last = truckWatch.back();
+	truckWatch.pop_back();
+	if (last != NULL) {
+		delete last;
+		last = NULL;
+	}
 }
 
 void CropField::harvestField(FarmUnit* storage) {

@@ -27,8 +27,6 @@ void Barn::storeCrops(int store) {
 	}
 }
 
-
-
 void Barn::update() {
 	amountStored = 0;
 }
@@ -39,6 +37,11 @@ void Barn::buyTruck() {
 }
 
 void Barn::sellTruck() {
+	TruckerMan* last = truckWatch.back();
+	truckWatch.pop_back();
+	if (last != NULL) {
+		removeTruck(last);
+	}
 }
 
 void Barn::callTruck() {
@@ -53,10 +56,6 @@ void Barn::assignTrucker(TruckerMan* truck) {
 }
 
 void Barn::removeTruck(TruckerMan* truck) {
-	TruckerMan* last = truckWatch.back();
-	truckWatch.pop_back();
-	if (last != NULL) {
-		delete last;
-		last = NULL;
-	}
+	delete truck;
+	truck = NULL;
 }
