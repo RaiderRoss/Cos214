@@ -30,7 +30,7 @@ void Barn::storeCrops(int store) {
 
 
 void Barn::update() {
-
+	amountStored = 0;
 }
 
 void Barn::buyTruck() {

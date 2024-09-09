@@ -1,6 +1,7 @@
 #include "StatBooster.h"
 
-StatBooster::StatBooster() {
+StatBooster::StatBooster(FarmUnit * unit) {
+    this->unit = unit;
 }
 
 StatBooster::~StatBooster() {

@@ -43,7 +43,7 @@ void CropField::startEngine() {
 
 void CropField::update() {
     soil->rain(soil);
-    this = new DemolishEcosystem();
+	
 }
 
 void CropField::assignTrucker(TruckerMan* truck) {

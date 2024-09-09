@@ -1,5 +1,7 @@
 #ifndef Truck_H
 #define Truck_H
+
+class FarmUnit;
 class TruckerMan
 {
 private:

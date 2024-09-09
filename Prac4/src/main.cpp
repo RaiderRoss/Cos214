@@ -1,15 +1,24 @@
 #include <iostream>
-#include "FarmLand.h"
-#include "FarmUnit.h"
+
 #include "CropField.h"
 #include "DrySoil.h"
+#include "FarmLand.h"
+#include "FarmUnit.h"
 int main() {
-    std::cout << "Hello, World!" << std::endl;
-    {
-        std::string type = "Carrots";
-        Soil * soil = new DrySoil();
-        FarmUnit * crop = new CropField(type, 4 , soil);
-    }
+	// Basic farm Testing :
+	{
+		FarmLand* farm1 = new FarmLand();
+	}
+	// Composite farms
+	{
+		FarmLand* farm1 = new FarmLand();
+	}
+	// Decorator Testing :
+	{
+		FarmLand* farm1 = new FarmLand();
+		FarmUnit* field = new CropField();
+		FarmUnit* decorator = new DemolishEcosystem()
+	}
 
-    return 0;
+	return 0;
 }

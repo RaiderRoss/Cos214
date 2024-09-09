@@ -3,11 +3,11 @@
 #include "FarmUnit.h"
 class StatBooster : public FarmUnit
 {
-private:
+protected:
 FarmUnit* unit;
 public:
 virtual void amplifications() = 0;
-StatBooster();
+StatBooster(FarmUnit * unit);
 virtual ~StatBooster();
 virtual void buyTruck();
 virtual void sellTruck();

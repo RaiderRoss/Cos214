@@ -6,7 +6,7 @@ class DeliveryTruck : public TruckerMan {
    private:
 	/* data */
    public:
-	DeliveryTruck(/* args */);
+	DeliveryTruck();
 	virtual ~DeliveryTruck();
 	virtual void update(FarmUnit* barn);
 };
