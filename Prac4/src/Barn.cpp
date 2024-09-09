@@ -1,13 +1,13 @@
 #include "Barn.h"
 
-Barn ::Barn(std::string crop, int stored, int capacity) : FarmUnit(capacity) {
+Barn ::Barn(std::string crop, int stored, int capacity)
+	: FarmUnit(capacity) {
 	this->cropType = crop;
 	this->amountStored = stored;
 	this->capacity = capacity;
 }
 
 Barn ::~Barn() {
-
 }
 
 std::string Barn::getCropType() {
@@ -22,7 +22,6 @@ void Barn::storeCrops(int store) {
 	if (this->amountStored + store < this->capacity) {
 		this->amountStored += store;
 	}
-	std::cout << "Hereeeijfewfiuweifewiufweffewgfwegyifewgyuefwkj" << std::endl;
 	if (amountStored * 100 / capacity > 80) {
 		callTruck();
 	}
@@ -68,7 +67,7 @@ void Barn::harvestField(FarmUnit* barn) {
 }
 
 void Barn::print() {
-		std::cout << "========Barn Field========" << std::endl;
+	std::cout << "========Barn Field========" << std::endl;
 	std::cout << "Crop type: " << cropType << std::endl;
 	std::cout << "Amount stored: " << amountStored << "/" << capacity << std::endl;
 }

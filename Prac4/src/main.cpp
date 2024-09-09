@@ -30,12 +30,12 @@ int main() {
 	std::cout << "\033[1;31m•☽────✧˖°˖☆˖°˖✧────☾••☽────✧˖°˖☆˖°˖✧────☾••☽────✧˖°˖☆˖°˖✧────☾••☽────✧˖°˖☆˖°˖✧────☾••☽────✧˖°˖☆˖°˖✧────☾•\033[0m" << std::endl;
 	// Observer Testing :
 	{
-		Soil* soil = new FloodedSoil();
+		Soil* soil = new FruitfulSoil();
 		FarmLand* farm1 = new FarmLand(6);
-		FarmUnit* field = new CropField("Wheat", 6, soil);
+		FarmUnit* field = new CropField("Wheat", 9, soil);
 		farm1->add(field);
 		field->plantCrops(2);
-		FarmUnit* barn = new Barn("Wheat", 2, 5);
+		FarmUnit* barn = new Barn("Wheat", 1, 10);
 		farm1->add(barn);
 		farm1->print();
 		std::cout << "####################################" << std::endl;
