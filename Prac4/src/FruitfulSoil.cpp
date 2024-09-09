@@ -1,26 +1,26 @@
 #include "FruitfulSoil.h"
 
-FruitfulSoil :: FruitfulSoil () {
-    this->productivityMultiplier = 2;
+FruitfulSoil ::FruitfulSoil() {
+	this->productivityMultiplier = 2;
 }
 
-FruitfulSoil ::~ FruitfulSoil () {
-
+FruitfulSoil ::~FruitfulSoil() {
 }
-
 
 std::string FruitfulSoil::getName() {
-    return "Fruitful soil";
+	return "Fruitful soil";
 }
 
 void FruitfulSoil::rain() {
-    Soil* wet = new FloodedSoil();
-    this->setState(wet);
+	Soil* wet = new FloodedSoil();
+	this->setState(wet);
 }
 
 void FruitfulSoil::harvestCrops(int harvested, FarmUnit* storage) {
-    Soil* dry = new DrySoil();
-    this->setState(dry);
-    harvested *= this->productivityMultiplier;
-    storage->storeCrops(harvested);
+	Soil* dry = new DrySoil();
+	this->setState(dry);
+
+	harvested *= this->productivityMultiplier;
+	std::cout << "Storing " << harvested << " * multiplier : " << productivityMultiplier << std::endl;
+	storage->storeCrops(harvested);
 }

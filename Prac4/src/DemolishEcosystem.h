@@ -1,14 +1,17 @@
-#ifndef DEMO_H
-#define DEMO_H
+#ifndef FIRE_H
+#define FIRE_H
 #include "StatBooster.h"
-#include "Barn.h"
+class FarmUnit;
 class DemolishEcosystem : public StatBooster
 {
+private:
+    /* data */
 public:
-    DemolishEcosystem(FarmUnit * field);
+    DemolishEcosystem(FarmUnit * unit);
     ~DemolishEcosystem();
     virtual void amplifications();
-    virtual void construct();
+    virtual void harvest(FarmUnit * storage);
+    void increaseProducion();
 };
 
 

@@ -24,6 +24,8 @@ class CropField : public FarmUnit {
 	virtual void update();
 	virtual void assignTrucker(TruckerMan* truck);
 	virtual void removeTruck(TruckerMan* truck);
+	virtual void storeCrops(int store);
+	virtual int getTotalCapacity();
 	virtual void print();
 	virtual void addBarn(int capacity);
    private:

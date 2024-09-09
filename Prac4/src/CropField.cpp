@@ -13,7 +13,9 @@ CropField ::~CropField() {
 }
 
 void CropField::plantCrops(int planted) {
-	if (this->planted + planted < this->capacity) {
+	
+	if (this->planted + planted <= this->capacity) {
+		std::cout << "Planting : " << planted << " Crops " << std::endl;
 		this->planted += planted;
 		return;
 	}
@@ -64,7 +66,15 @@ void CropField::removeTruck(TruckerMan* truck) {
 	}
 }
 
+void CropField::storeCrops(int store) {
+}
+
+int CropField::getTotalCapacity() {
+	return capacity;
+}
+
 void CropField::harvestField(FarmUnit* storage) {
+	std::cout << "Harvesting in crop field" << std::endl;
 	int harvested = this->planted;
 	this->soil->harvestCrops(harvested, storage);
 	planted = 0;
@@ -78,7 +88,7 @@ void CropField::print() {
 	std::cout << "========Crop Field========" << std::endl;
 	std::cout << "Crop type: " << cropType << std::endl;
 	std::cout << "Soil type: " << soil->getName() << std::endl;
-	std::cout << "Planted: " << planted << "/" << capacity << std::endl;
+	std::cout << "Planted: " << planted << "/" << getTotalCapacity() << std::endl;
 }
 
 void CropField::addBarn(int capacity) {

@@ -19,10 +19,10 @@ int Barn::getAmountStored() {
 }
 
 void Barn::storeCrops(int store) {
-	if (this->amountStored + store < this->capacity) {
-		this->amountStored += store;
-	}
+	std::cout << "Storing : " << store << " crops" << std::endl;
+	this->amountStored += store;
 	if (amountStored * 100 / capacity > 80) {
+		std::cout << "Reached max capacity and calling truck : " << std::endl;
 		callTruck();
 	}
 }
@@ -45,7 +45,12 @@ void Barn::sellTruck() {
 }
 
 void Barn::callTruck() {
-	truckWatch.back()->update(this);
+	if (!truckWatch.empty() && truckWatch.back() != NULL) {
+		truckWatch.back()->update(this);
+		return;
+	}
+	std::cout << "Capacity is full and there are no trucks to call so deleted everything " << std ::endl;
+	amountStored = 0;
 }
 
 void Barn::startEngine() {
@@ -69,8 +74,12 @@ void Barn::harvestField(FarmUnit* barn) {
 void Barn::print() {
 	std::cout << "========Barn Field========" << std::endl;
 	std::cout << "Crop type: " << cropType << std::endl;
-	std::cout << "Amount stored: " << amountStored << "/" << capacity << std::endl;
+	std::cout << "Amount stored: " << amountStored << "/" << getTotalCapacity() << std::endl;
 }
 
 void Barn::plantCrops(int planted) {
+}
+
+int Barn::getTotalCapacity() {
+	return capacity;
 }

@@ -5,10 +5,12 @@
 #include <vector>
 
 #include "FarmUnit.h"
-
+#include "Breadth-First.h"
+#include "Depth-First.h"
+#include "Iterator.h"
 class FarmLand : public FarmUnit {
    public:
-	FarmLand(int capacity);
+	FarmLand(int capacity, std::string name);
 	~FarmLand();
 	virtual bool add(FarmUnit* remove);
 	virtual bool remove(FarmUnit* remove);
@@ -25,8 +27,12 @@ class FarmLand : public FarmUnit {
 	virtual void harvestField(FarmUnit* storage);
 	virtual void print();
 	virtual void plantCrops(int planted);
-   private:
+	virtual Iterator* createIteratorDfs();
+	virtual Iterator* createIteratorBfs();
+	std::vector<FarmUnit*> childern();
 	std::vector<FarmUnit*> farmUnit;
+	private:
+	std::string name;
 };
 
-#endif	// FARMLAND_HX
+#endif	// FARMLAND_H

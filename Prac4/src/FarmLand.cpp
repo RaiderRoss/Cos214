@@ -1,8 +1,9 @@
 #include "FarmLand.h"
 
-FarmLand::FarmLand(int capacity)
+FarmLand::FarmLand(int capacity, std::string name)
 	: FarmUnit(capacity) {
 	this->farmUnit.reserve(capacity);
+	this->name = name;
 }
 
 FarmLand::~FarmLand() {
@@ -69,11 +70,24 @@ void FarmLand::harvestField(FarmUnit* storage) {
 
 void FarmLand::print() {
 	std::cout << "========Farm Land========" << std::endl;
+	std::cout << "Capacity: " << capacity << std::endl;
+	std::cout << "Name: " << name << std::endl;
 	for (FarmUnit* unit : farmUnit) {
-        
 		unit->print();
 	}
 }
 
 void FarmLand::plantCrops(int planted) {
+}
+
+Iterator* FarmLand::createIteratorDfs() {
+	return new DepthFirst(this);
+}
+
+Iterator* FarmLand::createIteratorBfs() {
+	return new BreadthFirst(this);
+}
+
+std::vector<FarmUnit*> FarmLand::childern() {
+	return farmUnit;
 }

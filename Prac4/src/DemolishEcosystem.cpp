@@ -1,15 +1,21 @@
 #include "DemolishEcosystem.h"
 
-DemolishEcosystem::DemolishEcosystem(FarmUnit * field) : StatBooster(field) {
+#include "FarmUnit.h"
+DemolishEcosystem::DemolishEcosystem(FarmUnit* unit)
+	: StatBooster(unit) {
 }
 
 DemolishEcosystem::~DemolishEcosystem() {
 }
 
 void DemolishEcosystem::amplifications() {
-    construct();
+	increaseProducion();
 }
 
-void DemolishEcosystem::construct() {
-    unit->add(new Barn(unit->getCropType(), 0, 30));
+void DemolishEcosystem::increaseProducion() {
+	std::cout << "Increased production by applying fertilizer " << std::endl;
+}
+
+void DemolishEcosystem::harvest(FarmUnit* storage) {
+	unit->harvestField(storage);
 }
