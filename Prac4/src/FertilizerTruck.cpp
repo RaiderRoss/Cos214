@@ -9,4 +9,5 @@ FertilizerTruck::~FertilizerTruck()
 
 
 void FertilizerTruck::update(FarmUnit * field) {
+    
 }

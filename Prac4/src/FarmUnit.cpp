@@ -52,3 +52,7 @@ void FarmUnit::removeTruck(TruckerMan * truck)
 
 void FarmUnit::harvestField(FarmUnit* storage) {
 }
+
+std::vector<FarmUnit*> FarmUnit::childern() {
+	return std::vector<FarmUnit*>();
+}

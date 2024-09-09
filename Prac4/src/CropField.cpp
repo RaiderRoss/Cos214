@@ -13,7 +13,9 @@ CropField ::~CropField() {
 }
 
 void CropField::plantCrops(int planted) {
+	
 	if (this->planted + planted <= this->capacity) {
+		std::cout << "Planting : " << planted << " Crops " << std::endl;
 		this->planted += planted;
 		return;
 	}
@@ -65,6 +67,7 @@ void CropField::removeTruck(TruckerMan* truck) {
 }
 
 void CropField::harvestField(FarmUnit* storage) {
+	std::cout << "Harvesting in crop field" << std::endl;
 	int harvested = this->planted;
 	this->soil->harvestCrops(harvested, storage);
 	planted = 0;
