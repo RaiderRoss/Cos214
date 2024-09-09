@@ -53,10 +53,8 @@ void CropField::assignTrucker(TruckerMan* truck) {
 void CropField::removeTruck(TruckerMan* truck) {
 }
 
-void CropField::storeCrops(int store) {
-    if(store < planted){
-        planted - store;
-        return;
-    }
-    std::cout << "" << std::endl;
+void CropField::harvestField(FarmUnit* storage) {
+	int harvested = this->planted;
+	this->soil->harvestCrops(harvested, storage);
+	planted = 0;
 }

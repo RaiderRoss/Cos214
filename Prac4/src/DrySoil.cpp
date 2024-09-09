@@ -8,13 +8,16 @@ DrySoil ::~ DrySoil () {
     delete this;
 }
 
-void DrySoil::rain(Soil* soil) {
+void DrySoil::rain() {
+    Soil* fruitful = new FruitfulSoil();
+    this->setState(fruitful);
 }
 
 std::string DrySoil::getName() {
     return "Dry soil";
 }
 
-void DrySoil::harvestCrops() {
-    return;
+void DrySoil::harvestCrops(int harvested, FarmUnit* storage) {
+    harvested *= this->productivityMultiplier;
+    storage->storeCrops(harvested);
 }

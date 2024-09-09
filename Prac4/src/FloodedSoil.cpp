@@ -1,21 +1,24 @@
 #include "FloodedSoil.h"
 
 FloodedSoil::FloodedSoil() {
-	this->productivityMultiplier = 0.3;
+	this->productivityMultiplier = 0;
 }
 
 FloodedSoil::~FloodedSoil() {
 	delete this;
 }
 
-void FloodedSoil::rain(Soil* soil) {
+void FloodedSoil::rain() {
+	return;
 }
 
 std::string FloodedSoil::getName() {
 	return "Flooded soil";
 }
 
-void FloodedSoil::harvestCrops() {
+void FloodedSoil::harvestCrops(int harvested, FarmUnit* storage) {
 	Soil* fruitful = new FruitfulSoil();
 	this->setState(fruitful);
+	harvested *= this->productivityMultiplier;
+    storage->storeCrops(harvested);
 }

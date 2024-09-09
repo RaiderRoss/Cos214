@@ -8,13 +8,9 @@ Soil ::~ Soil () {
     delete this;
 }
 
-void Soil::rain(Soil* soil) {
-    soil = new FloodedSoil();
-}
+void Soil::rain() {}
 
-void Soil::harvestCrops(Soil* soil) {
-    soil = new DrySoil();
-}
+void Soil::harvestCrops(int harvested, FarmUnit* storage) {}
 
 std::string Soil::getName() {
     return "Normal soil";

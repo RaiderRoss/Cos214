@@ -8,9 +8,9 @@ class  FloodedSoil : public Soil {
 public:
     FloodedSoil ();
     virtual ~FloodedSoil ();
-    void rain(Soil* soil);
-    void harvestCrops();
-    std::string getName();
+    void rain() override;
+    void harvestCrops(int harvested, FarmUnit* storage) override;
+    std::string getName() override;
 private:
     int productivityMultiplier;
 };
