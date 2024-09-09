@@ -28,6 +28,7 @@ class FarmUnit {
 	virtual void harvestField(FarmUnit* storage);
 	virtual void print() = 0;
 	virtual void plantCrops(int planted) = 0;
+	virtual void addBarn(int capacity);
 };
 
 #endif	//  FARMUNIT_H

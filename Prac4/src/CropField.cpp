@@ -80,3 +80,7 @@ void CropField::print() {
 	std::cout << "Soil type: " << soil->getName() << std::endl;
 	std::cout << "Planted: " << planted << "/" << capacity << std::endl;
 }
+
+void CropField::addBarn(int capacity) {
+	this->capacity += capacity;
+}

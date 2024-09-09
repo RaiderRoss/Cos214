@@ -25,6 +25,7 @@ class CropField : public FarmUnit {
 	virtual void assignTrucker(TruckerMan* truck);
 	virtual void removeTruck(TruckerMan* truck);
 	virtual void print();
+	virtual void addBarn(int capacity);
    private:
 	std::string cropType;
 	Soil* soil;
