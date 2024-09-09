@@ -19,6 +19,8 @@ std::string Soil::getName() {
 }
 
 void Soil::setState(Soil* newState) {
-    delete currentSoilState;
+    if(currentSoilState != NULL) {
+        delete currentSoilState;
+    }
     currentSoilState = newState;
 }
