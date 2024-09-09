@@ -59,3 +59,9 @@ void Barn::removeTruck(TruckerMan* truck) {
 	delete truck;
 	truck = NULL;
 }
+
+void Barn::harvestField(FarmUnit* barn) {
+	int moved = this->amountStored;
+	barn->storeCrops(amountStored);
+	this->amountStored = 0;
+}
