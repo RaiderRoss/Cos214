@@ -1,0 +1,182 @@
+[1;31m•☽────✧˖°˖☆˖°˖✧────☾••☽────✧˖°˖☆˖°˖✧────☾••☽────Composite Testing────☾••☽────✧˖°˖☆˖°˖✧────☾••☽────✧˖°˖☆˖°˖✧────☾•[0m
+========Farm Land========
+Capacity: 6
+Name: Wheat farm
+========Crop Field========
+Crop type: Wheat
+Soil type: Dry soil
+Planted: 0/6
+========Barn Field========
+Crop type: Wheat
+Amount stored: 2/5
+####################################
+Planting : 4 Crops 
+========Farm Land========
+Capacity: 6
+Name: Wheat farm
+========Crop Field========
+Crop type: Wheat
+Soil type: Dry soil
+Planted: 4/6
+========Barn Field========
+Crop type: Wheat
+Amount stored: 2/5
+####################################
+Capacity is too much and harvesting
+========Farm Land========
+Capacity: 6
+Name: Wheat farm
+========Crop Field========
+Crop type: Wheat
+Soil type: Dry soil
+Planted: 0/6
+========Barn Field========
+Crop type: Wheat
+Amount stored: 2/5
+========Farm Land========
+Capacity: 6
+Name: Wheat farm
+========Barn Field========
+Crop type: Wheat
+Amount stored: 2/5
+[1;31m•☽────✧˖°˖☆˖°˖✧────☾••☽────✧˖°˖☆˖°˖✧────☾••☽────Observer Testing────☾••☽────✧˖°˖☆˖°˖✧────☾••☽────✧˖°˖☆˖°˖✧────☾•[0m
+Planting : 2 Crops 
+========Farm Land========
+Capacity: 6
+Name: Potatoe farm
+========Crop Field========
+Crop type: Potatoe
+Soil type: Fruitful soil
+Planted: 2/9
+========Barn Field========
+Crop type: Potatoe
+Amount stored: 1/10
+####################################
+Planting : 3 Crops 
+Harvesting in crop field
+Storing 10 * multiplier : 2
+Storing : 10 crops
+Reached max capacity and calling truck : 
+Called a truck because the barn was full
+========Farm Land========
+Capacity: 6
+Name: Potatoe farm
+========Crop Field========
+Crop type: Potatoe
+Soil type: Fruitful soil
+Planted: 0/9
+========Barn Field========
+Crop type: Potatoe
+Amount stored: 0/10
+Planting : 7 Crops 
+Harvesting in crop field
+Storing 14 * multiplier : 2
+Storing : 14 crops
+Reached max capacity and calling truck : 
+Capacity is full and there are no trucks to call so deleted everything 
+Planting : 6 Crops 
+Harvesting in crop field
+Storing 12 * multiplier : 2
+Storing : 12 crops
+Reached max capacity and calling truck : 
+Capacity is full and there are no trucks to call so deleted everything 
+========Farm Land========
+Capacity: 6
+Name: Potatoe farm
+========Crop Field========
+Crop type: Potatoe
+Soil type: Fruitful soil
+Planted: 0/9
+========Barn Field========
+Crop type: Potatoe
+Amount stored: 0/10
+[1;31m•☽────✧˖°˖☆˖°˖✧────☾••☽────✧˖°˖☆˖°˖✧────☾••☽────✧Decorator Testing────☾••☽────✧˖°˖☆˖°˖✧────☾••☽────✧˖°˖☆˖°˖✧────☾•[0m
+Planting : 3 Crops 
+========Farm Land========
+Capacity: 2
+Name: Barley Farm
+========Crop Field========
+Crop type: Barley
+Soil type: Flooded soil
+Planted: 3/3
+Construction new barn of crop type : Barley with capacity : 30
+========Barn Field========
+Crop type: Barley
+Amount stored: 1/10
+####################################
+Increased production by applying fertilizer 
+3Barley========Farm Land========
+Capacity: 2
+Name: Barley Farm
+========Crop Field========
+Crop type: Barley
+Soil type: Flooded soil
+Planted: 3/3
+[1;31m•☽────✧˖°˖☆˖°˖✧────☾••☽────✧˖°˖☆˖°˖✧────☾••☽────Iterator Testing────☾••☽────✧˖°˖☆˖°˖✧────☾••☽────✧˖°˖☆˖°˖✧────☾•[0m
+========Farm Land========
+Capacity: 4
+Name: 1
+========Farm Land========
+Capacity: 1
+Name: 12
+========Farm Land========
+Capacity: 1
+Name: 121
+========Farm Land========
+Capacity: 2
+Name: 1211
+========Farm Land========
+Capacity: 2
+Name: 13
+========Farm Land========
+Capacity: 1
+Name: 131
+========Farm Land========
+Capacity: 2
+Name: 132
+========Farm Land========
+Capacity: 1
+Name: 1321
+========Farm Land========
+Capacity: 1
+Name: 14
+========Farm Land========
+Capacity: 1
+Name: 14
+========Farm Land========
+Capacity: 4
+Name: 1
+========Farm Land========
+Capacity: 1
+Name: 12
+========Farm Land========
+Capacity: 1
+Name: 121
+========Farm Land========
+Capacity: 2
+Name: 1211
+========Farm Land========
+Capacity: 2
+Name: 13
+========Farm Land========
+Capacity: 1
+Name: 131
+========Farm Land========
+Capacity: 2
+Name: 132
+========Farm Land========
+Capacity: 1
+Name: 1321
+========Farm Land========
+Capacity: 1
+Name: 14
+0========Farm Land========
+Capacity: 1
+Name: 12
+========Farm Land========
+Capacity: 1
+Name: 121
+========Farm Land========
+Capacity: 2
+Name: 1211
+[1;31m•☽────✧˖°˖☆˖°˖✧────☾••☽────✧˖°˖☆˖°˖✧────☾••☽────Farm Land────☾••☽────✧˖°˖☆˖°˖✧────☾••☽────✧˖°˖☆˖°˖✧────☾•[0m
