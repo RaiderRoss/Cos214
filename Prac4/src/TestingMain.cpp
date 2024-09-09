@@ -56,7 +56,7 @@ int main() {
 		StatBooster* decoratorField = new DemolishEcosystem(field);
 		farm1->add(decoratorField);
 		decoratorField->plantCrops(3);
-		farm1->print();
+			farm1->print();
 		std::cout << "####################################" << std::endl;
 		farm1->print();
 		delete farm1;
