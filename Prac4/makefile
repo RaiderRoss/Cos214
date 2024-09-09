@@ -1,207 +1,253 @@
 # Variables
-CXX = g++
-CXXFLAGS = -std=c++17 -Wall -Wextra -fprofile-arcs -ftest-coverage -Iinclude -Isrc -I/opt/homebrew/opt/catch2
-LDFLAGS = 
-ifneq ("$(wildcard lib)","")
-    LDFLAGS += -Llib
-endif
+PROJECT_NAME = u23571561
 SRCDIR = src
-INCDIR = include
 BUILDDIR = build
 BINDIR = bin
 DOCSDIR = docs
-TARGET = $(BINDIR)/my_project
-SOURCES = $(wildcard $(SRCDIR)/*.cpp)
-OBJECTS = $(patsubst $(SRCDIR)/%.cpp, $(BUILDDIR)/%.o, $(SOURCES))
+COVERAGEDIR = coverage
+TARGET = $(BINDIR)/$(PROJECT_NAME)
+ZIP_FILE_NAME = $(PROJECT_NAME).zip
 TEMP_DIR = temp
-ZIP_DIR = submit
+DOXYFILE = Doxyfile
 
-# Default target
-all: $(TARGET)
+# Include directories (add all the folders with header files)
+INCLUDES = -I$(SRCDIR)
 
-# Linking
+# Find all .cpp and .h files recursively
+SOURCES = $(shell find $(SRCDIR) -name '*.cpp')
+OBJECTS = $(patsubst $(SRCDIR)/%.cpp, $(BUILDDIR)/%.o, $(SOURCES))
+
+# Compile with C++17 standard and coverage flags
+CXXFLAGS += -std=c++17 -fprofile-arcs -ftest-coverage
+LDFLAGS += -fprofile-arcs -ftest-coverage
+
+# Compile and link the program
 $(TARGET): $(OBJECTS)
 	@mkdir -p $(BINDIR)
-	$(CXX) $(CXXFLAGS) $(OBJECTS) -o $@ $(LDFLAGS)
+	$(CXX) $(OBJECTS) $(LDFLAGS) -o $(TARGET)
 
-# Compiling
+# Compile each .cpp file into an object file
 $(BUILDDIR)/%.o: $(SRCDIR)/%.cpp
-	@mkdir -p $(BUILDDIR)
-	$(CXX) $(CXXFLAGS) -c $< -o $@
+	@mkdir -p $(dir $@)
+	$(CXX) $(CXXFLAGS) -c $< -o $@ $(INCLUDES)
 
-# Run the application
-run: clean $(TARGET)
-	$(TARGET)
+# Clean build and coverage files
+clean:
+	@rm -rf $(BUILDDIR)/* $(BINDIR)/* $(COVERAGEDIR)/*
 
-# Run without cleaning
-run_only: $(TARGET)
-	$(TARGET)
+# Run the compiled project
+run: $(TARGET)
+	@$(TARGET) > aidan.txt
 
-# Detect memory leaks using valgrind
+# Check memory leaks using leaks command (macOS)
 leaks: $(TARGET)
 	export MallocStackLogging=1; leaks -atExit --list -- $(TARGET) | awk 'BEGIN { print "Memory Leak Summary:\\n" } /^Process/ { print } /^Leak/ { print }'
 
-# Clean build artifacts
-clean:
-	rm -rf $(BUILDDIR) $(BINDIR) $(TEMP_DIR)
-	rm -f $(SRCDIR)/*.gcno $(SRCDIR)/*.gcda $(SRCDIR)/*.gcov
-
-# Static analysis with cppcheck
-check:
-	cppcheck --enable=all $(SRCDIR)/*.cpp
-
-# Show coverage
-coverage: run
-	gcov -f -m -r -a $(SRCDIR)/*.cpp
-
-# Show coverage summary
-summary: coverage
-	python3 -m gcovr -r . --exclude $(SRCDIR)/main.cpp --print-summary
-
-# Zip files for test submission
-zip_test: prepare_zip_test
-	@mkdir -p $(ZIP_DIR)
-	@rm -rf $(ZIP_DIR)/u23571561.zip
-	@if [ -n "$$(ls -A $(TEMP_DIR))" ]; then zip -j $(ZIP_DIR)/u23571561.zip $(TEMP_DIR)/*; else echo "Nothing to zip"; fi
-	@rm -rf $(TEMP_DIR)
-
-# Zip files for submission
-zip: prepare_zip
-	@mkdir -p $(ZIP_DIR)
-	@rm -rf $(ZIP_DIR)/u23571561.zip
-	@if [ -n "$$(ls -A $(TEMP_DIR))" ]; then zip -j $(ZIP_DIR)/u23571561.zip $(TEMP_DIR)/*; else echo "Nothing to zip"; fi
-	@rm -rf $(TEMP_DIR)
-
-# Prepare files for zipping for test
-prepare_zip_test:
-	@mkdir -p $(TEMP_DIR)
-	@cp $(SRCDIR)/*.cpp $(TEMP_DIR) 2>/dev/null || true
-	@cp $(INCDIR)/*.h $(TEMP_DIR) 2>/dev/null || true
-	@cp data/*.txt $(TEMP_DIR) 2>/dev/null || true
-	cp Makefile $(TEMP_DIR)
-	# Create a simple Makefile in TEMP_DIR
-	echo 'CXX = g++' > $(TEMP_DIR)/Makefile
-	echo 'CXXFLAGS = -std=c++17 -Wall -Wextra' >> $(TEMP_DIR)/Makefile
-	echo 'TARGET = my_project_test' >> $(TEMP_DIR)/Makefile
-	echo 'SRCDIR = .' >> $(TEMP_DIR)/Makefile
-	echo 'SOURCES = $$(wildcard $$(SRCDIR)/*.cpp)' >> $(TEMP_DIR)/Makefile
-	echo 'OBJECTS = $$(SOURCES:.cpp=.o)' >> $(TEMP_DIR)/Makefile
-	echo '' >> $(TEMP_DIR)/Makefile
-	echo 'all: build' >> $(TEMP_DIR)/Makefile
-	echo '' >> $(TEMP_DIR)/Makefile
-	echo 'build: $$(OBJECTS)' >> $(TEMP_DIR)/Makefile
-	echo '	$$(CXX) $$(CXXFLAGS) -o $$(TARGET) $$(OBJECTS)' >> $(TEMP_DIR)/Makefile
-	echo '' >> $(TEMP_DIR)/Makefile
-	echo 'clean:' >> $(TEMP_DIR)/Makefile
-	echo '	rm -f $$(OBJECTS) $$(TARGET)' >> $(TEMP_DIR)/Makefile
-	echo '' >> $(TEMP_DIR)/Makefile
-	echo 'run: build' >> $(TEMP_DIR)/Makefile
-	echo '	./$$(TARGET)' >> $(TEMP_DIR)/Makefile
-
-# Prepare files for zipping
-prepare_zip:
-	@mkdir -p $(TEMP_DIR)
-	@cp $(SRCDIR)/*.cpp $(TEMP_DIR) 2>/dev/null || true
-	@cp $(INCDIR)/*.h $(TEMP_DIR) 2>/dev/null || true
-	@cp data/*.txt $(TEMP_DIR) 2>/dev/null || true
-
-# Setup command
+# Setup initial project structure with necessary folders
 setup:
-	@mkdir -p $(SRCDIR) $(INCDIR) $(BUILDDIR) $(BINDIR) $(DOCSDIR) $(ZIP_DIR)
+	@mkdir -p $(SRCDIR) $(BUILDDIR) $(BINDIR) $(DOCSDIR)
 	@echo '#include <iostream>' > $(SRCDIR)/main.cpp
 	@echo '' >> $(SRCDIR)/main.cpp
 	@echo 'int main() {' >> $(SRCDIR)/main.cpp
 	@echo '    std::cout << "Hello, World!" << std::endl;' >> $(SRCDIR)/main.cpp
 	@echo '    return 0;' >> $(SRCDIR)/main.cpp
 	@echo '}' >> $(SRCDIR)/main.cpp
+	@echo "Project setup complete!"
 
-# Create a new header file
-h:
-	@if [ -z "$(name)" ]; then \
-	    echo "Please provide a name for the header file."; \
-	    exit 1; \
-	fi
-	@mkdir -p $(INCDIR)
-	@name=$$(basename $(name)); \
-	echo '#ifndef ' $$(echo $$name | tr a-z A-Z)_H > $(INCDIR)/$$name.h; \
-	echo '#define ' $$(echo $$name | tr a-z A-Z)_H >> $(INCDIR)/$$name.h; \
-	echo '' >> $(INCDIR)/$$name.h; \
-	echo 'class ' $$(echo $$name | sed "s/\\b\(.\)/\u\1/g") ' {' >> $(INCDIR)/$$name.h; \
-	echo 'public:' >> $(INCDIR)/$$name.h; \
-	if [ -z "$(no_ctor)" ]; then \
-		echo '    ' $$(echo $$name | sed "s/\\b\(.\)/\u\1/g") '();' >> $(INCDIR)/$$name.h; \
-	fi; \
-	if [ -z "$(no_dtor)" ]; then \
-		echo '    ~' $$(echo $$name | sed "s/\\b\(.\)/\u\1/g") '();' >> $(INCDIR)/$$name.h; \
-	fi; \
-	if [ ! -z "$(methods)" ]; then \
-		for method in $(methods); do \
-			echo '    void ' $$method '();' >> $(INCDIR)/$$name.h; \
-		done; \
-	fi; \
-	echo '};' >> $(INCDIR)/$$name.h; \
-	echo '' >> $(INCDIR)/$$name.h; \
-	echo '#endif // ' $$(echo $$name | tr a-z A-Z)_H >> $(INCDIR)/$$name.h
-
-# Create a new source file
-cpp:
-	@if [ -z "$(name)" ]; then \
-	    echo "Please provide a name for the source file."; \
-	    exit 1; \
-	fi
-	@mkdir -p $(SRCDIR)
-	@name=$$(basename $(name)); \
-	echo '#include "'$$name'.h"' > $(SRCDIR)/$$name.cpp; \
-	echo '' >> $(SRCDIR)/$$name.cpp; \
-	if [ -z "$(no_ctor)" ]; then \
-		echo $$(echo $$name | sed "s/\\b\(.\)/\u\1/g") '::' $$(echo $$name | sed "s/\\b\(.\)/\u\1/g") '() {' >> $(SRCDIR)/$$name.cpp; \
-		echo '    // Constructor implementation' >> $(SRCDIR)/$$name.cpp; \
-		echo '}' >> $(SRCDIR)/$$name.cpp; \
-		echo '' >> $(SRCDIR)/$$name.cpp; \
-	fi; \
-	if [ -z "$(no_dtor)" ]; then \
-		echo $$(echo $$name | sed "s/\\b\(.\)/\u\1/g") '::~' $$(echo $$name | sed "s/\\b\(.\)/\u\1/g") '() {' >> $(SRCDIR)/$$name.cpp; \
-		echo '    // Destructor implementation' >> $(SRCDIR)/$$name.cpp; \
-		echo '}' >> $(SRCDIR)/$$name.cpp; \
-		echo '' >> $(SRCDIR)/$$name.cpp; \
-	fi; \
-	if [ ! -z "$(methods)" ]; then \
-		for method in $(methods); do \
-			echo 'void ' $$(echo $$name | sed "s/\\b\(.\)/\u\1/g") '::' $$method '() {' >> $(SRCDIR)/$$name.cpp; \
-			echo '    // Method implementation' >> $(SRCDIR)/$$name.cpp; \
-			echo '}' >> $(SRCDIR)/$$name.cpp; \
-			echo '' >> $(SRCDIR)/$$name.cpp; \
-		done; \
+# Doxygen Setup
+doxygen:
+	@if [ ! -f $(DOXYFILE) ]; then \
+	    doxygen -g $(DOXYFILE); \
+	    echo "Doxygen configuration file created at $(DOXYFILE)"; \
 	fi
 
-# Create both a new header and source file
-class: h cpp
+# Generate Doxygen documentation
+docs: doxygen
+	@mkdir -p $(DOCSDIR)
+	doxygen $(DOXYFILE)
+
+# Clean Doxygen documentation
+clean-docs:
+	@rm -rf $(DOCSDIR)/*
+
+# Create new class with header and source files
+class:
+	@if [ "$(CLASS)" = "" ]; then \
+	    class_path=$(subst src/,,$(wordlist 2,$(words $(MAKECMDGOALS)),$(MAKECMDGOALS))); \
+	else \
+	    class_path=$(CLASS); \
+	fi; \
+	if echo "$$class_path" | grep -q '/'; then \
+	    dir_path=$(SRCDIR)/$$(dirname $$class_path); \
+	    class_name=$$(basename $$class_path); \
+	else \
+	    dir_path=$(SRCDIR); \
+	    class_name=$$class_path; \
+	fi; \
+	mkdir -p $$dir_path; \
+	header_file=$$dir_path/$$class_name.h; \
+	source_file=$$dir_path/$$class_name.cpp; \
+	header_guard=$$(echo "$$class_name" | tr '[:lower:]' '[:upper:]')_H; \
+	if [ ! -f $$header_file ]; then \
+	    echo "Creating $$header_file"; \
+	    echo "#ifndef $$header_guard" > $$header_file; \
+	    echo "#define $$header_guard" >> $$header_file; \
+	    echo "" >> $$header_file; \
+	    echo "class $$class_name {" >> $$header_file; \
+	    echo "public:" >> $$header_file; \
+	    echo "    $$class_name();" >> $$header_file; \
+	    echo "    ~$$class_name();" >> $$header_file; \
+	    echo "};" >> $$header_file; \
+	    echo "" >> $$header_file; \
+	    echo "#endif // $$header_guard" >> $$header_file; \
+	else \
+	    echo "Header file already exists: $$header_file"; \
+	fi; \
+	if [ ! -f $$source_file ]; then \
+	    echo "Creating $$source_file"; \
+	    echo "#include \"$$class_name.h\"" > $$source_file; \
+	    echo "" >> $$source_file; \
+	    echo "$$class_name::$$class_name() {}" >> $$source_file; \
+	    echo "$$class_name::~$$class_name() {}" >> $$source_file; \
+	else \
+	    echo "Source file already exists: $$source_file"; \
+	fi; \
+	exit 0
+
+# Run tests and generate coverage report
+coverage: $(TARGET)
+	@mkdir -p coverage # Ensure the coverage directory exists
+	@$(TARGET) # Run the compiled program
+	@gcovr -r . --html --html-details -o coverage/index.html # Generate HTML report in the coverage directory
+	@gcovr -r . --print-summary # Print detailed coverage summary to the terminal
+	@echo "Coverage report generated in the 'coverage' directory."
+
+# Ignore other Makefile goals when using "make class"
+%:
+	@:
+
+# Modified zip command to remove context from #include paths
+# Modified zip command with new simple Makefile
+zip:
+	@mkdir -p $(TEMP_DIR)/$(PROJECT_NAME)
+	# Find all .cpp and .h files and copy them into the temp directory
+	@find $(SRCDIR) -type f \( -name '*.cpp' -o -name '*.h' \) -exec cp {} $(TEMP_DIR)/$(PROJECT_NAME) \;
+	# Process each file to modify #include statements by stripping the path
+	@find $(TEMP_DIR)/$(PROJECT_NAME) -type f \( -name '*.cpp' -o -name '*.h' \) -exec sed -i '' -E 's|#include "(.*)/([^/]+)"|#include "\2"|' {} \;
+	# Create a simple Makefile inside the zip folder (corrected to run)
+	@echo 'CXX = g++' > $(TEMP_DIR)/$(PROJECT_NAME)/Makefile
+	@echo 'PROJECT_NAME = $(PROJECT_NAME)' >> $(TEMP_DIR)/$(PROJECT_NAME)/Makefile
+	@echo 'TARGET = $$(PROJECT_NAME)' >> $(TEMP_DIR)/$(PROJECT_NAME)/Makefile
+	@echo 'SOURCES = $$(wildcard *.cpp)' >> $(TEMP_DIR)/$(PROJECT_NAME)/Makefile
+	@echo 'OBJECTS = $$(SOURCES:.cpp=.o)' >> $(TEMP_DIR)/$(PROJECT_NAME)/Makefile
+	@echo '' >> $(TEMP_DIR)/$(PROJECT_NAME)/Makefile
+	@echo 'all: $$(TARGET)' >> $(TEMP_DIR)/$(PROJECT_NAME)/Makefile
+	@echo '' >> $(TEMP_DIR)/$(PROJECT_NAME)/Makefile
+	@echo '%.o: %.cpp' >> $(TEMP_DIR)/$(PROJECT_NAME)/Makefile
+	@echo '	$$(CXX) -std=c++17 -c $$< -o $$@' >> $(TEMP_DIR)/$(PROJECT_NAME)/Makefile
+	@echo '' >> $(TEMP_DIR)/$(PROJECT_NAME)/Makefile
+	@echo '$$(TARGET): $$(OBJECTS)' >> $(TEMP_DIR)/$(PROJECT_NAME)/Makefile
+	@echo '	$$(CXX) -std=c++17 -o $$(TARGET) $$(OBJECTS)' >> $(TEMP_DIR)/$(PROJECT_NAME)/Makefile
+	@echo '' >> $(TEMP_DIR)/$(PROJECT_NAME)/Makefile
+	@echo 'clean:' >> $(TEMP_DIR)/$(PROJECT_NAME)/Makefile
+	@echo '	rm -f $$(OBJECTS) $$(TARGET)' >> $(TEMP_DIR)/$(PROJECT_NAME)/Makefile
+	@echo '' >> $(TEMP_DIR)/$(PROJECT_NAME)/Makefile
+	@echo 'run: all' >> $(TEMP_DIR)/$(PROJECT_NAME)/Makefile
+	@echo '	./$$(TARGET)' >> $(TEMP_DIR)/$(PROJECT_NAME)/Makefile
+
+	# Zip the project folder with all .cpp and .h files and the Makefile
+	@cd $(TEMP_DIR) && zip -r ../$(ZIP_FILE_NAME) $(PROJECT_NAME)/*
+	# Clean up
+	@rm -rf $(TEMP_DIR)
+
+# Create or overwrite .gitignore file
+gitignore:
+	@echo "# Ignore prerequisites" > .gitignore
+	@echo "*.d" >> .gitignore
+	@echo "" >> .gitignore
+
+	@echo "# Compiled object files" >> .gitignore
+	@echo "*.slo" >> .gitignore
+	@echo "*.lo" >> .gitignore
+	@echo "*.o" >> .gitignore
+	@echo "*.obj" >> .gitignore
+	@echo "" >> .gitignore
+
+	@echo "# Precompiled headers" >> .gitignore
+	@echo "*.gch" >> .gitignore
+	@echo "*.pch" >> .gitignore
+	@echo "" >> .gitignore
+
+	@echo "# Compiled dynamic libraries" >> .gitignore
+	@echo "*.so" >> .gitignore
+	@echo "*.dylib" >> .gitignore
+	@echo "*.dll" >> .gitignore
+	@echo "" >> .gitignore
+
+	@echo "# Fortran module files" >> .gitignore
+	@echo "*.mod" >> .gitignore
+	@echo "*.smod" >> .gitignore
+	@echo "" >> .gitignore
+
+	@echo "# Compiled static libraries" >> .gitignore
+	@echo "*.lai" >> .gitignore
+	@echo "*.la" >> .gitignore
+	@echo "*.a" >> .gitignore
+	@echo "*.lib" >> .gitignore
+	@echo "" >> .gitignore
+
+	@echo "# Executables" >> .gitignore
+	@echo "*.exe" >> .gitignore
+	@echo "*.out" >> .gitignore
+	@echo "*.app" >> .gitignore
+	@echo "" >> .gitignore
+
+	@echo "# Build and binary directories" >> .gitignore
+	@echo "build/" >> .gitignore
+	@echo "bin/" >> .gitignore
+	@echo "" >> .gitignore
+
+	@echo "# Coverage files" >> .gitignore
+	@echo "*.gcno" >> .gitignore
+	@echo "*.gcda" >> .gitignore
+	@echo "coverage/" >> .gitignore
+	@echo "" >> .gitignore
+
+	@echo "# Other files" >> .gitignore
+	@echo "*.log" >> .gitignore
+	@echo "*.swp" >> .gitignore
+	@echo "*.bak" >> .gitignore
+	@echo "*~" >> .gitignore
+	@echo "/.vscode" >> .gitignore
+	@echo "/submit" >> .gitignore
+	@echo "*.zip" >> .gitignore
+	@echo ".DS_Store" >> .gitignore
+	@echo "" >> .gitignore
+
+	@echo "# Ignore Makefile" >> .gitignore
+	@echo "Makefile" >> .gitignore
+	@echo "makefile" >> .gitignore
+	@echo "" >> .gitignore
+
+	@echo "# Ignore Doxygen output" >> .gitignore
+	@echo "docs/html" >> .gitignore
+	@echo "docs/latex" >> .gitignore
 
 # Help command
 help:
 	@echo "Makefile Help:"
 	@echo ""
 	@echo "Targets:"
-	@echo "  all            - Build the target executable."
-	@echo "  run            - Clean and run the target executable."
-	@echo "  run_only       - Run the target executable without cleaning."
-	@echo "  leaks          - Check for memory leaks using valgrind."
-	@echo "  clean          - Clean build artifacts."
-	@echo "  check          - Run static analysis with cppcheck."
-	@echo "  coverage       - Show code coverage using gcov."
-	@echo "  summary        - Show code coverage summary using gcovr."
-	@echo "  zip_test       - Zip files for test submission with additional Makefile."
-	@echo "  zip            - Zip files for submission."
-	@echo "  setup          - Set up initial project structure with main.cpp."
-	@echo "  h              - Create a new header file. Parameters: name, no_ctor, no_dtor, methods."
-	@echo "  cpp            - Create a new source file. Parameters: name, no_ctor, no_dtor, methods."
-	@echo "  class          - Create a new class with header and source files. Parameters: name, no_ctor, no_dtor, methods."
-	@echo ""
-	@echo "Parameters:"
-	@echo "  name           - The name of the header/source/class file."
-	@echo "  no_ctor        - Set to 1 to exclude the default constructor."
-	@echo "  no_dtor        - Set to 1 to exclude the default destructor."
-	@echo "  methods        - A space-separated list of methods to include, passed as a quoted string."
+	@echo "  setup          - Set up initial project structure with necessary folders and main.cpp."
+	@echo "  class          - Create a new class with header and source files. Syntax: make class ClassName or make class Directory.ClassName."
+	@echo "  run            - Compile and run the project."
+	@echo "  coverage       - Compile the project, run the tests, and generate a coverage report in 'coverage' folder."
+	@echo "  zip            - Zip all files and folders in src and include a simple Makefile."
+	@echo "  clean          - Clean build artifacts (object files, executables, coverage files, and build directories)."
+	@echo "  doxygen        - Set up Doxygen configuration file."
+	@echo "  docs           - Generate Doxygen documentation."
+	@echo "  clean-docs     - Clean Doxygen documentation."
+	@echo "  leaks          - Check for memory leaks using leaks on macOS."
 
 # Phony targets
-.PHONY: all run run_only clean check coverage leaks summary zip_test zip prepare_zip_test prepare_zip setup h cpp class help
+.PHONY: setup class run zip clean help doxygen docs clean-docs coverage leaks
