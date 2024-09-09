@@ -5,7 +5,7 @@ FloodedSoil::FloodedSoil() {
 }
 
 FloodedSoil::~FloodedSoil() {
-	delete this;
+
 }
 
 void FloodedSoil::rain() {
@@ -17,8 +17,8 @@ std::string FloodedSoil::getName() {
 }
 
 void FloodedSoil::harvestCrops(int harvested, FarmUnit* storage) {
+	harvested *= this->productivityMultiplier;
 	Soil* fruitful = new FruitfulSoil();
 	this->setState(fruitful);
-	harvested *= this->productivityMultiplier;
     storage->storeCrops(harvested);
 }

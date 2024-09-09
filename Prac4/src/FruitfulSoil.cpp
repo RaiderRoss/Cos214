@@ -5,7 +5,7 @@ FruitfulSoil :: FruitfulSoil () {
 }
 
 FruitfulSoil ::~ FruitfulSoil () {
-    delete this;
+
 }
 
 

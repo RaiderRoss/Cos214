@@ -22,6 +22,7 @@ void Barn::storeCrops(int store) {
 	if (this->amountStored + store < this->capacity) {
 		this->amountStored += store;
 	}
+	std::cout << "Hereeeijfewfiuweifewiufweffewgfwegyifewgyuefwkj" << std::endl;
 	if (amountStored * 100 / capacity > 80) {
 		callTruck();
 	}
@@ -65,6 +66,7 @@ void Barn::harvestField(FarmUnit* barn) {
 	barn->storeCrops(amountStored);
 	this->amountStored = 0;
 }
+
 void Barn::print() {
 		std::cout << "========Barn Field========" << std::endl;
 	std::cout << "Crop type: " << cropType << std::endl;

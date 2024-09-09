@@ -10,7 +10,7 @@ int main() {
 		FarmUnit* farm1 = new FarmLand(10);
 		delete farm1;
 	}
-	
+
 	//	Composite farms
 	{
 		Soil* soil = new DrySoil();
@@ -27,13 +27,24 @@ int main() {
 		farm1->print();
 		delete farm1;
 	}
-
+	std::cout << "\033[1;31m•☽────✧˖°˖☆˖°˖✧────☾••☽────✧˖°˖☆˖°˖✧────☾••☽────✧˖°˖☆˖°˖✧────☾••☽────✧˖°˖☆˖°˖✧────☾••☽────✧˖°˖☆˖°˖✧────☾•\033[0m" << std::endl;
 	// Observer Testing :
 	{
-		FarmLand* farm1 = new FarmLand(2);
-
-		FarmUnit* field = new CropField("Wheat", 3, soil);
-		FarmUnit* decorator = new DemolishEcosystem(field);
+		Soil* soil = new FloodedSoil();
+		FarmLand* farm1 = new FarmLand(6);
+		FarmUnit* field = new CropField("Wheat", 6, soil);
+		farm1->add(field);
+		field->plantCrops(2);
+		FarmUnit* barn = new Barn("Wheat", 2, 5);
+		farm1->add(barn);
+		farm1->print();
+		std::cout << "####################################" << std::endl;
+		farm1->plantCrops(3);
+		field->harvestField(barn);
+		farm1->print();
+		field->buyTruck();
+		field->callTruck();
+		delete farm1;
 	}
 	// // Decorator Testing :
 	// {
