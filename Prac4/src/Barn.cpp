@@ -74,8 +74,12 @@ void Barn::harvestField(FarmUnit* barn) {
 void Barn::print() {
 	std::cout << "========Barn Field========" << std::endl;
 	std::cout << "Crop type: " << cropType << std::endl;
-	std::cout << "Amount stored: " << amountStored << "/" << capacity << std::endl;
+	std::cout << "Amount stored: " << amountStored << "/" << getTotalCapacity() << std::endl;
 }
 
 void Barn::plantCrops(int planted) {
+}
+
+int Barn::getTotalCapacity() {
+	return capacity;
 }

@@ -22,6 +22,7 @@ class Barn : public FarmUnit {
 	virtual void harvestField(FarmUnit* storage);
 	virtual void print();
 	virtual void plantCrops(int planted);
+	virtual int getTotalCapacity();
    private:
 	std::string cropType;
 	int amountStored;

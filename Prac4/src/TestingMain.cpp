@@ -3,6 +3,7 @@
 #include "CropField.h"
 #include "DrySoil.h"
 #include "FarmLand.h"
+#include "FireHazard.h"
 int main() {
 	std::cout << "\033[1;31m•☽────✧˖°˖☆˖°˖✧────☾••☽────✧˖°˖☆˖°˖✧────☾••☽────Composite Testing────☾••☽────✧˖°˖☆˖°˖✧────☾••☽────✧˖°˖☆˖°˖✧────☾•\033[0m" << std::endl;
 	{
@@ -17,6 +18,8 @@ int main() {
 		farm1->print();
 		std::cout << "####################################" << std::endl;
 		field->plantCrops(5);
+		farm1->print();
+		farm1->remove(field);
 		farm1->print();
 		delete farm1;
 	}
@@ -33,6 +36,7 @@ int main() {
 		std::cout << "####################################" << std::endl;
 		barn->buyTruck();
 		field->plantCrops(3);
+		field->buyTruck();
 		field->harvestField(barn);
 		farm1->print();
 		barn->sellTruck();
@@ -46,14 +50,24 @@ int main() {
 	std::cout << "\033[1;31m•☽────✧˖°˖☆˖°˖✧────☾••☽────✧˖°˖☆˖°˖✧────☾••☽────✧Decorator Testing────☾••☽────✧˖°˖☆˖°˖✧────☾••☽────✧˖°˖☆˖°˖✧────☾•\033[0m" << std::endl;
 	{
 		FarmLand* farm1 = new FarmLand(2, "Barley Farm");
-		Soil* soil = new DrySoil();
+		Soil* soil = new FloodedSoil();
 		FarmUnit* field = new CropField("Barley", 3, soil);
+		FarmUnit* barn = new Barn("Barley", 1, 10);
 		StatBooster* decoratorField = new DemolishEcosystem(field);
+		StatBooster* decoratorBarn = new FireHazard(barn);
 		farm1->add(decoratorField);
 		decoratorField->plantCrops(3);
+		decoratorField->buyTruck();
 		farm1->print();
+		decoratorBarn->amplifications();
+		decoratorBarn->print();
 		std::cout << "####################################" << std::endl;
 		decoratorField->amplifications();
+		decoratorField->callTruck();
+		decoratorField->sellTruck();
+		std::cout << decoratorField->getTotalCapacity();
+		decoratorField->update();
+		std::cout << decoratorField->getCropType();
 		farm1->print();
 		delete farm1;
 		delete field;
@@ -78,8 +92,14 @@ int main() {
 		farm3->add(farm131);
 		farm3->add(farm132);
 		farm1->print();
-		Iterator * dfs = farm1->createIteratorDfs();
+		Iterator* dfs = farm1->createIteratorDfs();
 		dfs->firstFarm()->print();
+		Iterator* bfs = farm1->createIteratorBfs();
+		bfs->firstFarm()->print();
+		std::cout << bfs->isDone();
+		bfs->next()->print();
+		delete dfs;
+		delete bfs;
 		delete farm1;
 	}
 
