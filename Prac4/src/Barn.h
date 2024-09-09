@@ -2,8 +2,8 @@
 #define BARN_H
 #include <string>
 
-#include "FarmUnit.h"
 #include "DeliveryTruck.h"
+#include "FarmUnit.h"
 class Barn : public FarmUnit {
    public:
 	Barn(std::string crop, int amountStored, int capacity);
@@ -18,7 +18,8 @@ class Barn : public FarmUnit {
 	virtual void startEngine();
 	virtual void assignTrucker(TruckerMan* truck);
 	virtual void removeTruck(TruckerMan* truck);
-virtual void harvestField(FarmUnit* storage);
+	virtual void harvestField(FarmUnit* storage);
+
    private:
 	std::string cropType;
 	int amountStored;

@@ -39,10 +39,10 @@ clean:
 run: $(TARGET)
 	@$(TARGET) > aidan.txt
 
-# Check memory leaks using leaks command (macOS)
+# Check memory leaks using leaks on macOS or valgrind on Linux
 leaks: $(TARGET)
-	export MallocStackLogging=1; leaks -atExit --list -- $(TARGET) | awk 'BEGIN { print "Memory Leak Summary:\\n" } /^Process/ { print } /^Leak/ { print }'
-
+	valgrind --leak-check=full --track-origins=yes $(TARGET); 
+  
 # Setup initial project structure with necessary folders
 setup:
 	@mkdir -p $(SRCDIR) $(BUILDDIR) $(BINDIR) $(DOCSDIR)
