@@ -14,7 +14,7 @@ public:
     void plantCrops(int planted);
     std::string getCropType();
     std::string getSoilState();
-    virtual void harvestField(FarmUnit* storage);
+    virtual void harvestField(FarmUnit* storage) override;
 private:
     std::string cropType;
     Soil* soil;
