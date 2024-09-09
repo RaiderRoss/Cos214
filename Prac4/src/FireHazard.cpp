@@ -1,6 +1,6 @@
 #include "FireHazard.h"
-
-FireHazard::FireHazard() {
+#include "FarmUnit.h"
+FireHazard::FireHazard(FarmUnit * unit) : StatBooster(unit) {
 }
 
 FireHazard::~FireHazard() {

@@ -1,6 +1,6 @@
 #include "Barn.h"
 
-Barn ::Barn(std::string crop, int stored, int capacity) {
+Barn ::Barn(std::string crop, int stored, int capacity) : FarmUnit(capacity) {
 	this->cropType = crop;
 	this->amountStored = stored;
 	this->capacity = capacity;

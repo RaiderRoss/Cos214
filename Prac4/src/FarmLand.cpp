@@ -1,7 +1,6 @@
 #include "FarmLand.h"
 
-FarmLand ::FarmLand(int capacity) {
-	this->capacity = capacity;
+FarmLand ::FarmLand(int capacity)  : FarmUnit (capacity) {
 	this->farmUnit = std::vector<FarmUnit*>(capacity, nullptr);
 }
 

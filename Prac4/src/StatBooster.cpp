@@ -1,6 +1,6 @@
 #include "StatBooster.h"
 
-StatBooster::StatBooster(FarmUnit * unit) {
+StatBooster::StatBooster(FarmUnit * unit) : FarmUnit(unit->getTotalCapacity()) {
     this->unit = unit;
 }
 
@@ -41,7 +41,7 @@ void StatBooster::removeTruck(TruckerMan* truck) {
 
 std::string StatBooster::getCropType()
 {
-    return "";
+    return unit->getCropType();
 }
 
 int StatBooster::getTotalCapacity() {

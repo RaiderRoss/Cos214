@@ -1,11 +1,13 @@
 #include "FarmUnit.h"
 
-FarmUnit :: FarmUnit() {
-    this->capacity = 0;
+
+
+FarmUnit::FarmUnit(int capacity) {
+    this->capacity = capacity;
 }
 
-FarmUnit ::~ FarmUnit () {
-    delete this;
+FarmUnit ::~FarmUnit() {
+	delete this;
 }
 
 void FarmUnit :: storeCrops(int store) {
@@ -23,3 +25,4 @@ bool FarmUnit :: remove(FarmUnit* remove) {
 int FarmUnit :: getTotalCapacity() {
     return this->capacity;
 }
+

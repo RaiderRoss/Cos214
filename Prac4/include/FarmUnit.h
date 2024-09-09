@@ -11,9 +11,9 @@ class FarmUnit {
 	std::vector<TruckerMan*> truckWatch;
 
    public:
-	FarmUnit();
+	FarmUnit(int capacity);
 	virtual ~FarmUnit();
-
+    virtual std::string getCropType() = 0;
 	virtual bool add(FarmUnit* add);
 	virtual bool remove(FarmUnit* remove);
 	virtual void storeCrops(int store);
@@ -25,7 +25,7 @@ class FarmUnit {
 	virtual void startEngine() = 0;
 	virtual void assignTrucker(TruckerMan* truck) = 0;
 	virtual void removeTruck(TruckerMan* truck) = 0;
-	virtual void harvestField(FarmUnit* storage);
+	virtual void harvestField(FarmUnit* storage) = 0;
 };
 
 #endif	//  FARMUNIT_H

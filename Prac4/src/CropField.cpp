@@ -1,6 +1,6 @@
 #include "CropField.h"
 
-CropField ::CropField(std::string crop, int capacity, Soil* soil) {
+CropField ::CropField(std::string crop, int capacity, Soil* soil) : FarmUnit (capacity) {
 	this->cropType = crop;
 	this->capacity = capacity;
 	this->soil = soil;
@@ -16,7 +16,7 @@ void CropField::plantCrops(int planted) {
 		this->planted += planted;
 		return;
 	}
-	harvestField(this->planted += planted, );
+//	harvestField(this->planted += planted, );
 }
 
 std::string CropField::getCropType() {
