@@ -47,3 +47,11 @@ std::string StatBooster::getCropType()
 int StatBooster::getTotalCapacity() {
 	return unit->getTotalCapacity();
 }
+
+void StatBooster::harvestField(FarmUnit* storage) {
+    unit->harvestField(storage);
+}
+
+void StatBooster::plantCrops(int planted) {
+    unit->plantCrops(planted);
+}

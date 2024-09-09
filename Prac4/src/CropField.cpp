@@ -1,6 +1,7 @@
 #include "CropField.h"
 
-CropField ::CropField(std::string crop, int capacity, Soil* soil) : FarmUnit (capacity) {
+CropField ::CropField(std::string crop, int capacity, Soil* soil)
+	: FarmUnit(capacity) {
 	this->cropType = crop;
 	this->capacity = capacity;
 	this->soil = soil;
@@ -8,7 +9,7 @@ CropField ::CropField(std::string crop, int capacity, Soil* soil) : FarmUnit (ca
 }
 
 CropField ::~CropField() {
-	delete this;
+	delete soil;
 }
 
 void CropField::plantCrops(int planted) {
@@ -16,7 +17,8 @@ void CropField::plantCrops(int planted) {
 		this->planted += planted;
 		return;
 	}
-//	harvestField(this->planted += planted, );
+	std::cout << "Capacity is too much and harvesting" << std::endl;
+	harvestField();
 }
 
 std::string CropField::getCropType() {
@@ -36,14 +38,17 @@ void CropField::sellTruck() {
 }
 
 void CropField::callTruck() {
-    truckWatch.back()->update(this);
+	if (!truckWatch.empty() && truckWatch.back() != NULL) {
+		truckWatch.back()->update(this);
+		return;
+	}
 }
 
 void CropField::startEngine() {
 }
 
 void CropField::update() {
-    soil->rain();
+	soil->rain();
 }
 
 void CropField::assignTrucker(TruckerMan* truck) {
@@ -63,4 +68,15 @@ void CropField::harvestField(FarmUnit* storage) {
 	int harvested = this->planted;
 	this->soil->harvestCrops(harvested, storage);
 	planted = 0;
+}
+
+void CropField::harvestField() {
+	planted = 0;
+}
+
+void CropField::print() {
+	std::cout << "========Crop Field========" << std::endl;
+	std::cout << "Crop type: " << cropType << std::endl;
+	std::cout << "Soil type: " << soil->getName() << std::endl;
+	std::cout << "Planted: " << planted << "/" << capacity << std::endl;
 }

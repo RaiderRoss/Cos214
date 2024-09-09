@@ -19,6 +19,8 @@ virtual void assignTrucker(TruckerMan * trucker);
 virtual void removeTruck(TruckerMan* truck);
 virtual std::string getCropType();
 virtual int getTotalCapacity();
+virtual void harvestField(FarmUnit* storage);
+virtual void plantCrops(int planted);
 };
 
 

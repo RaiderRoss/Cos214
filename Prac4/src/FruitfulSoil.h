@@ -8,9 +8,9 @@ class  FruitfulSoil : public Soil {
 public:
     FruitfulSoil ();
     ~FruitfulSoil ();
-    void rain() override;
-    void harvestCrops(int harvested, FarmUnit* storage) override;
-    std::string getName() override;
+virtual    void rain() ;
+   virtual void harvestCrops(int harvested, FarmUnit* storage) ;
+  virtual  std::string getName() ;
 };
 
 #endif //  FRUITFULSOIL_H

@@ -5,10 +5,12 @@ Soil::Soil (){
 }
 
 Soil ::~ Soil () {
-    delete this;
+    
 }
 
-void Soil::rain() {}
+void Soil::rain() {
+    
+}
 
 void Soil::harvestCrops(int harvested, FarmUnit* storage) {}
 

@@ -19,7 +19,8 @@ class Barn : public FarmUnit {
 	virtual void assignTrucker(TruckerMan* truck);
 	virtual void removeTruck(TruckerMan* truck);
 	virtual void harvestField(FarmUnit* storage);
-
+	virtual void print();
+	virtual void plantCrops(int planted);
    private:
 	std::string cropType;
 	int amountStored;

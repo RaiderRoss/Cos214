@@ -7,7 +7,7 @@ Barn ::Barn(std::string crop, int stored, int capacity) : FarmUnit(capacity) {
 }
 
 Barn ::~Barn() {
-	delete this;
+
 }
 
 std::string Barn::getCropType() {
@@ -64,4 +64,12 @@ void Barn::harvestField(FarmUnit* barn) {
 	int moved = this->amountStored;
 	barn->storeCrops(amountStored);
 	this->amountStored = 0;
+}
+void Barn::print() {
+		std::cout << "========Barn Field========" << std::endl;
+	std::cout << "Crop type: " << cropType << std::endl;
+	std::cout << "Amount stored: " << amountStored << "/" << capacity << std::endl;
+}
+
+void Barn::plantCrops(int planted) {
 }

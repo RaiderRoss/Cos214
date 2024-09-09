@@ -5,8 +5,9 @@ DrySoil :: DrySoil () {
 }
 
 DrySoil ::~ DrySoil () {
-    delete this;
+
 }
+
 
 void DrySoil::rain() {
     Soil* fruitful = new FruitfulSoil();

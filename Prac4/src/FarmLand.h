@@ -1,19 +1,32 @@
-#ifndef  FARMLAND_H
-#define  FARMLAND_H
-#include <vector>
-#include "FarmUnit.h"
-#include <algorithm>
+#ifndef FARMLAND_H
+#define FARMLAND_H
 
-class  FarmLand : public FarmUnit {
-public:
-    FarmLand (int capacity);
-    ~FarmLand ();
-    bool add(FarmUnit* remove) override; 
-    bool remove(FarmUnit* remove) override;
-    void harvestField(FarmUnit* storage) override;
-private:
-    int capacity;
-    std::vector<FarmUnit*> farmUnit;
+#include <algorithm>
+#include <vector>
+
+#include "FarmUnit.h"
+
+class FarmLand : public FarmUnit {
+   public:
+	FarmLand(int capacity);
+	~FarmLand();
+	virtual bool add(FarmUnit* remove);
+	virtual bool remove(FarmUnit* remove);
+	virtual void storeCrops(int store);
+	virtual int getTotalCapacity();
+	virtual void buyTruck();
+	virtual void update();
+	virtual void sellTruck();
+	virtual void callTruck();
+	virtual void startEngine();
+	virtual void assignTrucker(TruckerMan* truck);
+	virtual void removeTruck(TruckerMan* truck);
+	virtual std::string getCropType();
+	virtual void harvestField(FarmUnit* storage);
+	virtual void print();
+	virtual void plantCrops(int planted);
+   private:
+	std::vector<FarmUnit*> farmUnit;
 };
 
-#endif //  FARMLAND_H
+#endif	// FARMLAND_HX
