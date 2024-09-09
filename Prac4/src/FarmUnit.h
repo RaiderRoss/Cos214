@@ -29,7 +29,6 @@ class FarmUnit {
 	virtual void harvestField(FarmUnit* storage) = 0;
 	virtual void print() = 0;
 	virtual void plantCrops(int planted) = 0;
-	virtual void addBarn(int capacity);
 	virtual std::vector<FarmUnit*> childern();
 };
 

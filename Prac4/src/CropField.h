@@ -27,7 +27,6 @@ class CropField : public FarmUnit {
 	virtual void storeCrops(int store);
 	virtual int getTotalCapacity();
 	virtual void print();
-	virtual void addBarn(int capacity);
    private:
 	std::string cropType;
 	Soil* soil;
