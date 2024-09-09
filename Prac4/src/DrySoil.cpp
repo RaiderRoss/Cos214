@@ -17,6 +17,7 @@ std::string DrySoil::getName() {
     return "Dry soil";
 }
 
-void DrySoil::harvestCrops() {
-    return;
+void DrySoil::harvestCrops(int harvested, FarmUnit* storage) {
+    harvested *= this->productivityMultiplier;
+    storage->storeCrops(harvested);
 }
