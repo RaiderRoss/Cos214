@@ -28,3 +28,5 @@ bool FarmLand::remove(FarmUnit* unit) {
 	}
 	return false;
 }
+
+void FarmLand :: harvestField(FarmUnit* storage) {}

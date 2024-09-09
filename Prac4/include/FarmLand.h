@@ -10,6 +10,7 @@ public:
     ~FarmLand ();
     bool add(FarmUnit* remove) override; 
     bool remove(FarmUnit* remove) override;
+    void harvestField(FarmUnit* storage) override;
 private:
     int capacity;
     std::vector<FarmUnit*> farmUnit;
