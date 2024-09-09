@@ -102,6 +102,14 @@ int main() {
 		delete bfs;
 		delete farm1;
 	}
-
+	std::cout << "\033[1;31m•☽────✧˖°˖☆˖°˖✧────☾••☽────✧˖°˖☆˖°˖✧────☾••☽────Farm Land────☾••☽────✧˖°˖☆˖°˖✧────☾••☽────✧˖°˖☆˖°˖✧────☾•\033[0m" << std::endl;
+	{
+		FarmUnit* farm = new FarmLand(2, "WHEAT");
+		Soil* dry = new DrySoil();
+		dry->getName();
+		dry->rain();
+		FarmUnit* barn = new Barn("WHEAT", 0, 1);
+		farm->harvestField(barn);
+	}
 	return 0;
 }
