@@ -13,7 +13,7 @@ CropField ::~CropField() {
 }
 
 void CropField::plantCrops(int planted) {
-	if (this->planted + planted < this->capacity) {
+	if (this->planted + planted <= this->capacity) {
 		this->planted += planted;
 		return;
 	}

@@ -55,3 +55,7 @@ void StatBooster::harvestField(FarmUnit* storage) {
 void StatBooster::plantCrops(int planted) {
     unit->plantCrops(planted);
 }
+
+void StatBooster::print() {
+    unit->print();
+}

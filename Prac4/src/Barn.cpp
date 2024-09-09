@@ -45,7 +45,11 @@ void Barn::sellTruck() {
 }
 
 void Barn::callTruck() {
-	truckWatch.back()->update(this);
+	if (!truckWatch.empty() && truckWatch.back() != NULL) {
+		truckWatch.back()->update(this);
+		return;
+	}
+	std::cout << "Capacity is full and there are no trucks to call so deleted everything " << std ::endl;
 }
 
 void Barn::startEngine() {

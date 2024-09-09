@@ -1,17 +1,15 @@
-#ifndef FIRE_H
-#define FIRE_H
+#ifndef DEMO_H
+#define DEMO_H
 #include "StatBooster.h"
-class FarmUnit;
+#include "Barn.h"
 class FireHazard : public StatBooster
 {
-private:
-    /* data */
 public:
-    FireHazard(FarmUnit * unit);
+    FireHazard(FarmUnit * field);
     ~FireHazard();
     virtual void amplifications();
+    virtual void construct();
     virtual int getLeftOverCapacity();
-    virtual void harvest();
 };
 
 

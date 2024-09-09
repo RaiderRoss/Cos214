@@ -42,17 +42,27 @@ int main() {
 		farm1->plantCrops(3);
 		field->harvestField(barn);
 		farm1->print();
+		farm1->plantCrops(3);
+		field->harvestField(barn);
 		field->buyTruck();
 		field->callTruck();
 		delete farm1;
 	}
-	// // Decorator Testing :
-	// {
-	// 	FarmLand* farm1 = new FarmLand(2);
-	//
-	// 	FarmUnit* field = new CropField("Wheat", 3, soil);
-	// 	FarmUnit* decorator = new DemolishEcosystem(field);
-	// }
+	// Decorator Testing :
+	std::cout << "\033[1;31m•☽────✧˖°˖☆˖°˖✧────☾••☽────✧˖°˖☆˖°˖✧────☾••☽────✧˖°˖☆˖°˖✧────☾••☽────✧˖°˖☆˖°˖✧────☾••☽────✧˖°˖☆˖°˖✧────☾•\033[0m" << std::endl;
+	{
+		FarmLand* farm1 = new FarmLand(2);
+		Soil* soil = new DrySoil();
+		FarmUnit* field = new CropField("Wheat", 3, soil);
+		StatBooster* decoratorField = new DemolishEcosystem(field);
+		farm1->add(decoratorField);
+		decoratorField->plantCrops(3);
+		farm1->print();
+		std::cout << "####################################" << std::endl;
+		decoratorField->amplifications();
+		farm1->print();
+		delete farm1;
+	}
 
 	return 0;
 }

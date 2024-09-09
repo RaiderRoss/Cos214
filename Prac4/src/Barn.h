@@ -4,6 +4,7 @@
 
 #include "DeliveryTruck.h"
 #include "FarmUnit.h"
+#include <iostream>
 class Barn : public FarmUnit {
    public:
 	Barn(std::string crop, int amountStored, int capacity);
