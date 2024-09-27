@@ -1,96 +1,153 @@
 #include <stdlib.h>
 
+#include <algorithm>
+#include <ctime>
 #include <iostream>
 
 #include "colours.cpp"
-
+using namespace std;
 void displayActions();
 void run();
-void checkUserInput(std::string input);
+void checkUserInput(string input);
 void invalidLoop();
 
 void displayActions() {
-	std::cout << colours::BLUE << "====================🔐 House security 🔐====================" << colours::RESET << std::endl;
-	std::cout << colours::BOLD + colours::GREEN << "Actions : " << colours::RESET << std::endl;
-	std::cout << "#########################" << std::endl;
-	std::cout << "➥ Add a room : addRoom {room name}\t" << std::endl;
-	std::cout << "➥ Add a device : addDev {device name}\t" << std::endl;
-	std::cout << "➥ Run an action : run {command}\t" << std::endl;
-	std::cout << "➥ View valid commans : listCommands\t" << std::endl;
-	std::cout << "➥ View Layout : listSections\t" << std::endl;
-	std::cout << "➥ Select a room : selectRoom {room ID}\t" << std::endl;
-	std::cout << "➥ Select a device : selectDev {device ID}\t" << std::endl;
+	cout << colours::BLUE << "====================🔐 House security 🔐====================" << colours::RESET << endl;
+	cout << colours::BOLD + colours::GREEN << "Actions : " << colours::RESET << endl;
+	cout << "#########################" << endl;
+	cout << "➥ Add a room : addRoom {room name}\t" << endl;
+	cout << "➥ Add a device : addDev {device name}\t" << endl;
+	cout << "➥ Run an action : run {command}\t" << endl;
+	cout << "➥ View valid commans : listCommands\t" << endl;
+	cout << "➥ View Layout : listSections\t" << endl;
+	cout << "➥ Select a room : selectRoom {room ID}\t" << endl;
+	cout << "➥ Select a device : selectDev {device ID}\t" << endl;
 
-	std::cout << colours::BOLD + colours::RED << "To leave : Exit" << colours::RESET << std::endl;
-	std::cout << colours::BOLD + colours::ORANGE << "To clear the terminal : Clear" << colours::RESET << std::endl;
-	std::cout << "#########################" << std::endl;
+	cout << colours::BOLD + colours::RED << "To leave : Exit" << colours::RESET << endl;
+	cout << colours::BOLD + colours::ORANGE << "To clear the terminal : Clear" << colours::RESET << endl;
+	cout << "#########################" << endl;
 }
 
 void run() {
-	std::cout << "Input⤐ ";
-	std::string input = "";
-	std::getline(std::cin, input);
+	cout << "Input⤐ ";
+	string input = "";
+	getline(cin, input);
 	checkUserInput(input);
 }
 
-void checkUserInput(std::string input) {
+void checkUserInput(string input) {
 	if (input == "Exit") {
 		return;
 	}
+	int spacePos = input.find(' ');
 
-	if (input == "addRoom") {
+	string action, arg;
+
+	if (spacePos != string::npos) {
+		action = input.substr(0, spacePos);
+		arg = input.substr(spacePos + 1);
+	} else {
+		action = input;
+		arg = "";
+	}
+
+	if (action == "addRoom") {
+		if (arg == "") {
+			cout << "No Arguements given!" << endl;
+			invalidLoop();
+		}
+		arg.erase(remove(arg.begin(), arg.end(), ' '), arg.end());
+		time_t t = time(0);
+		string id = to_string(t);
+		id = id.substr(id.length() - 4, 2) + "room" + id.substr(id.length() - 2, id.length()) + arg;
+		cout << "Created a room with ID : " << id << endl;
 		run();
 		return;
 	}
 
-	if (input == "addDev") {
+	if (action == "addDev") {
+		if (arg == "") {
+			cout << "No Arguements given!" << endl;
+			invalidLoop();
+		}
+        arg.erase(remove(arg.begin(), arg.end(), ' '), arg.end());
+		time_t t = time(0);
+		string id = to_string(t);
+		id = id.substr(id.length() - 4, 2) + "dev" + id.substr(id.length() - 2, id.length()) + arg;
+		cout << "Created a device with ID : " << id << endl;
 		run();
 		return;
 	}
 
-	if (input == "run") {
+	if (action == "selectRoom") {
+		if (arg == "") {
+			cout << "No Arguements given!" << endl;
+			invalidLoop();
+		}
 		run();
 		return;
 	}
-	if (input == "listCommands") {
+	if (action == "selectDev") {
+		if (arg == "") {
+			cout << "No Arguements given!" << endl;
+			invalidLoop();
+		}
 		run();
 		return;
 	}
-	if (input == "listSections") {
+
+	if (action == "run") {
+		if (arg == "") {
+			cout << "No Arguements given!" << endl;
+			invalidLoop();
+		}
 		run();
 		return;
 	}
-    if (input == "selectRoom") {
+	if (action == "listCommands") {
 		run();
 		return;
 	}
-	if (input == "selectDev") {
+	if (action == "listSections") {
 		run();
 		return;
 	}
-	if (input == "Clear") {
+
+	if (action == "Clear") {
 		system("clear");
 		displayActions();
 		run();
 		return;
 	}
 
-	std::cout << "Command : " << input << " is an invalid action: " << std::endl;
+	cout << "Command : " << input << " is an invalid action: " << endl;
 	invalidLoop();
 }
 
 void invalidLoop() {
-	std::cout << "Input⤐ ";
-	std::string input = "";
-	std::getline(std::cin, input);
+	cout << "Input⤐ ";
+	string input = "";
+	getline(cin, input);
 	checkUserInput(input);
 }
 
 int main(int argc, char const *argv[]) {
 	system("clear");
-	displayActions();
-	run();
-	system("clear");
-	std::cout << colours::BOLD + colours::RED << "You have left the simulation :(" << colours::RESET << std::endl;
+
+	cout << colours::LIGHT_GREEN + colours::BOLD << "============ Welcome to home management securtiy Co ============" << colours::RESET << endl;
+	cout << "This app allowes you to manage devices in your house." << endl;
+
+	cout << "Press X to start" << endl
+			  << "Input⤐ ";
+	char input = ' ';
+	cin >> input;
+	if (input == 'X') {
+		cin.ignore();
+		cout << "All valid commands are shown below : " << endl;
+		displayActions();
+		run();
+		system("clear");
+	}
+	cout << colours::BOLD + colours::RED << "You have left the simulation :(" << colours::RESET << endl;
 	return 0;
 }
