@@ -100,7 +100,7 @@ int main() {
 		dry->rain();
 		FarmUnit* barn = new Barn("WHEAT", 0, 1);
 		farm->harvestField(barn);
-		FarmLand* farm = new FarmLand(1, "1321");
+		FarmLand* farm2 = new FarmLand(1, "1321");
 		farm->update();
 		farm->sellTruck();
 		farm->callTruck();

@@ -19,8 +19,12 @@ void FruitfulSoil::rain() {
 void FruitfulSoil::harvestCrops(int harvested, FarmUnit* storage) {
 	Soil* dry = new DrySoil();
 	this->setState(dry);
-
 	harvested *= this->productivityMultiplier;
 	std::cout << "Storing " << harvested << " * multiplier : " << productivityMultiplier << std::endl;
 	storage->storeCrops(harvested);
+}
+
+Soil* changeState() {
+	Soil* dry = new DrySoil();
+	return dry;
 }
