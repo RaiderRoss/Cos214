@@ -32,8 +32,8 @@ void Barn::update() {
 }
 
 void Barn::buyTruck() {
-	TruckerMan* fert = new DeliveryTruck();
-	assignTrucker(fert);
+	TruckerMan* fent = new DeliveryTruck();
+	assignTrucker(fent);
 }
 
 void Barn::sellTruck() {

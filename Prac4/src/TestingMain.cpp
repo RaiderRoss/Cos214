@@ -57,6 +57,7 @@ int main() {
 		farm1->add(decoratorField);
 		decoratorField->plantCrops(3);
 		farm1->print();
+		decoratorField->amplifications();
 		std::cout << "####################################" << std::endl;
 		farm1->print();
 		delete farm1;
@@ -98,16 +99,31 @@ int main() {
 		Soil* dry = new DrySoil();
 		dry->getName();
 		dry->rain();
-		FarmUnit* barn = new Barn("WHEAT", 0, 1);
+		FarmUnit* barn = new Barn("Barley", 1, 10);
+		StatBooster* decorator = new FireHazard(barn);
+		decorator->amplifications();
 		farm->harvestField(barn);
+<<<<<<< HEAD
 		FarmLand* farm2 = new FarmLand(1, "1321");
+=======
+>>>>>>> c2ac074967f9684380e907123fa024c56a58eeec
 		farm->update();
-		farm->sellTruck();
+		decorator->buyTruck();
+		decorator->sellTruck();
 		farm->callTruck();
-		farm->startEngine();
+		decorator->startEngine();
 		farm->getCropType();
 		farm->harvestField(barn);
-		farm->plantCrops(10);
+		decorator->plantCrops(10);
+		TruckerMan * fert = new FertilizerTruck();
+		StatBooster * demon = new DemolishEcosystem(farm);
+		demon->amplifications();
+		fert->update(farm);
+		decorator->print();
+		Soil * soil = new FloodedSoil();
+		soil->getName();
+		soil->harvestCrops(2,decorator);
+		delete soil;
 	}
 	return 0;
 }
