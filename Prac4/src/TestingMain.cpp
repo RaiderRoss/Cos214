@@ -103,6 +103,10 @@ int main() {
 		StatBooster* decorator = new FireHazard(barn);
 		decorator->amplifications();
 		farm->harvestField(barn);
+<<<<<<< HEAD
+		FarmLand* farm2 = new FarmLand(1, "1321");
+=======
+>>>>>>> c2ac074967f9684380e907123fa024c56a58eeec
 		farm->update();
 		decorator->buyTruck();
 		decorator->sellTruck();
