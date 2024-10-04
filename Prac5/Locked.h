@@ -1,7 +1,7 @@
 #ifndef LOCKED_H
 #define LOCKED_H
-
-class Locked : State {
+#include "State.h"
+class Locked : public State {
 
 
 public:

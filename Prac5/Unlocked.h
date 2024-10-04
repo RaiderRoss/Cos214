@@ -1,7 +1,7 @@
 #ifndef UNLOCKED_H
 #define UNLOCKED_H
-
-class Unlocked : State {
+#include "State.h"
+class Unlocked : public State {
 
 
 public:

@@ -1,8 +1,8 @@
 #ifndef DEVICE_H
 #define DEVICE_H
 #include "Group.h"
-
-class device : Group {
+#include "State.h"
+class device : public Group {
 
 public:
 	State* state;

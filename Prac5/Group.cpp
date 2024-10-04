@@ -10,7 +10,7 @@ bool Group::destroyGroup() {
 	throw "Not yet implemented";
 }
 
-Group* Group::getChildren() {
+std::vector<Group*> Group::getChildren() {
 	// TODO - implement Group::getChildren
 	throw "Not yet implemented";
 }

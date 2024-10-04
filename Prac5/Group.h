@@ -2,6 +2,7 @@
 #define GROUP_H
 #include "State.h"
 #include <string>
+#include <vector>
 using namespace std;
 class Group {
 
@@ -11,7 +12,7 @@ public:
 
 	bool destroyGroup();
 
-	Group* getChildren();
+	std::vector<Group*> getChildren();
 
 	virtual void getStatus() = 0;
 

@@ -1,7 +1,7 @@
-#ifndef OFF_H
-#define OFF_H
-
-class Off : State {
+#ifndef ON_H
+#define ON_H
+#include "State.h"
+class On : public State {
 
 
 public:
