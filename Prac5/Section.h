@@ -1,24 +1,26 @@
 #ifndef SECTION_H
 #define SECTION_H
 #include <iostream>
-#include <string>
-#include <vector>
-
 #include "Group.h"
-class Section : Group {
+#include <vector>
+class Section : public Group {
    protected:
 	std::vector<Group*> children;
+	string name;
 
    public:
+	Section();
+	~Section();
 	bool addGroup(Group* gr);
 
 	bool destroyGroup();
 
-	std::vector<Group*> getChildren();
+	virtual std::vector<Group*> getChildren();
 
-	void performAction();
+	virtual void performAction();
 
-	string getDeviceType();
+	virtual string getDeviceType();
+	virtual void getStatus();
 };
 
 #endif

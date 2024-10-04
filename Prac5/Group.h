@@ -1,18 +1,20 @@
 #ifndef GROUP_H
 #define GROUP_H
-#include "State.h"
 #include <string>
 #include <vector>
+
+#include "State.h"
 using namespace std;
 class Group {
+   public:
+	Group();
+	virtual ~Group();
 
-
-public:
 	bool addGroup(Group* gr);
 
 	bool destroyGroup();
 
-	std::vector<Group*> getChildren();
+	virtual std::vector<Group*> getChildren();
 
 	virtual void getStatus() = 0;
 

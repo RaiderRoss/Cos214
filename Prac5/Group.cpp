@@ -1,8 +1,13 @@
 #include "Group.h"
 
+Group::Group() {
+}
+
+Group::~Group() {
+}
+
 bool Group::addGroup(Group* gr) {
-	// TODO - implement Group::addGroup
-	throw "Not yet implemented";
+	return false;
 }
 
 bool Group::destroyGroup() {
@@ -11,11 +16,9 @@ bool Group::destroyGroup() {
 }
 
 std::vector<Group*> Group::getChildren() {
-	// TODO - implement Group::getChildren
-	throw "Not yet implemented";
+	return std::vector<Group*>();
 }
 
 void Group::setState(State* s) {
-	// TODO - implement Group::setState
-	throw "Not yet implemented";
+	
 }

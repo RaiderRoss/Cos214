@@ -3,10 +3,16 @@
 #include <algorithm>
 #include <ctime>
 #include <iostream>
+#include <string>
 
 #include "colours.cpp"
-// #include "Group.h"
+#include "Group.h"
+#include "State.h"
+#include "device.h"
+#include "Light.h"
+#include "Section.h"
 using namespace std;
+Group *house;
 void displayActions();
 void run();
 void checkUserInput(string input);
@@ -60,6 +66,7 @@ void checkUserInput(string input) {
 		string id = to_string(t);
 		id = id.substr(id.length() - 4, 2) + "room" + id.substr(id.length() - 2, id.length()) + arg;
 		cout << "Created a room with ID : " << id << endl;
+		
 		run();
 		return;
 	}
@@ -135,6 +142,8 @@ void invalidLoop() {
 }
 
 int main(int argc, char const *argv[]) {
+	//std::string name = "House";
+	house = new Section();
 	system("clear");
 
 	cout << colours::LIGHT_GREEN + colours::BOLD << "============ Welcome to home management securtiy Co ============" << colours::RESET << endl;

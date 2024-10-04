@@ -1,6 +1,6 @@
 #ifndef DEVICETRAVERSAL_H
 #define DEVICETRAVERSAL_H
-
+#include "Section.h"
 class DeviceTraversal {
 
 private:

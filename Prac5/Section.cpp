@@ -1,7 +1,14 @@
 #include "Section.h"
 
+Section::Section() {
+}
+
+Section::~Section() {
+}
+
 bool Section::addGroup(Group* gr) {
 	children.push_back(gr);
+	return true;
 }
 
 bool Section::destroyGroup() {
@@ -33,4 +40,8 @@ void Section::performAction() {
 
 string Section::getDeviceType() {
 	return "Section";
+}
+
+void Section::getStatus() {
+	std::cout << "Section : " << this->name << std::endl;	
 }
