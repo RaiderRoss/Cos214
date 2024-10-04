@@ -4,25 +4,33 @@
 #include <ctime>
 #include <iostream>
 #include <string>
+#include <memory>
 
-#include "colours.cpp"
 #include "Group.h"
-#include "State.h"
-#include "device.h"
 #include "Light.h"
 #include "Section.h"
+#include "State.h"
+#include "colours.cpp"
+#include "Alarm.h"
+#include "Door.h"
+#include "Fridge.h"
+#include "Thermostat.h"
+#include "device.h"
 using namespace std;
-Group *house;
+////////////////////////// Declare functions //////////////////////////
 void displayActions();
 void run();
 void checkUserInput(string input);
 void invalidLoop();
+void createDevice();
+unique_ptr<Group> house;
+////////////////////////// Main functions //////////////////////////
 void displayActions() {
 	cout << colours::BLUE << "====================🔐 House security 🔐====================" << colours::RESET << endl;
 	cout << colours::BOLD + colours::GREEN << "Actions : " << colours::RESET << endl;
 	cout << "#################################################" << endl;
 	cout << "➥ Add a room : addRoom {room name}\t" << endl;
-	cout << "➥ Add a device : addDev {device name}\t" << endl;
+	cout << "➥ Add a device : addDev\t" << endl;
 	cout << "➥ Run an action : run {command}\t" << endl;
 	cout << "➥ View valid commands : listCommands\t" << endl;
 	cout << "➥ View Layout : listSections\t" << endl;
@@ -34,7 +42,7 @@ void displayActions() {
 }
 
 void run() {
-	cout << "Input⤐ ";
+	cout << "Choose Action⤐ ";
 	string input = "";
 	getline(cin, input);
 	checkUserInput(input);
@@ -61,26 +69,13 @@ void checkUserInput(string input) {
 			cout << "No Arguements given!" << endl;
 			invalidLoop();
 		}
-		arg.erase(remove(arg.begin(), arg.end(), ' '), arg.end());
-		time_t t = time(0);
-		string id = to_string(t);
-		id = id.substr(id.length() - 4, 2) + "room" + id.substr(id.length() - 2, id.length()) + arg;
-		cout << "Created a room with ID : " << id << endl;
-		
+		house->addGroup(new Section(arg));
 		run();
 		return;
 	}
 
 	if (action == "addDev") {
-		if (arg == "") {
-			cout << "No Arguements given!" << endl;
-			invalidLoop();
-		}
-		arg.erase(remove(arg.begin(), arg.end(), ' '), arg.end());
-		time_t t = time(0);
-		string id = to_string(t);
-		id = id.substr(id.length() - 4, 2) + "dev" + id.substr(id.length() - 2, id.length()) + arg;
-		cout << "Created a device with ID : " << id << endl;
+		createDevice();
 		run();
 		return;
 	}
@@ -133,6 +128,37 @@ void checkUserInput(string input) {
 	cout << colours::DARK_RED + colours::BOLD << "Command : " << input << " is an invalid action: " << colours::RESET << endl;
 	invalidLoop();
 }
+void createDevice() {
+	cout << "Select a room to add this device to" << endl;
+	cout << "Input⤐ ";
+	string input = "";
+	getline(cin, input);
+	std::cout << "Select type of device : " << std::endl;
+	cout << colours::LIGHT_GREEN;
+	cout << "\t↳ Alarm : 1" << endl;
+	cout << "\t↳ Door : 2 " << endl;
+	cout << "\t↳ Fridge : 3" << endl;
+	cout << "\t↳ Light : 4" << endl;
+	cout << "\t↳ Thermostat : 5";
+	cout << colours::RESET << endl;
+	cout << "Input⤐ ";
+	input = "";
+	getline(cin, input);
+	if (input == "1") {
+		house->addGroup(new Alarm("Alarm"));
+	} else if (input == "2") {
+		house->addGroup(new Door("Door"));
+	} else if (input == "3") {
+		house->addGroup(new Fridge("Fridge"));
+	} else if (input == "4") {
+		house->addGroup(new Light("Light"));
+	} else if (input == "5") {
+		house->addGroup(new Thermostat("Thermostat"));
+	} else {
+		cout << colours::DARK_RED + colours::BOLD << "Invalid device type" << colours::RESET << endl;
+		createDevice();
+	}
+}
 
 void invalidLoop() {
 	cout << "Input⤐ ";
@@ -142,24 +168,24 @@ void invalidLoop() {
 }
 
 int main(int argc, char const *argv[]) {
-	//std::string name = "House";
-	house = new Section();
+	house = make_unique<Section>("House");
 	system("clear");
 
 	cout << colours::LIGHT_GREEN + colours::BOLD << "============ Welcome to home management securtiy Co ============" << colours::RESET << endl;
 	cout << "This app allowes you to manage devices in your house." << endl;
 
-	cout << "Press X to start" << endl
+	cout << "Press Y to start" << endl
 		 << "Input⤐ ";
 	char input = ' ';
 	cin >> input;
-	if (input == 'X') {
+	if (input == 'Y') {
+		system("clear");
 		cin.ignore();
 		cout << "All valid commands are shown below : " << endl;
 		displayActions();
 		run();
 		system("clear");
 	}
-	cout << colours::BOLD + colours::RED << "You have left the simulation :(" << colours::RESET << endl;
+	cout << colours::BOLD + colours::RED << "🗝️ You have left the simulation 🗝️" << colours::RESET << endl;
 	return 0;
 }

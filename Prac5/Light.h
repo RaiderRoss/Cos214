@@ -5,7 +5,7 @@ class Light : public device {
 
 
 public:
-	Light();
+	Light(std::string name);
 
 	virtual void getStatus();
 

@@ -4,8 +4,8 @@
 class DeviceTraversal {
 
 private:
-	Section* current;
-	Section* next;
+	Group* current;
+	Group* next;
 
 public:
 	void displayAll();

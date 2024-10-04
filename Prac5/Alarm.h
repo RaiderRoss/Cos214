@@ -5,7 +5,7 @@ class Alarm : public device {
 
 
 public:
-	Alarm();
+	Alarm(std::string name);
 
 	virtual void getStatus();
 

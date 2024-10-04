@@ -5,7 +5,7 @@ class Door : public device {
 
 
 public:
-	Door();
+	Door(std::string name);
 
 	virtual void getStatus();
 

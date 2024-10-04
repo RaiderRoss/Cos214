@@ -1,6 +1,6 @@
 #include "Light.h"
 
-Light::Light() {
+Light::Light(std::string name) : device(name) {
 	
 }
 

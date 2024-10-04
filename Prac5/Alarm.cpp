@@ -1,11 +1,10 @@
 #include "Alarm.h"
 
-Alarm::Alarm() {
-	
+
+Alarm::Alarm(std::string name) : device(name) {
 }
 
 void Alarm::getStatus() {
-	
 }
 
 void Alarm::performAction() {

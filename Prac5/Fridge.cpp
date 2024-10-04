@@ -1,6 +1,6 @@
 #include "Fridge.h"
 
-Fridge::Fridge() {
+Fridge::Fridge(std::string name) : device(name) {
 	
 }
 

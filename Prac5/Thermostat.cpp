@@ -1,6 +1,6 @@
 #include "Thermostat.h"
 
-Thermostat::Thermostat() {
+Thermostat::Thermostat(std::string name) : device(name) {
 	// Do nothing
 }
 

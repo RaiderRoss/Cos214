@@ -5,17 +5,15 @@
 #include <vector>
 class Section : public Group {
    protected:
-	std::vector<Group*> children;
-	string name;
-
+	std::vector<unique_ptr<Group>> children;
    public:
-	Section();
+	Section(std::string name);
 	~Section();
 	bool addGroup(Group* gr);
 
 	bool destroyGroup();
 
-	virtual std::vector<Group*> getChildren();
+	virtual std::vector<unique_ptr<Group>>& getChildren();
 
 	virtual void performAction();
 

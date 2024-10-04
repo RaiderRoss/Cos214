@@ -7,7 +7,7 @@ class device : public Group {
 public:
 	State* state;
 
-	device();
+	device(std::string name);
 
 	virtual ~device();
 

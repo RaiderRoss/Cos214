@@ -3,7 +3,7 @@
 #include "device.h"
 class Thermostat : public device {
 public:
-	Thermostat();
+	Thermostat(std::string name);
 
 	virtual void getStatus();
 

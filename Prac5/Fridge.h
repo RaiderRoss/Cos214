@@ -5,7 +5,7 @@ class Fridge : public device {
 
 
 public:
-	Fridge();
+	Fridge(std::string name);
 
 	virtual void getStatus();
 
