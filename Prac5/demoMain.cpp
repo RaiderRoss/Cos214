@@ -10,22 +10,20 @@ void displayActions();
 void run();
 void checkUserInput(string input);
 void invalidLoop();
-
 void displayActions() {
 	cout << colours::BLUE << "====================🔐 House security 🔐====================" << colours::RESET << endl;
 	cout << colours::BOLD + colours::GREEN << "Actions : " << colours::RESET << endl;
-	cout << "#########################" << endl;
+	cout << "#################################################" << endl;
 	cout << "➥ Add a room : addRoom {room name}\t" << endl;
 	cout << "➥ Add a device : addDev {device name}\t" << endl;
 	cout << "➥ Run an action : run {command}\t" << endl;
-	cout << "➥ View valid commans : listCommands\t" << endl;
+	cout << "➥ View valid commands : listCommands\t" << endl;
 	cout << "➥ View Layout : listSections\t" << endl;
 	cout << "➥ Select a room : selectRoom {room ID}\t" << endl;
 	cout << "➥ Select a device : selectDev {device ID}\t" << endl;
-
 	cout << colours::BOLD + colours::RED << "To leave : Exit" << colours::RESET << endl;
 	cout << colours::BOLD + colours::ORANGE << "To clear the terminal : Clear" << colours::RESET << endl;
-	cout << "#########################" << endl;
+	cout << "#################################################" << endl;
 }
 
 void run() {
@@ -70,7 +68,7 @@ void checkUserInput(string input) {
 			cout << "No Arguements given!" << endl;
 			invalidLoop();
 		}
-        arg.erase(remove(arg.begin(), arg.end(), ' '), arg.end());
+		arg.erase(remove(arg.begin(), arg.end(), ' '), arg.end());
 		time_t t = time(0);
 		string id = to_string(t);
 		id = id.substr(id.length() - 4, 2) + "dev" + id.substr(id.length() - 2, id.length()) + arg;
@@ -105,6 +103,10 @@ void checkUserInput(string input) {
 		return;
 	}
 	if (action == "listCommands") {
+		cout << colours::LIGHT_GREEN << "\t↳ Engage" << endl;
+		cout << "\t↳ Disengage" << endl;
+		cout << "\t↳ Toggle" << endl;
+		cout << "\t↳ Routines" << colours::RESET << endl;
 		run();
 		return;
 	}
@@ -120,7 +122,7 @@ void checkUserInput(string input) {
 		return;
 	}
 
-	cout << "Command : " << input << " is an invalid action: " << endl;
+	cout << colours::DARK_RED + colours::BOLD << "Command : " << input << " is an invalid action: " << colours::RESET << endl;
 	invalidLoop();
 }
 
@@ -138,7 +140,7 @@ int main(int argc, char const *argv[]) {
 	cout << "This app allowes you to manage devices in your house." << endl;
 
 	cout << "Press X to start" << endl
-			  << "Input⤐ ";
+		 << "Input⤐ ";
 	char input = ' ';
 	cin >> input;
 	if (input == 'X') {
