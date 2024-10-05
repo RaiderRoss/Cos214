@@ -1,10 +1,8 @@
-#ifndef STATE_H
-#define STATE_H
-#include <iostream>
-using namespace std;
-class State {
-
-public:
+#ifndef LOCKSTATE_H
+#define LOCKSTATE_H
+#include "State.h"
+class LockState : public State {
+   public:
 	virtual State* toggle() = 0;
 	virtual State* engage() = 0;
 	virtual State* disengage() = 0;

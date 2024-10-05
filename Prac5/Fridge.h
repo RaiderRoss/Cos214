@@ -7,9 +7,11 @@ class Fridge : public device {
 public:
 	Fridge(std::string name);
 
-	virtual void getStatus();
+	virtual void getStatus(int);
 
-	virtual void performAction();
+		virtual void toggleAction();
+	virtual void turnOnAction();
+	virtual void turnOffAction();
 
 	virtual string getDeviceType();
 

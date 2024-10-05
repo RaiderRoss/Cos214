@@ -1,19 +1,18 @@
 #include "Group.h"
 
+#include "DeviceTraversal.h"
 Group::Group(std::string name) {
 	this->name = name;
 	this->id = abs(custom_hash(name, name.length()));
 }
 int Group::custom_hash(const std::string& s, int off) {
-	long hash = 5381;
-	int c;
+    long hash = 531;
+    for (char c : s) {
+        hash = ((hash << 5) + hash) + c;
+    }
 
-	for (char ch : s) {
-		c = static_cast<int>(ch);
-		hash = ((hash << 5) + hash) + c;
-	}
-
-	return hash ^ (off * 31);
+    hash ^= (off * 3);
+    return (hash % 4000 + 4000) % 4000;
 }
 Group::~Group() {
 }
@@ -40,4 +39,8 @@ int Group::getId() {
 }
 
 void Group::setState(State* s) {
+}
+
+unique_ptr<DeviceTraversal> Group::createTraversal() {
+	return std::make_unique<DeviceTraversal>(this);
 }

@@ -1,16 +1,17 @@
 #include "On.h"
 
-void On::toggle() {
-	// TODO - implement On::toggle
-	throw "Not yet implemented";
+State* On::toggle() {
+ return On::disengage();
 }
 
-void On::engage() {
-	// TODO - implement On::engage
-	throw "Not yet implemented";
+State* On::engage() {
+	return new On();
 }
 
-void On::disengage() {
-	// TODO - implement On::disengage
-	throw "Not yet implemented";
+State* On::disengage() {
+	return new Off();
+}
+
+std::string On::display() {
+	return "The device is currently : On";
 }

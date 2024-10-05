@@ -7,3 +7,8 @@ device::device(std::string name) : Group(name) {
 
 device::~device() {
 }
+
+void device::setState(State* s) {
+    delete state;
+    state = s;
+}

@@ -9,4 +9,5 @@ const std::string GREEN = "\033[32m";
 const std::string BLUE = "\033[34m";
 const std::string ORANGE = "\033[38;2;255;165;0m";
 const std::string LIGHT_GREEN = "\033[38;2;144;238;144m";
+const std::string LIGHT_BLUE= "\033[38;2;94;219;209m";
 } 

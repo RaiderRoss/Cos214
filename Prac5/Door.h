@@ -7,10 +7,11 @@ class Door : public device {
 public:
 	Door(std::string name);
 
-	virtual void getStatus();
+	virtual void getStatus(int);
 
-	virtual void performAction();
-
+		virtual void toggleAction();
+	virtual void turnOnAction();
+	virtual void turnOffAction();
 	virtual string getDeviceType();
 
 	virtual ~Door();

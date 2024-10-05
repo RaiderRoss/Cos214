@@ -1,16 +1,17 @@
 #include "Locked.h"
 
-void Locked::toggle() {
-	// TODO - implement Locked::toggle
-	throw "Not yet implemented";
+State* Locked::toggle() {
+	return Locked::disengage();
 }
 
-void Locked::engage() {
-	// TODO - implement Locked::engage
-	throw "Not yet implemented";
+State* Locked::engage() {
+	return new Locked();
 }
 
-void Locked::disengage() {
-	// TODO - implement Locked::disengage
-	throw "Not yet implemented";
+State* Locked::disengage() {
+	return new Unlocked();
+}
+
+std::string Locked::display() {
+	return "The device is currently : Locked";
 }

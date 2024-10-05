@@ -37,14 +37,27 @@ std::vector<std::unique_ptr<Group>>& Section::getChildren() {
 	return children;
 }
 
-void Section::performAction() {
-	
-}
-
 string Section::getDeviceType() {
 	return "Section";
 }
 
-void Section::getStatus() {
-	std::cout << "Section : " << this->getName() << std::endl;	
+void Section::getStatus(int indentLevel = 0) {
+    std::cout << std::string(indentLevel * 4, ' ');
+    std::cout << colours::LIGHT_BLUE << "⤿ " 
+              << colours::LIGHT_GREEN << "Section : " 
+              << getName() << " | " << getId() 
+              << colours::RESET << std::endl;
+    for (auto& child : children) {
+        child->getStatus(indentLevel + 1);
+    }
+}
+
+
+void Section::toggleAction() {
+}
+
+void Section::turnOnAction() {
+}
+
+void Section::turnOffAction() {
 }

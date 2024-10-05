@@ -10,15 +10,13 @@ class Section : public Group {
 	Section(std::string name);
 	~Section();
 	bool addGroup(Group* gr);
-
 	bool destroyGroup();
-
 	virtual std::vector<unique_ptr<Group>>& getChildren();
-
-	virtual void performAction();
-
 	virtual string getDeviceType();
-	virtual void getStatus();
+	virtual void getStatus(int);
+	virtual void toggleAction();
+	virtual void turnOnAction();
+	virtual void turnOffAction();
 };
 
 #endif

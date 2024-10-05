@@ -1,16 +1,17 @@
 #include "Unlocked.h"
 
-void Unlocked::toggle() {
-	// TODO - implement Unlocked::toggle
-	throw "Not yet implemented";
+State* Unlocked::toggle() {
+	return Unlocked::engage();
 }
 
-void Unlocked::engage() {
-	// TODO - implement Unlocked::engage
-	throw "Not yet implemented";
+State* Unlocked::engage() {
+	return new Locked();
 }
 
-void Unlocked::disengage() {
-	// TODO - implement Unlocked::disengage
-	throw "Not yet implemented";
+State* Unlocked::disengage() {
+	return new Unlocked();
+}
+
+std::string Unlocked::display() {
+	return "The device is currently : Unlocked";
 }

@@ -12,7 +12,7 @@ demo:
 	rm -f demo && $(CC) $(CFLAGS) $(DEMO_SRCS) -o demo && ./demo
 
 test:
-	rm -f test && $(CC) $(CFLAGS) $(TEST_SRCS) -o test && ./test
+	rm -f test && $(CC) $(CFLAGS) $(TEST_SRCS) -o test && clear && ./test
 
 clean:
 	rm -f demo test

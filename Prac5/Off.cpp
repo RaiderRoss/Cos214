@@ -1,16 +1,17 @@
 #include "Off.h"
 
-void Off::toggle() {
-	// TODO - implement Off::toggle
-	throw "Not yet implemented";
+State* Off::toggle() {
+	return Off::engage();
 }
 
-void Off::engage() {
-	// TODO - implement Off::engage
-	throw "Not yet implemented";
+State* Off::engage() {
+	return new On();
 }
 
-void Off::disengage() {
-	// TODO - implement Off::disengage
-	throw "Not yet implemented";
+State* Off::disengage() {
+	return new Off();
+}
+
+std::string Off::display() {
+	return "The device is currently : Off";
 }

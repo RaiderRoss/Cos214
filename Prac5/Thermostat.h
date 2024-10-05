@@ -1,13 +1,16 @@
 #ifndef THERMOSTAT_H
 #define THERMOSTAT_H
 #include "device.h"
+
 class Thermostat : public device {
-public:
+   public:
 	Thermostat(std::string name);
 
-	virtual void getStatus();
+	virtual void getStatus(int);
 
-	virtual void performAction();
+	virtual void toggleAction();
+	virtual void turnOnAction();
+	virtual void turnOffAction();
 
 	virtual string getDeviceType();
 

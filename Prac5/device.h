@@ -1,19 +1,24 @@
 #ifndef DEVICE_H
 #define DEVICE_H
 #include "Group.h"
-#include "State.h"
+#include "Off.h"
+#include "On.h"
+#include "Locked.h"
+#include "Unlocked.h"
 class device : public Group {
-
-public:
+protected:
 	State* state;
+public:
 
 	device(std::string name);
 
 	virtual ~device();
 
-	virtual void getStatus() = 0;
+	virtual void getStatus(int) = 0;
 
-	virtual void performAction() = 0;
+	virtual void toggleAction() = 0;
+	virtual void turnOnAction() = 0;
+	virtual void turnOffAction() = 0;
 
 	virtual string getDeviceType() = 0;
 
