@@ -5,10 +5,12 @@ State* Locked::toggle() {
 }
 
 State* Locked::engage() {
+	std::cout << "The device is already locked" << std::endl;
 	return new Locked();
 }
 
 State* Locked::disengage() {
+	std::cout << "The device is now unlocked" << std::endl;
 	return new Unlocked();
 }
 

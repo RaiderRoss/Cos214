@@ -5,8 +5,8 @@
 class CommandOn : public Command
 {
 public:
-    CommandOn();
+    CommandOn(device* dev);
     ~CommandOn();
-    void execute(device* dev);
+    virtual void execute();
 };
 #endif 

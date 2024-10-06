@@ -1,11 +1,11 @@
 #include "CommandOff.h"
 
-CommandOff::CommandOff() {
+CommandOff::CommandOff(device* dev) : Command(dev) {
 }
 
 CommandOff::~CommandOff() {
 }
 
-void CommandOff::execute(device* dev) {
+void CommandOff::execute() {
     dev->turnOffAction();
 }

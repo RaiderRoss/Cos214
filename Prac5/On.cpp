@@ -5,10 +5,12 @@ State* On::toggle() {
 }
 
 State* On::engage() {
+	std::cout << "The device is already on" << std::endl;
 	return new On();
 }
 
 State* On::disengage() {
+	std::cout << "The device is now off" << std::endl;
 	return new Off();
 }
 

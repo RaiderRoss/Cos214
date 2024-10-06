@@ -1,11 +1,11 @@
 #include "CommandToggle.h"
 
-CommandToggle::CommandToggle() {
+CommandToggle::CommandToggle(device* dev) : Command(dev) {
 }
 
 CommandToggle::~CommandToggle() {
 }
 
-void CommandToggle::execute(device* dev) {
+void CommandToggle::execute() {
     dev->toggleAction();
 }

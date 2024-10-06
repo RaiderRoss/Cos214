@@ -2,15 +2,16 @@
 #define COMMAND_H
 #include <iostream>
 #include <string>
-#include "device.h"
-class Command
-{
- 
-public:
-    Command();
-    ~Command();
-    virtual void execute(device* dev) = 0;
-};
 
+#include "device.h"
+class Command {
+   protected:
+	device* dev;
+
+   public:
+	Command(device* dev);
+	~Command();
+	virtual void execute() = 0;
+};
 
 #endif

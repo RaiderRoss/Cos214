@@ -1,6 +1,9 @@
 #include "Command.h"
 #include "device.h"
-Command::Command() {
+
+
+Command::Command(device* dev) {
+    this->dev = dev;
 }
 
 Command::~Command() {

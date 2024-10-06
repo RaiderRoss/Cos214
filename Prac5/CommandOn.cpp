@@ -1,11 +1,11 @@
 #include "CommandOn.h"
 
-CommandOn::CommandOn() {
+CommandOn::CommandOn(device* dev) : Command(dev) {
 }
 
 CommandOn::~CommandOn() {
 }
 
-void CommandOn::execute(device* dev) {
+void CommandOn::execute() {
     dev->turnOnAction();
 }

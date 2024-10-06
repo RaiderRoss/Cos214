@@ -7,6 +7,9 @@
 #include <string>
 
 #include "Alarm.h"
+#include "CommandOff.h"
+#include "CommandOn.h"
+#include "CommandToggle.h"
 #include "DeviceTraversal.h"
 #include "Door.h"
 #include "Fridge.h"
@@ -25,6 +28,7 @@ void invalidLoop();
 void createDevice();
 void createSection(std::string name);
 Group* getGroupById(int id);
+void runCommand();
 ////////////////////////// Declare variables //////////////////////////
 unique_ptr<Group> house;
 unique_ptr<DeviceTraversal> it;
@@ -35,11 +39,8 @@ void displayActions() {
 	cout << "#################################################" << endl;
 	cout << "➥ Add a section/room : addSec {name}\t" << endl;
 	cout << "➥ Add a device : addDev\t" << endl;
-	cout << "➥ Run an action : run {command}\t" << endl;
-	cout << "➥ View valid commands : listCommands\t" << endl;
+	cout << "➥ Run an action : run\t" << endl;
 	cout << "➥ View Layout : listSections\t" << endl;
-	cout << "➥ Select a room : selectRoom {room ID}\t" << endl;
-	cout << "➥ Select a device : selectDev {device ID}\t" << endl;
 	cout << colours::BOLD + colours::RED << "To leave : Exit" << colours::RESET << endl;
 	cout << colours::BOLD + colours::ORANGE << "To clear the terminal : Clear" << colours::RESET << endl;
 	cout << "#################################################" << endl;
@@ -102,18 +103,7 @@ void checkUserInput(string input) {
 	}
 
 	if (action == "run") {
-		if (arg == "") {
-			cout << "No Arguements given!" << endl;
-			invalidLoop();
-		}
-		run();
-		return;
-	}
-	if (action == "listCommands") {
-		cout << colours::LIGHT_GREEN << "\t↳ Engage" << endl;
-		cout << "\t↳ Disengage" << endl;
-		cout << "\t↳ Toggle" << endl;
-		cout << "\t↳ Routines" << colours::RESET << endl;
+		runCommand();
 		run();
 		return;
 	}
@@ -134,6 +124,41 @@ void checkUserInput(string input) {
 	invalidLoop();
 }
 void runCommand() {
+	cout << "Select a device to run this command on" << endl;
+	cout << "Input⤐ ";
+	string input = "";
+	getline(cin, input);
+	Group* curr = getGroupById(stoi(input));
+	if (curr == nullptr) {
+		cout << colours::DARK_RED + colours::BOLD << "Invalid device ID" << colours::RESET << endl;
+		runCommand();
+	}
+	cout << "Select a command to run" << endl;
+	cout << colours::LIGHT_GREEN << "\t↳ Engage 1" << endl;
+	cout << "\t↳ Disengage 2" << endl;
+	cout << "\t↳ Toggle 3" << endl;
+	cout << "\t↳ Routines 4" << colours::RESET << endl;
+	cout << "Input⤐ ";
+	input = "";
+	getline(cin, input);
+	device* dev = static_cast<device*>(curr);
+	if (input == "1") {
+		Command* turnOn = new CommandOn(dev);
+		turnOn->execute();
+		delete turnOn;
+	} else if (input == "2") {
+		Command* turnOff = new CommandOff(dev);
+		turnOff->execute();
+		delete turnOff;
+	} else if (input == "3") {
+		Command* toggle = new CommandToggle(dev);
+		toggle->execute();
+		delete toggle;
+	} else if (input == "4") {
+	} else {
+		cout << colours::DARK_RED + colours::BOLD << "Invalid command" << colours::RESET << endl;
+		runCommand();
+	}
 }
 Group* getGroupById(int id) {
 	it->resetTraversal();
@@ -154,7 +179,7 @@ void createSection(std::string name) {
 	Group* curr = getGroupById(stoi(input));
 	if (curr == nullptr) {
 		cout << colours::DARK_RED + colours::BOLD << "Invalid section ID" << colours::RESET << endl;
-		createDevice();
+		createSection(name);
 	}
 	curr->addGroup(new Section(name));
 }

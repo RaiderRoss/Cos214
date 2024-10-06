@@ -9,10 +9,14 @@ TEST_SRCS = $(filter-out demoMain.cpp, $(wildcard *.cpp))
 all: demo test
 
 demo:
-	rm -f demo && $(CC) $(CFLAGS) $(DEMO_SRCS) -o demo && ./demo
+	./demo
+demoReset:
+	rm -f demo && $(CC) $(CFLAGS) $(DEMO_SRCS) -o demo
 
 test:
-	rm -f test && $(CC) $(CFLAGS) $(TEST_SRCS) -o test && clear && ./test
+	clear && ./test
+testReset:
+	rm -f test && $(CC) $(CFLAGS) $(TEST_SRCS) -o test
 
 clean:
 	rm -f demo test

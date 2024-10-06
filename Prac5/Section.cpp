@@ -1,16 +1,16 @@
 #include "Section.h"
 
-Section::Section(std::string name) : Group(name) {
+Section::Section(std::string name)
+	: Group(name) {
 	std::cout << "Section " << name << " created with id " << getId() << std::endl;
 }
 
 Section::~Section() {
-	
 }
 
 bool Section::addGroup(Group* gr) {
-    children.push_back(unique_ptr<Group>(gr));
-    return true;
+	children.push_back(unique_ptr<Group>(gr));
+	return true;
 }
 
 bool Section::destroyGroup() {
@@ -24,7 +24,7 @@ bool Section::destroyGroup() {
 			break;
 		}
 	}
-	if(gr != nullptr){
+	if (gr != nullptr) {
 		std::vector<std::unique_ptr<Group>>& groupChildren = gr->getChildren();
 		for (auto it = groupChildren.begin(); it != groupChildren.end(); ++it) {
 			children.push_back(std::move(*it));
@@ -42,22 +42,33 @@ string Section::getDeviceType() {
 }
 
 void Section::getStatus(int indentLevel = 0) {
-    std::cout << std::string(indentLevel * 4, ' ');
-    std::cout << colours::LIGHT_BLUE << "⤿ " 
-              << colours::LIGHT_GREEN << "Section : " 
-              << getName() << " | " << getId() 
-              << colours::RESET << std::endl;
-    for (std::unique_ptr<Group>& child : children) {
-        child->getStatus(indentLevel + 1);
-    }
+	std::cout << std::string(indentLevel * 4, ' ');
+	std::cout << colours::LIGHT_BLUE << "⤿ "
+			  << colours::LIGHT_GREEN << "Section : "
+			  << getName() << " | " << getId()
+			  << colours::RESET << std::endl;
+	for (std::unique_ptr<Group>& child : children) {
+		child->getStatus(indentLevel + 1);
+	}
 }
 
-
 void Section::toggleAction() {
+	std::cout << "Section " << getName() << " toggled" << std::endl;
+	for (std::unique_ptr<Group>& child : children) {
+		child->toggleAction();
+	}
 }
 
 void Section::turnOnAction() {
+	std::cout << "Section " << getName() << " turned on" << std::endl;
+	for (std::unique_ptr<Group>& child : children) {
+		child->turnOnAction();
+	}
 }
 
 void Section::turnOffAction() {
+	std::cout << "Section " << getName() << " turned off" << std::endl;
+	for (std::unique_ptr<Group>& child : children) {
+		child->turnOffAction();
+	}
 }
