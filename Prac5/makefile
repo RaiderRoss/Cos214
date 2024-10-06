@@ -22,14 +22,12 @@ testReset:
 	mkdir -p $(OUTPUT_DIR)
 	mv *.gcno $(OUTPUT_DIR)
 
-gcov: test
-	@echo "Generating coverage report..."
-	mv *.gcda $(OUTPUT_DIR)
-	gcov -o $(OUTPUT_DIR) $(OUTPUT_DIR)/*.gcda
-	mv *.gcov $(OUTPUT_DIR)
+gcov: 
+	mv *.gcda $(OUTPUT_DIR) || true
+	gcov -o $(OUTPUT_DIR) $(OUTPUT_DIR)/*.gcda || true
+	mv *.gcov $(OUTPUT_DIR) || true
 
 html: gcov
-	@echo "Generating HTML coverage report..."
 	gcovr -r . --html --html-details -o html/coverage.html
 
 clean:
