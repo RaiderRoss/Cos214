@@ -1,25 +1,42 @@
 CC = g++
-CFLAGS = -fdiagnostics-color=always -g
+CFLAGS = -fdiagnostics-color=always -g --coverage
+OUTPUT_DIR = output
 
 DEMO_SRCS = $(filter-out TestingMain.cpp, $(wildcard *.cpp))
 TEST_SRCS = $(filter-out demoMain.cpp, $(wildcard *.cpp))
 
-.PHONY: all clean demo test
 
 all: demo test
 
 demo:
 	./demoMain
+
 demoReset:
-	rm -f demo && $(CC) $(CFLAGS) $(DEMO_SRCS) -o demoMain
+	rm -f demoMain && $(CC) $(CFLAGS) $(DEMO_SRCS) -o demoMain
 
 test:
-	clear && ./test
+	clear && ./TestingMain
+
 testReset:
-	rm -f test && $(CC) $(CFLAGS) $(TEST_SRCS) -o test
+	rm -f TestingMain && $(CC) $(CFLAGS) $(TEST_SRCS) -o TestingMain
+	mkdir -p $(OUTPUT_DIR)
+	mv *.gcno $(OUTPUT_DIR)
+
+gcov: test
+	@echo "Generating coverage report..."
+	mv *.gcda $(OUTPUT_DIR)
+	gcov -o $(OUTPUT_DIR) $(OUTPUT_DIR)/*.gcda
+	mv *.gcov $(OUTPUT_DIR)
+
+html: gcov
+	@echo "Generating HTML coverage report..."
+	gcovr -r . --html --html-details -o html/coverage.html
+
 clean:
-	rm -f demoMain test
+	rm -f demoMain TestingMain $(OUTPUT_DIR)/*.gcda $(OUTPUT_DIR)/*.gcno $(OUTPUT_DIR)/*.gcov html/*.html
+
 valgrind:
-	valgrind --leak-check=full ./test
+	valgrind --leak-check=full ./TestingMain
+
 run:
-	./test
+	./TestingMain

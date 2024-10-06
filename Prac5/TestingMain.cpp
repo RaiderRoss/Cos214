@@ -1,4 +1,8 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
+#include <iostream>
+#include <sstream>
+#include <string>
+
 #include "Alarm.h"
 #include "Command.h"
 #include "CommandOff.h"
@@ -17,9 +21,6 @@
 #include "Thermostat.h"
 #include "device.h"
 #include "doctest.h"
-#include <iostream>
-#include <sstream>
-#include <string>
 using namespace std;
 
 TEST_CASE("Section 1: Checking state display functionality") {
@@ -89,25 +90,108 @@ TEST_CASE("Section 3: Testing Composite") {
 }
 TEST_CASE("Section 3: Testing devices") {
 	std::cout << colours::LIGHT_GREEN << "Section 3: Testing devices" << colours::RESET << std::endl;
-	Group* room1 = new Section("room1");
-	Group* room2 = new Section("room2");
-	CHECK(room1->getName() == "room1");
-	Group* house = new Section("house");
-	house->addGroup(room1);
-	house->addGroup(room2);
-	CHECK(house->getChildren().size() == 2);
-	CHECK(house->getChildren()[0]->getName() == "room1");
-	CHECK(house->getChildren()[1]->getName() == "room2");
-	CHECK(house->getDeviceType() == "Section");
-	CHECK(room1->getChildren().size() == 0);
-	delete house;
-	std::cout << colours::LIGHT_GREEN << "End of Section 3" << colours::RESET << std::endl;
+	Group* dev1 = new Alarm("Alarm");
+	Group* dev2 = new Door("Door");
+	Group* dev3 = new Fridge("Fridge");
+	Group* dev4 = new Light("Light");
+	Group* dev5 = new Thermostat("Thermostat");
+	CHECK(dev1->getDeviceType() == "Alarm");
+	CHECK(dev2->getDeviceType() == "Door");
+	CHECK(dev3->getDeviceType() == "Fridge");
+	CHECK(dev4->getDeviceType() == "Light");
+	CHECK(dev5->getDeviceType() == "Thermostat");
+	ostringstream os;
+	streambuf* oldCoutStreamBuf = cout.rdbuf();
+	cout.rdbuf(os.rdbuf());
+    dev1->turnOnAction();
+    cout.rdbuf(oldCoutStreamBuf);
+    CHECK(os.str() == "The device is already locked\n");
+    os.str("");
+    cout.rdbuf(os.rdbuf());
+    dev1->turnOffAction();
+    cout.rdbuf(oldCoutStreamBuf);
+    CHECK(os.str() == "The device is now unlocked\n");
+    os.str("");
+    cout.rdbuf(os.rdbuf());
+    dev1->toggleAction();
+    cout.rdbuf(oldCoutStreamBuf);
+    CHECK(os.str() == "The device is now locked\n");
+    os.str("");
+    cout.rdbuf(os.rdbuf());
+    dev2->turnOnAction();
+    cout.rdbuf(oldCoutStreamBuf);
+    CHECK(os.str() == "The device is already locked\n");
+    os.str("");
+    cout.rdbuf(os.rdbuf());
+    dev2->turnOffAction();
+    cout.rdbuf(oldCoutStreamBuf);
+    CHECK(os.str() == "The device is now unlocked\n");
+    os.str("");
+    cout.rdbuf(os.rdbuf());
+    dev2->toggleAction();
+    cout.rdbuf(oldCoutStreamBuf);
+    CHECK(os.str() == "The device is now locked\n");
+    os.str("");
+    cout.rdbuf(os.rdbuf());
+    dev3->turnOnAction();
+    cout.rdbuf(oldCoutStreamBuf);
+    std::cout << "HERE!!!" << std::endl;
+    std::cout << os.str() << std::endl; 
+    CHECK(os.str() == "The device is now on\n");
+    os.str("");
+    cout.rdbuf(os.rdbuf());
+    dev3->turnOffAction();
+    cout.rdbuf(oldCoutStreamBuf);
+    CHECK(os.str() == "The device is now off\n");
+    os.str("");
+    cout.rdbuf(os.rdbuf());
+    dev3->toggleAction();
+    cout.rdbuf(oldCoutStreamBuf);
+    CHECK(os.str() == "The device is now on\n");
+    os.str("");
+    cout.rdbuf(os.rdbuf());
+    dev4->turnOnAction();
+    cout.rdbuf(oldCoutStreamBuf);
+    CHECK(os.str() == "The device is now on\n");
+    os.str("");
+    cout.rdbuf(os.rdbuf());
+    dev4->turnOffAction();
+    cout.rdbuf(oldCoutStreamBuf);
+    CHECK(os.str() == "The device is now off\n");
+    os.str("");
+    cout.rdbuf(os.rdbuf());
+    dev4->toggleAction();
+    cout.rdbuf(oldCoutStreamBuf);
+    CHECK(os.str() == "The device is now on\n");
+    os.str("");
+    cout.rdbuf(os.rdbuf());
+    dev5->turnOnAction();
+    cout.rdbuf(oldCoutStreamBuf);
+    CHECK(os.str() == "The device is now on\n");
+    os.str("");
+    cout.rdbuf(os.rdbuf());
+    dev5->turnOffAction();
+    cout.rdbuf(oldCoutStreamBuf);
+    CHECK(os.str() == "The device is now off\n");
+    os.str("");
+    cout.rdbuf(os.rdbuf());
+    dev5->toggleAction();
+    cout.rdbuf(oldCoutStreamBuf);
+    CHECK(os.str() == "The device is now on\n");
+    os.str("");
+    cout.rdbuf(oldCoutStreamBuf);
+    delete dev1;
+    delete dev2;
+    delete dev3;
+    delete dev4;
+    delete dev5;
+    std::cout << colours::LIGHT_GREEN << "End of Section 3" << colours::RESET << std::endl;
 	std::cout << colours::LIGHT_BLUE << "============================================================" << colours::RESET << std::endl;
 }
 TEST_CASE("Section 4: Testing commands") {
 	std::cout << colours::LIGHT_GREEN << "Section 4: Testing commands" << colours::RESET << std::endl;
-	Group* dev1 = new Door("Door");
-	Group* dev2 = new Light("Light");
+	Group* dev1 = new Alarm("Alarm");
+	Group* dev2 = new Door("Door");
 	Command* on1 = new CommandOn(dev1);
 	Command* off1 = new CommandOff(dev1);
 	Command* toggle1 = new CommandToggle(dev1);
@@ -126,23 +210,23 @@ TEST_CASE("Section 4: Testing commands") {
 	cout.rdbuf(os.rdbuf());
 	os.str("");
 	toggle1->execute();
-    cout.rdbuf(oldCoutStreamBuf);
-	CHECK(os.str() == "The device is already unlocked\n");
-    cout.rdbuf(os.rdbuf());
+	cout.rdbuf(oldCoutStreamBuf);
+	CHECK(os.str() == "The device is now locked\n");
+	cout.rdbuf(os.rdbuf());
 	os.str("");
 	on2->execute();
-    cout.rdbuf(oldCoutStreamBuf);
-	CHECK(os.str() == "The device is now on\n");
-    cout.rdbuf(os.rdbuf());
+	cout.rdbuf(oldCoutStreamBuf);
+	CHECK(os.str() == "The device is already locked\n");
+	cout.rdbuf(os.rdbuf());
 	os.str("");
 	off2->execute();
-    cout.rdbuf(oldCoutStreamBuf);
-	CHECK(os.str() == "The device is now off\n");
-    cout.rdbuf(os.rdbuf());
+	cout.rdbuf(oldCoutStreamBuf);
+	CHECK(os.str() == "The device is now unlocked\n");
+	cout.rdbuf(os.rdbuf());
 	os.str("");
 	toggle2->execute();
-    cout.rdbuf(oldCoutStreamBuf);
-	CHECK(os.str() == "The device is now on\n");
+	cout.rdbuf(oldCoutStreamBuf);
+	CHECK(os.str() == "The device is now locked\n");
 	os.str("");
 	cout.rdbuf(oldCoutStreamBuf);
 	delete on1;
