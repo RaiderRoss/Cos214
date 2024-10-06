@@ -1,90 +1,176 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
-#include "doctest.h"
-#include "device.h"
+#include "Alarm.h"
+#include "Command.h"
+#include "CommandOff.h"
+#include "CommandOn.h"
+#include "CommandToggle.h"
+#include "DeviceTraversal.h"
+#include "Door.h"
+#include "Fridge.h"
+#include "Group.h"
+#include "Light.h"
+#include "LockState.h"
+#include "MacroRoutines.h"
 #include "Section.h"
 #include "State.h"
-#include "LockState.h"
 #include "SwitchState.h"
-
-
+#include "Thermostat.h"
+#include "device.h"
+#include "doctest.h"
+#include <iostream>
+#include <sstream>
+#include <string>
+using namespace std;
 
 TEST_CASE("Section 1: Checking state display functionality") {
-    State* on = new On();
-    State* off = new Off();
-    State* locked = new Locked();
-    State* unlocked = new Unlocked();
+	std::cout << colours::LIGHT_GREEN << "Section 1: Checking state display functionality" << colours::RESET << std::endl;
+	State* on = new On();
+	State* off = new Off();
+	State* locked = new Locked();
+	State* unlocked = new Unlocked();
 
+	CHECK(on->display() == "The device is currently : On");
+	CHECK(off->display() == "The device is currently : Off");
+	CHECK(locked->display() == "The device is currently : Locked");
+	CHECK(unlocked->display() == "The device is currently : Unlocked");
 
+	CHECK(on->display() != "The device is currently : Off");
+	CHECK(off->display() != "The device is currently : On");
+	CHECK(locked->display() != "The device is currently : Unlocked");
+	CHECK(unlocked->display() != "The device is currently : Locked");
 
-    CHECK(on->display() == "The device is currently : On");
-    CHECK(off->display() == "The device is currently : Off");
-    CHECK(locked->display() == "The device is currently : Locked");
-    CHECK(unlocked->display() == "The device is currently : Unlocked");
-  
-
-
-    CHECK(on->display() != "The device is currently : Off");
-    CHECK(off->display() != "The device is currently : On");
-    CHECK(locked->display() != "The device is currently : Unlocked");
-    CHECK(unlocked->display() != "The device is currently : Locked");
-
-
-
-    delete on;
-    delete off;
-    delete locked;
-    delete unlocked;
+	delete on;
+	delete off;
+	delete locked;
+	delete unlocked;
+	std::cout << colours::LIGHT_GREEN << "End of Section 1" << colours::RESET << std::endl;
+	std::cout << colours::LIGHT_BLUE << "============================================================" << colours::RESET << std::endl;
 }
 
 TEST_CASE("Section 2: Testing state transitions") {
-    State* on = new On();
-    State* off = on->toggle();
-    CHECK(off->display() == "The device is currently : Off");
-    State* onAgain = off->toggle();
-    CHECK(onAgain->display() == "The device is currently : On");
-    State* locked = new Locked();
-    State* unlocked = locked->toggle();
-    CHECK(unlocked->display() == "The device is currently : Unlocked");
-    State* lockedAgain = unlocked->toggle();
-    CHECK(lockedAgain->display() == "The device is currently : Locked");
+	std::cout << colours::LIGHT_GREEN << "Section 2: Testing state transitions" << colours::RESET << std::endl;
+	State* on = new On();
+	State* off = on->toggle();
+	CHECK(off->display() == "The device is currently : Off");
+	State* onAgain = off->toggle();
+	CHECK(onAgain->display() == "The device is currently : On");
+	State* locked = new Locked();
+	State* unlocked = locked->toggle();
+	CHECK(unlocked->display() == "The device is currently : Unlocked");
+	State* lockedAgain = unlocked->toggle();
+	CHECK(lockedAgain->display() == "The device is currently : Locked");
 
-
-
-    delete on;
-    delete off;
-    delete onAgain;
-    delete locked;
-    delete unlocked;
-    delete lockedAgain;
+	delete on;
+	delete off;
+	delete onAgain;
+	delete locked;
+	delete unlocked;
+	delete lockedAgain;
+	std::cout << colours::LIGHT_GREEN << "End of Section 2" << colours::RESET << std::endl;
+	std::cout << colours::LIGHT_BLUE << "============================================================" << colours::RESET << std::endl;
 }
 
 TEST_CASE("Section 3: Testing Composite") {
-    Group* room1 = new Section("room1");
-    Group* room2 = new Section("room2");
-    CHECK(room1->getName() == "room1");
-    Group* house = new Section("house");
-    house->addGroup(room1);
-    house->addGroup(room2);
-    CHECK(house->getChildren().size() == 2);
-    CHECK(house->getChildren()[0]->getName() == "room1");
-    CHECK(house->getChildren()[1]->getName() == "room2");
-    CHECK(house->getDeviceType() == "Section");
-    CHECK(room1->getChildren().size() == 0);
-    delete house;
+	std::cout << colours::LIGHT_GREEN << "Section 3: Testing Composite" << colours::RESET << std::endl;
+	Group* room1 = new Section("room1");
+	Group* room2 = new Section("room2");
+	CHECK(room1->getName() == "room1");
+	Group* house = new Section("house");
+	house->addGroup(room1);
+	house->addGroup(room2);
+	CHECK(house->getChildren().size() == 2);
+	CHECK(house->getChildren()[0]->getName() == "room1");
+	CHECK(house->getChildren()[1]->getName() == "room2");
+	CHECK(house->getDeviceType() == "Section");
+	CHECK(room1->getChildren().size() == 0);
+	delete house;
+	std::cout << colours::LIGHT_GREEN << "End of Section 3" << colours::RESET << std::endl;
+	std::cout << colours::LIGHT_BLUE << "============================================================" << colours::RESET << std::endl;
 }
 TEST_CASE("Section 3: Testing devices") {
-    Group* room1 = new Section("room1");
-    Group* room2 = new Section("room2");
-    CHECK(room1->getName() == "room1");
-    Group* house = new Section("house");
-    house->addGroup(room1);
-    house->addGroup(room2);
-    CHECK(house->getChildren().size() == 2);
-    CHECK(house->getChildren()[0]->getName() == "room1");
-    CHECK(house->getChildren()[1]->getName() == "room2");
-    CHECK(house->getDeviceType() == "Section");
-    CHECK(room1->getChildren().size() == 0);
-    delete house;
+	std::cout << colours::LIGHT_GREEN << "Section 3: Testing devices" << colours::RESET << std::endl;
+	Group* room1 = new Section("room1");
+	Group* room2 = new Section("room2");
+	CHECK(room1->getName() == "room1");
+	Group* house = new Section("house");
+	house->addGroup(room1);
+	house->addGroup(room2);
+	CHECK(house->getChildren().size() == 2);
+	CHECK(house->getChildren()[0]->getName() == "room1");
+	CHECK(house->getChildren()[1]->getName() == "room2");
+	CHECK(house->getDeviceType() == "Section");
+	CHECK(room1->getChildren().size() == 0);
+	delete house;
+	std::cout << colours::LIGHT_GREEN << "End of Section 3" << colours::RESET << std::endl;
+	std::cout << colours::LIGHT_BLUE << "============================================================" << colours::RESET << std::endl;
 }
-
-    
+TEST_CASE("Section 4: Testing commands") {
+	std::cout << colours::LIGHT_GREEN << "Section 4: Testing commands" << colours::RESET << std::endl;
+	Group* dev1 = new Door("Door");
+	Group* dev2 = new Light("Light");
+	Command* on1 = new CommandOn(dev1);
+	Command* off1 = new CommandOff(dev1);
+	Command* toggle1 = new CommandToggle(dev1);
+	Command* on2 = new CommandOn(dev2);
+	Command* off2 = new CommandOff(dev2);
+	Command* toggle2 = new CommandToggle(dev2);
+	ostringstream os;
+	streambuf* oldCoutStreamBuf = cout.rdbuf();
+	cout.rdbuf(os.rdbuf());
+	on1->execute();
+	CHECK(os.str() == "The device is already locked\n");
+	os.str("");
+	off1->execute();
+	cout.rdbuf(oldCoutStreamBuf);
+	CHECK(os.str() == "The device is now unlocked\n");
+	cout.rdbuf(os.rdbuf());
+	os.str("");
+	toggle1->execute();
+    cout.rdbuf(oldCoutStreamBuf);
+	CHECK(os.str() == "The device is already unlocked\n");
+    cout.rdbuf(os.rdbuf());
+	os.str("");
+	on2->execute();
+    cout.rdbuf(oldCoutStreamBuf);
+	CHECK(os.str() == "The device is now on\n");
+    cout.rdbuf(os.rdbuf());
+	os.str("");
+	off2->execute();
+    cout.rdbuf(oldCoutStreamBuf);
+	CHECK(os.str() == "The device is now off\n");
+    cout.rdbuf(os.rdbuf());
+	os.str("");
+	toggle2->execute();
+    cout.rdbuf(oldCoutStreamBuf);
+	CHECK(os.str() == "The device is now on\n");
+	os.str("");
+	cout.rdbuf(oldCoutStreamBuf);
+	delete on1;
+	delete off1;
+	delete toggle1;
+	delete on2;
+	delete off2;
+	delete toggle2;
+	delete dev1;
+	delete dev2;
+	std::cout << colours::LIGHT_GREEN << "End of Section 4" << colours::RESET << std::endl;
+	std::cout << colours::LIGHT_BLUE << "============================================================" << colours::RESET << std::endl;
+}
+TEST_CASE("Section 5: Testing iterator") {
+	std::cout << colours::LIGHT_GREEN << "Section 5: Testing iterator" << colours::RESET << std::endl;
+	Group* room1 = new Section("room1");
+	Group* room2 = new Section("room2");
+	Group* house = new Section("house");
+	house->addGroup(room1);
+	house->addGroup(room2);
+	DeviceTraversal* it = new DeviceTraversal(house);
+	it->nextGroup();
+	CHECK(it->current() == house);
+	CHECK(it->nextGroup() == room1);
+	CHECK(it->nextGroup() == room2);
+	CHECK(it->nextGroup() == nullptr);
+	delete it;
+	delete house;
+	std::cout << colours::LIGHT_GREEN << "End of Section 5" << colours::RESET << std::endl;
+	std::cout << colours::LIGHT_BLUE << "============================================================" << colours::RESET << std::endl;
+}

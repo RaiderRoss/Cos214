@@ -62,11 +62,6 @@ void run() {
 }
 
 void checkUserInput(string input) {
-	if (input == "exit") {
-		system("clear");
-		cout << colours::BOLD + colours::RED << "🗝️ You have left the simulation 🗝️" << colours::RESET << endl;
-		exit(69);
-	}
 	int spacePos = input.find(' ');
 
 	string action, arg;
@@ -79,7 +74,11 @@ void checkUserInput(string input) {
 		arg = "";
 	}
 	std::transform(action.begin(), action.end(), action.begin(), ::tolower);
-
+	if (action == "exit") {
+		system("clear");
+		cout << colours::BOLD + colours::RED << "🗝️ You have left the simulation 🗝️" << colours::RESET << endl;
+		exit(69);
+	}
 	if (action == "addsection") {
 		if (arg == "") {
 			cout << "No Arguements given!" << endl;
