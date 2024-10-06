@@ -1,5 +1,5 @@
 CC = g++
-CFLAGS = -fdiagnostics-color=always -g --coverage
+CFLAGS = -fdiagnostics-color=always -g
 OUTPUT_DIR = output
 
 DEMO_SRCS = $(filter-out TestingMain.cpp, $(wildcard *.cpp))
@@ -18,7 +18,7 @@ test:
 	clear && ./TestingMain
 
 testReset:
-	rm -f TestingMain && $(CC) $(CFLAGS) $(TEST_SRCS) -o TestingMain
+	rm -f TestingMain && $(CC) $(CFLAGS) --coverage $(TEST_SRCS) -o TestingMain
 	mkdir -p $(OUTPUT_DIR)
 	mv *.gcno $(OUTPUT_DIR)
 
