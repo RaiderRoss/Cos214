@@ -1,18 +1,19 @@
 #ifndef DEVICE_H
 #define DEVICE_H
 #include "Group.h"
+#include "Locked.h"
 #include "Off.h"
 #include "On.h"
-#include "Locked.h"
 #include "Unlocked.h"
 class device : public Group {
-protected:
+   protected:
 	State* state;
-public:
 
+   public:
 	device(std::string name);
 
 	virtual ~device();
+	virtual std::vector<unique_ptr<Group>>& getChildren();
 
 	virtual void getStatus(int) = 0;
 

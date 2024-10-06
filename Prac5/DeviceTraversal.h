@@ -16,6 +16,7 @@ public:
 	Group* nextGroup();
 	Group* begin();
 	Group* current();
+	void resetTraversal();
 };
 
 #endif

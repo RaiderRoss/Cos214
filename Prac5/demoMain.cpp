@@ -23,7 +23,8 @@ void run();
 void checkUserInput(string input);
 void invalidLoop();
 void createDevice();
-Group * getGroupById(int id);
+void createSection(std::string name);
+Group* getGroupById(int id);
 ////////////////////////// Declare variables //////////////////////////
 unique_ptr<Group> house;
 unique_ptr<DeviceTraversal> it;
@@ -32,7 +33,7 @@ void displayActions() {
 	cout << colours::BLUE << "====================🔐 House security 🔐====================" << colours::RESET << endl;
 	cout << colours::BOLD + colours::GREEN << "Actions : " << colours::RESET << endl;
 	cout << "#################################################" << endl;
-	cout << "➥ Add a room : addRoom {room name}\t" << endl;
+	cout << "➥ Add a section/room : addSec {name}\t" << endl;
 	cout << "➥ Add a device : addDev\t" << endl;
 	cout << "➥ Run an action : run {command}\t" << endl;
 	cout << "➥ View valid commands : listCommands\t" << endl;
@@ -67,12 +68,12 @@ void checkUserInput(string input) {
 		arg = "";
 	}
 
-	if (action == "addRoom") {
+	if (action == "addSec") {
 		if (arg == "") {
 			cout << "No Arguements given!" << endl;
 			invalidLoop();
 		}
-		house->addGroup(new Section(arg));
+		createSection(arg);
 		run();
 		return;
 	}
@@ -132,13 +133,12 @@ void checkUserInput(string input) {
 	cout << colours::DARK_RED + colours::BOLD << "Command : " << input << " is an invalid action: " << colours::RESET << endl;
 	invalidLoop();
 }
-void runCommand(){
-
+void runCommand() {
 }
-Group *getGroupById(int id) {
-	Group* curr = it->begin();
+Group* getGroupById(int id) {
+	it->resetTraversal();
+	Group* curr = it->nextGroup();
 	while (curr != nullptr) {
-		std::cout << "Traversing" << curr->getId() << std::endl;
 		if (curr->getId() == id) {
 			return curr;
 		}
@@ -146,7 +146,18 @@ Group *getGroupById(int id) {
 	}
 	return nullptr;
 }
-
+void createSection(std::string name) {
+	cout << "Select a room/section to add this section to" << endl;
+	cout << "Input⤐ ";
+	string input = "";
+	getline(cin, input);
+	Group* curr = getGroupById(stoi(input));
+	if (curr == nullptr) {
+		cout << colours::DARK_RED + colours::BOLD << "Invalid section ID" << colours::RESET << endl;
+		createDevice();
+	}
+	curr->addGroup(new Section(name));
+}
 void createDevice() {
 	cout << "Select a room to add this device to" << endl;
 	cout << "Input⤐ ";
@@ -154,7 +165,7 @@ void createDevice() {
 	getline(cin, input);
 	Group* curr = getGroupById(stoi(input));
 	if (curr == nullptr) {
-		cout << colours::DARK_RED + colours::BOLD << "Invalid room ID" << colours::RESET << endl;
+		cout << colours::DARK_RED + colours::BOLD << "Invalid section ID" << colours::RESET << endl;
 		createDevice();
 	}
 	std::cout << "Select type of device : " << std::endl;
@@ -195,38 +206,8 @@ void invalidLoop() {
 	getline(cin, input);
 	checkUserInput(input);
 }
-void checkTraverse() {
-    Group* root = new Section("House");
-    Group* a1 = new Section("Room1");
-    Group* a2 = new Section("Room2");
-    Group* a1c = new Section("Dev1");
-    Group* a2a = new Section("Dev22");
-    Group* a2b = new Section("Dev23");
-    Group* b = new Section("Room3");
-    Group* c = new Section("Room4");
-    Group* c1 = new Section("DevC1");
-    Group* c2 = new Section("DevC2");
-    Group* c2a = new Section("DevC2A");
-    Group* d = new Section("Room5");
-    root->addGroup(a1);
-    root->addGroup(a2);
-    root->addGroup(b);
-    root->addGroup(c);
-    root->addGroup(d);
-    a1->addGroup(a1c);
-    a2->addGroup(a2a);
-    a2->addGroup(a2b);
-    c->addGroup(c1);
-    c->addGroup(c2);
-    c2->addGroup(c2a);
-	root->getStatus();
-
-}
-
 
 void runUI() {
-	house = make_unique<Section>("House");
-	it = house->createTraversal();
 	system("clear");
 
 	cout << colours::LIGHT_GREEN + colours::BOLD << "============ Welcome to home management securtiy Co ============" << colours::RESET << endl;
@@ -239,6 +220,10 @@ void runUI() {
 	if (input == 'Y') {
 		system("clear");
 		cin.ignore();
+		std::cout << colours::LIGHT_GREEN + colours::BOLD << std::endl;
+		house = make_unique<Section>("House");
+		it = house->createTraversal();
+		std::cout << colours::RESET << std::endl;
 		cout << "All valid commands are shown below : " << endl;
 		displayActions();
 		run();
@@ -247,6 +232,6 @@ void runUI() {
 	cout << colours::BOLD + colours::RED << "🗝️ You have left the simulation 🗝️" << colours::RESET << endl;
 }
 int main(int argc, char const* argv[]) {
-	//checkTraverse();
+	// checkTraverse();
 	runUI();
 }

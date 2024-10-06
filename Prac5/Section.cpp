@@ -9,8 +9,8 @@ Section::~Section() {
 }
 
 bool Section::addGroup(Group* gr) {
-	children.push_back(std::unique_ptr<Group>(gr));
-	return true;
+    children.push_back(unique_ptr<Group>(gr));
+    return true;
 }
 
 bool Section::destroyGroup() {
@@ -47,7 +47,7 @@ void Section::getStatus(int indentLevel = 0) {
               << colours::LIGHT_GREEN << "Section : " 
               << getName() << " | " << getId() 
               << colours::RESET << std::endl;
-    for (auto& child : children) {
+    for (std::unique_ptr<Group>& child : children) {
         child->getStatus(indentLevel + 1);
     }
 }
