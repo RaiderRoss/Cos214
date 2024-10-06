@@ -9,7 +9,7 @@ void Light::getStatus(int level = 0) {
 	std::cout << colours::LIGHT_BLUE << "⤿ "
 			  << colours::LIGHT_GREEN << "Device : "
 			  << getName() << " | " << getId()
-			  << " | " << state->display() << colours::RESET << std::endl;
+			  << " | " << state->display() << "" << colours::RESET << std::endl;
 }
 
 void Light::toggleAction() {

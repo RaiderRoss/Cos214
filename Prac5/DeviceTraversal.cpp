@@ -49,21 +49,26 @@ Group* DeviceTraversal::findNext(Group* group) {
 }
 
 Group* DeviceTraversal::findSibling(Group* group) {
-	if (group == root) {
-		return nullptr;
-	}
-	Group* parent = findParent(root, group);
-	if (parent == nullptr) {
-		return nullptr;
-	}
+    if (group == root) {
+        return nullptr;
+    }
+    
+    Group* parent = findParent(root, group);
+    if (parent == nullptr) {
+        return nullptr;
+    }
 
-	auto it = std::find_if(parent->getChildren().begin(), parent->getChildren().end(),
-						   [group](const std::unique_ptr<Group>& child) { return child.get() == group; });
+	std::vector<std::unique_ptr<Group>>& children = parent->getChildren();
+    for (int i = 0; i < children.size(); ++i) {
+        if (children[i].get() == group) {
+            if (i + 1 < children.size()) {
+                return children[i + 1].get();
+            }
+            break;
+        }
+    }
 
-	if (it != parent->getChildren().end() && ++it != parent->getChildren().end()) {
-		return it->get();
-	}
-	return findSibling(parent);
+    return findSibling(parent);
 }
 
 Group* DeviceTraversal::findParent(Group* current, Group* target) {

@@ -4,7 +4,7 @@
 class CommandToggle : public Command
 {
 public:
-    CommandToggle(device* dev);
+    CommandToggle(Group* dev);
     ~CommandToggle();
     virtual void execute();
 };

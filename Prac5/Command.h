@@ -3,13 +3,13 @@
 #include <iostream>
 #include <string>
 
-#include "device.h"
+#include "Group.h"
 class Command {
    protected:
-	device* dev;
+	Group* device;
 
    public:
-	Command(device* dev);
+	Command(Group* group);
 	~Command();
 	virtual void execute() = 0;
 };

@@ -1,9 +1,9 @@
 #include "Command.h"
-#include "device.h"
+#include "Group.h"
 
 
-Command::Command(device* dev) {
-    this->dev = dev;
+Command::Command(Group* dev) {
+    device = dev;
 }
 
 Command::~Command() {

@@ -4,7 +4,7 @@
 class CommandOff : public Command
 {
 public:
-    CommandOff(device* dev);
+    CommandOff(Group* dev);
     ~CommandOff();
     virtual void execute();
 };

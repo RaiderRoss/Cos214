@@ -9,14 +9,17 @@ TEST_SRCS = $(filter-out demoMain.cpp, $(wildcard *.cpp))
 all: demo test
 
 demo:
-	./demo
+	./demoMain
 demoReset:
-	rm -f demo && $(CC) $(CFLAGS) $(DEMO_SRCS) -o demo
+	rm -f demo && $(CC) $(CFLAGS) $(DEMO_SRCS) -o demoMain
 
 test:
 	clear && ./test
 testReset:
 	rm -f test && $(CC) $(CFLAGS) $(TEST_SRCS) -o test
-
 clean:
-	rm -f demo test
+	rm -f demoMain test
+valgrind:
+	valgrind --leak-check=full ./test
+run:
+	./test
