@@ -1,6 +1,10 @@
 #ifndef OLDTHERMOSTAT_H
 #define OLDTHERMOSTAT_H
 #include "State.h"
+#include <iostream>
+#include <string>
+#include "Off.h"
+#include "On.h"
 /** 
  * @file OldThermostat.h
  * @class OldThermostat
@@ -43,13 +47,14 @@
 class OldThermostat {
     private :
         State* state;
+        std::string name;
     public: 
-        OldThermostat(State* state);
+        OldThermostat(std::string name);
+        ~OldThermostat();
         void identifyStatus();
         void toggle();
         void off();
         void on();
-
         void setState(State* s);
 
 };

@@ -2,9 +2,12 @@
 
 ThermostatIntegrator::ThermostatIntegrator(std::string name) : device(name) {
     state = new Off();
-    OldThermostat* thermostat = new OldThermostat(state);
+    OldThermostat* thermostat = new OldThermostat(name);
     this->oldThermostat = thermostat;
-} 
+}
+ThermostatIntegrator::~ThermostatIntegrator() {
+    delete oldThermostat;
+}
 
 void ThermostatIntegrator::getStatus(int BigScaryInteger) {
     return oldThermostat->identifyStatus();
@@ -23,5 +26,5 @@ void ThermostatIntegrator::turnOffAction() {
 }
 
 std::string ThermostatIntegrator::getDeviceType() {
-    return this->getName();
+    return "Thermostat Integrator";
 }

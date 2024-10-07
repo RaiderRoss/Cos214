@@ -34,6 +34,7 @@ class AlarmIntegrator: public device {
         virtual void toggleAction();
 	    virtual void turnOnAction();
 	    virtual void turnOffAction();
+        ~AlarmIntegrator();
 
 	   virtual string getDeviceType();
 

@@ -1,26 +1,34 @@
 #include "OldAlarm.h"
 
-OldAlarm::OldAlarm(State* s) {
-    this->state = s;
+OldAlarm::OldAlarm(std::string name) {
+	this->name = name;
+	this->state = new Locked();
+}
+
+OldAlarm::~OldAlarm() {
+    delete this->state;
 }
 
 void OldAlarm::identifyAlarmStatus() {
-
+	std::cout << "Old Alarm is currently : " << state->display() << std::endl;
 }
 
 void OldAlarm::toggle() {
-    setState(state->toggle());
+	cout << "Old | ";
+	OldAlarm::setState(state->toggle());
 }
 
 void OldAlarm::off() {
-    setState(state->disengage());
+	cout << "Old | ";
+	OldAlarm::setState(state->disengage());
 }
 
 void OldAlarm::on() {
-    setState(state->engage());
+	cout << "Old | ";
+	OldAlarm::setState(state->engage());
 }
 
 void OldAlarm::setState(State* s) {
-    delete state;
-    state = s;
+	delete state;
+	state = s;
 }
