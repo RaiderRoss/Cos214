@@ -3,6 +3,7 @@
 ThermostatIntegrator::ThermostatIntegrator(std::string name) : device(name) {
     state = new Off();
     OldThermostat* thermostat = new OldThermostat(state);
+    this->oldThermostat = thermostat;
 } 
 
 void ThermostatIntegrator::getStatus(int BigScaryInteger) {
