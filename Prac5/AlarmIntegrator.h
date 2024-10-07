@@ -1,7 +1,10 @@
-#ifndef ALARMINTEGRATOR.H
-#define ALARMINTEGRATOR.H
+#ifndef ALARMINTEGRATOR_H
+#define ALARMINTEGRATOR_H
 #include "device.h"
 #include "OldAlarm.h"
+<<<<<<< HEAD
+
+=======
 /**
  * @class AlarmIntegrator
  * @brief A class that integrates an old alarm system with a new device interface.
@@ -25,17 +28,16 @@
  * 
  * @method getDeviceType Returns the type of the device as a string.
  */
+>>>>>>> e18f7ea96d2362f3945eea3602ae6c23e9f20081
 class AlarmIntegrator: public device {
     private: 
         OldAlarm* alarm;
     public: 
         AlarmIntegrator(std::string name);
-
-        
-	virtual void getStatus(int);
-    virtual void toggleAction();
-	virtual void turnOnAction();
-	virtual void turnOffAction();
+	    virtual void getStatus(int);
+        virtual void toggleAction();
+	    virtual void turnOnAction();
+	    virtual void turnOffAction();
 
 	virtual string getDeviceType();
 
