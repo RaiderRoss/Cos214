@@ -24,7 +24,6 @@ void Fridge::turnOffAction() {
 	setState(state->disengage());
 }
 
-
 string Fridge::getDeviceType() {
 	return "Fridge";
 }

@@ -1,7 +1,7 @@
 #ifndef ALARMINTEGRATOR.H
 #define ALARMINTEGRATOR.H
 #include "device.h"
-
+#include "OldAlarm.h"
 class AlarmIntegrator: public device {
     private: 
         OldAlarm* alarm;
