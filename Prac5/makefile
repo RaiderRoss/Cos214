@@ -26,7 +26,7 @@ testCov:
 	gcovr -r . --html --html-details -o html/coverage.html
 
 clean:
-	rm -f demoMain TestingMain *.gcda $(OUTPUT_DIR)/*.gcda $(OUTPUT_DIR)/*.gcno $(OUTPUT_DIR)/*.gcov html/search html/*dot html/*.html
+	rm -f demoMain TestingMain *.gcda $(OUTPUT_DIR)/*.gcda $(OUTPUT_DIR)/*.gcno $(OUTPUT_DIR)/*.gcov html/search/* html/latex/*
 
 valgrind:
 	make testReset valgrind --leak-check=full ./TestingMain

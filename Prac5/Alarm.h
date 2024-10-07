@@ -3,10 +3,6 @@
 #include "device.h"
 /**
  * @file Alarm.h
- * @brief alarm class
- * @author Aidan McKnzie
- */
-/**
  * @class Alarm
  * @brief Represents an alarm device with various actions and status reporting.
  * 
