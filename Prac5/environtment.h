@@ -72,15 +72,17 @@
  */
 class Environment {
     private:
-        std::vector<std::unique_ptr<SensorLight>> lights;
-        std::vector<std::unique_ptr<SensorMotion>> motions;
+        std::vector<std::unique_ptr<SensorLight>> lightSensor;
+        std::vector<std::unique_ptr<SensorMotion>> motionSensor;
     public:
         Environment();
         ~Environment();
-        void addLight(SensorLight* light);
-        void addMotion(SensorMotion* motion);
-        void removeLight(SensorLight* light);
-        void removeMotion(SensorMotion* motion);
+        void add(Sensor* sen);
+        std::vector<std::unique_ptr<SensorLight>>& getLights();
+        std::vector<std::unique_ptr<SensorMotion>>& getMotions();
+        void remove(Sensor* sen);
+        void notifyLights();
+        void notifyMotions();
         void listLights();
         void listMotions();
 };

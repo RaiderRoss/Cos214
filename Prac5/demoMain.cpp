@@ -16,6 +16,8 @@
 #include "Group.h"
 #include "Light.h"
 #include "Section.h"
+#include "SensorLight.h"
+#include "SensorMotion.h"
 #include "State.h"
 #include "Thermostat.h"
 #include "device.h"
@@ -33,6 +35,8 @@ void runCommand();
 void runUI();
 void addRoutine(std::string name);
 void runRoutine();
+void addSensor();
+void triggerSensor();
 ////////////////////////// Declare variables //////////////////////////
 unique_ptr<Group> house;
 unique_ptr<DeviceTraversal> it;
@@ -45,6 +49,8 @@ void displayActions() {
 	cout << "➥ Add a section/room : addSection {name}\t" << endl;
 	cout << "➥ Add a device : addDevice\t" << endl;
 	cout << "➥ Add a routine : addRoutine {name}\t" << endl;
+	cout << "➥ Add a sensor : addSensor\t" << endl;
+	cout << "➥ Trigger Sensor : triggerSensor\t" << endl;
 	cout << "➥ Run an action : runAction\t" << endl;
 	cout << "➥ Run a routine : runRoutine\t" << endl;
 	cout << "➥ View Layout : listSections\t" << endl;
@@ -73,12 +79,15 @@ void checkUserInput(string input) {
 		action = input;
 		arg = "";
 	}
+
 	std::transform(action.begin(), action.end(), action.begin(), ::tolower);
+
 	if (action == "exit") {
 		system("clear");
 		cout << colours::BOLD + colours::RED << "🗝️ You have left the simulation 🗝️" << colours::RESET << endl;
 		exit(69);
 	}
+
 	if (action == "addsection") {
 		if (arg == "") {
 			cout << "No Arguements given!" << endl;
@@ -94,7 +103,16 @@ void checkUserInput(string input) {
 		run();
 		return;
 	}
-
+	if (action == "addsensor") {
+		addSensor();
+		run();
+		return;
+	}
+	if (action == "triggersensor") {
+		triggerSensor();
+		run();
+		return;
+	}
 	if (action == "addroutine") {
 		if (arg == "") {
 			cout << "No Arguements given!" << endl;
@@ -135,6 +153,88 @@ void checkUserInput(string input) {
 
 	cout << colours::DARK_RED + colours::BOLD << "Command : " << input << " is an invalid action: " << colours::RESET << endl;
 	invalidLoop();
+}
+void addSensor() {
+	it->resetTraversal();
+	Group* curr = nullptr;
+	while (!it->isDone()) {
+		curr = it->nextGroup();
+		if (curr == nullptr) {
+			break;
+		}
+		std::cout << curr->getName() << " | " << curr->getId() << std::endl;
+		if (curr->getDeviceType() != "Section") {
+			continue;
+		}
+		std::cout << "Would you like to add a sensor to this section (Y/N)" << std::endl;
+		std::cout << "Input⤐ ";
+		string input = "";
+		getline(cin, input);
+		if (input == "Y") {
+			for (const auto& child : curr->getChildren()) {
+				if(child->getDeviceType() == "Section") {
+					continue;
+				}
+				std::cout << child->getName() << " | " << child->getId() << std::endl;
+				std::cout << "Would you like to add a sensor to this device (Y/N)" << std::endl;
+				std::cout << "Input⤐ ";
+				input = "";
+				getline(cin, input);
+				if (input == "Y") {
+					cout << "Select a sensor type : " << endl;
+					cout << colours::LIGHT_GREEN;
+					cout << "\t↳ Light : 1" << endl;
+					cout << "\t↳ Motion : 2 " << endl;
+					input = "";
+					cout << "Input⤐ ";
+					getline(cin, input);
+					if (input == "1") {
+						curr->addSensor(new SensorLight(child.get()));
+					} else if (input == "2") {
+						curr->addSensor(new SensorMotion(child.get()));
+					} else {
+						std::cout << colours::DARK_RED + colours::BOLD << "Invalid sensor type" << colours::RESET << std::endl;
+						addSensor();
+					}
+				}
+			}
+		}
+	}
+}
+void triggerSensor() {
+	it->resetTraversal();
+	Group* curr = nullptr;
+	while (!it->isDone()) {
+		curr = it->nextGroup();
+		if (curr == nullptr) {
+			break;
+		}
+		if (curr->getDeviceType() != "Section") {
+			continue;
+		}
+		std::cout << curr->getName() << " | " << curr->getId() << std::endl;
+		std::cout << "Would you like to trigger a sensor in this device/section? (Y/N)" << std::endl;
+		std::cout << "Input⤐ ";
+		string input = "";
+		getline(cin, input);
+		if (input == "Y") {
+			cout << "Select an action to trigger : " << endl;
+			cout << colours::LIGHT_GREEN;
+			cout << "\t↳ Light : 1" << endl;
+			cout << "\t↳ Motion : 2 " << endl;
+			input = "";
+			cout << "Input⤐ ";
+			getline(cin, input);
+			if (input == "1") {
+				curr->light();
+			} else if (input == "2") {
+				curr->movement();
+			} else {
+				std::cout << colours::DARK_RED + colours::BOLD << "Invalid sensor type" << colours::RESET << std::endl;
+				triggerSensor();
+			}
+		}
+	}
 }
 void addRoutine(std::string name) {
 	it->resetTraversal();
@@ -254,7 +354,6 @@ void createDevice() {
 	}
 	std::cout << "Select type of device : " << std::endl;
 	cout << colours::LIGHT_GREEN;
-	cout << "\t↳ Exit : 0" << endl;
 	cout << "\t↳ Alarm : 1" << endl;
 	cout << "\t↳ Door : 2 " << endl;
 	cout << "\t↳ Fridge : 3" << endl;
@@ -267,20 +366,42 @@ void createDevice() {
 	if (input == "0") {
 		return;
 	}
+	device* dev = nullptr;
 
 	if (input == "1") {
-		curr->addGroup(new Alarm("Alarm"));
+		dev = new Alarm("Alarm");
 	} else if (input == "2") {
-		curr->addGroup(new Door("Door"));
+		dev = new Door("Door");
 	} else if (input == "3") {
-		curr->addGroup(new Fridge("Fridge"));
+		dev = new Fridge("Fridge");
 	} else if (input == "4") {
-		curr->addGroup(new Light("Light"));
+		dev = new Light("Light");
 	} else if (input == "5") {
-		curr->addGroup(new Thermostat("Thermostat"));
+		dev = new Thermostat("Thermostat");
 	} else {
 		cout << colours::DARK_RED + colours::BOLD << "Invalid device type" << colours::RESET << endl;
 		createDevice();
+	}
+	curr->addGroup(dev);
+	if (curr->getEnvirontment()->getLights().size() > 0) {
+		std::cout << "The device has a light sensor" << std::endl;
+		std::cout << "Would you like to add this device to the environment (Y/N)" << std::endl;
+		std::cout << "Input⤐ ";
+		string input = "";
+		getline(cin, input);
+		if (input == "Y") {
+			curr->addSensor(new SensorLight(dev));
+		}
+	}
+	if (curr->getEnvirontment()->getMotions().size() > 0) {
+		std::cout << "The device has a motion sensor" << std::endl;
+		std::cout << "Would you like to add this device to the environment (Y/N)" << std::endl;
+		std::cout << "Input⤐ ";
+		string input = "";
+		getline(cin, input);
+		if (input == "Y") {
+			curr->addSensor(new SensorMotion(dev));
+		}
 	}
 }
 

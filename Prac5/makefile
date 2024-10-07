@@ -16,8 +16,9 @@ demoReset:
 
 testReset:
 	rm -f TestingMain && $(CC) $(CFLAGS) $(TEST_SRCS) -o TestingMain
+
 testCov:
-	rm -f TestingMain && $(CC) $(CFLAGS) --coverage $(TEST_SRCS) -o TestingMain
+	rm -f TestingMain && $(CC) $(CFLAGS) --coverage $(TEST_SRCS) -o TestingMain && ./TestingMain
 	mkdir -p $(OUTPUT_DIR)
 	mv *.gcno $(OUTPUT_DIR) || true
 	mv *.gcda $(OUTPUT_DIR) || true
@@ -29,7 +30,7 @@ clean:
 	rm -f demoMain TestingMain *.gcda $(OUTPUT_DIR)/*.gcda $(OUTPUT_DIR)/*.gcno $(OUTPUT_DIR)/*.gcov html/search/* latex/* html/*.html html/*.css html/*.js html/*.png html/*.dot
 
 valgrind:
-	make testReset valgrind --leak-check=full ./TestingMain
+	valgrind --leak-check=full ./TestingMain
 	mkdir -p $(OUTPUT_DIR)
 	mv *.gcda $(OUTPUT_DIR) || true
 

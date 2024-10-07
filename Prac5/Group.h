@@ -1,18 +1,20 @@
 #ifndef GROUP_H
 #define GROUP_H
 #include <iostream>
+#include <memory>
 #include <string>
 #include <vector>
-#include <memory>
+
 #include "State.h"
 #include "colours.cpp"
+#include "Environtment.h"
 class DeviceTraversal;
 using namespace std;
-/** 
+/**
  * @file Group.h
  * @class Group
  * @brief Represents a group with an ID and a name.
- * 
+ *
  * This class provides functionalities to manage a group, including adding and destroying sub-groups,
  * retrieving children, and performing various actions.
  */
@@ -109,14 +111,18 @@ class Group {
    private:
 	int id;
 	std::string name;
-
+	Environment* env;
    public:
 	Group(std::string name);
 	int custom_hash(const std::string& s, int off = 0);
 	virtual ~Group();
+	void addSensor(Sensor* sensor);
+	Environment* getEnvirontment();
+	void movement();
+	void light();
 	virtual bool addGroup(Group* gr);
 	virtual bool destroyGroup();
-	virtual std::vector<unique_ptr<Group>> &getChildren();
+	virtual std::vector<unique_ptr<Group>>& getChildren();
 	virtual void getStatus(int = 0) = 0;
 	virtual string getDeviceType() = 0;
 	string getName();

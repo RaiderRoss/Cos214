@@ -3,8 +3,9 @@
 #include "Sensor.h"
 class SensorMotion : public Sensor {
     public:
-        SensorMotion();
+        SensorMotion(Group* g);
         ~SensorMotion();
         virtual void detect();
+        virtual std::string getSensorType();
 };
 #endif

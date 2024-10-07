@@ -14,6 +14,9 @@ bool Section::addGroup(Group* gr) {
 }
 
 bool Section::destroyGroup() {
+	if (children.empty()) {
+		return false;
+	}
 	std::unique_ptr<Group> gr = std::move(children.back());
 	children.pop_back();
 	bool found = false;

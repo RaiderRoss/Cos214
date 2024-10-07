@@ -4,6 +4,7 @@
 Group::Group(std::string name) {
 	this->name = name;
 	this->id = abs(custom_hash(name, name.length()));
+	env = new Environment();
 }
 int Group::custom_hash(const std::string& s, int off) {
     long hash = 531;
@@ -15,6 +16,41 @@ int Group::custom_hash(const std::string& s, int off) {
     return (hash % 4000 + 4000) % 4000;
 }
 Group::~Group() {
+	delete env;
+	env = nullptr;
+}
+
+void Group::addSensor(Sensor* sensor) {
+	env->add(sensor);
+}
+
+Environment* Group::getEnvirontment() {
+	return env;
+}
+
+void Group::movement() {
+
+	if(env->getMotions().empty()) {
+		std::cout << "No sensors in the environment" << std::endl;
+		return;
+	}
+	std::cout << "Detecting motion in group " << getName() << std::endl;	
+	for (std::unique_ptr<SensorLight>& sensor : env->getLights()) {
+		sensor->detect();
+	}
+	std::cout << "No more movement" << std::endl;
+}
+
+
+void Group::light() {
+	if(env->getLights().empty()) {
+		std::cout << "No sensors in the environment" << std::endl;
+		return;
+	}
+	std::cout << "Detecting light in group " << getName() << std::endl;
+	for (std::unique_ptr<SensorMotion>& sensor : env->getMotions()) {
+		sensor->detect();
+	}
 }
 
 bool Group::addGroup(Group* gr) {

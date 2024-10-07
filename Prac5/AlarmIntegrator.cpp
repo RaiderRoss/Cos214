@@ -22,3 +22,6 @@ void AlarmIntegrator::turnOffAction() {
     this->alarm->off();
 }
 
+string AlarmIntegrator::getDeviceType() {
+	return string();
+}
