@@ -4,7 +4,7 @@ OldThermostat::OldThermostat(State* state) {
     this->state = state;
 }
 void OldThermostat::identifyStatus() {
-
+    
 }
 
 void OldThermostat::off() {
