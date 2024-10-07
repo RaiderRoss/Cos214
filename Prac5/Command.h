@@ -1,13 +1,10 @@
 #ifndef COMMAND_H
 #define COMMAND_H
-#include <iostream>`
+#include <iostream>
 #include <string>
 #include "Group.h"
-/**
- * @brief 
- * 
- */
-/**
+/** 
+ * @file Command.h
  * @class Command
  * @brief Abstract base class for command pattern.
  *

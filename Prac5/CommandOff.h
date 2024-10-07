@@ -1,7 +1,8 @@
 #ifndef COMMANDOFF_H
 #define COMMANDOFF_H
 #include "Command.h"
-/**
+/** 
+ * @file CommandOff.h
  * @class CommandOff
  * @brief A concrete command class to turn off a group of devices.
  *

@@ -1,25 +1,32 @@
 #include "OldThermostat.h"
 
-OldThermostat::OldThermostat(State* state) {
-    this->state = state;
+OldThermostat::OldThermostat(std::string name) {
+	this->name = name;
+	this->state = new Off();
+}
+OldThermostat::~OldThermostat() {
+    delete this->state;
 }
 void OldThermostat::identifyStatus() {
-    
+	std::cout << "Old Thermostat is currently : " << state->display() << std::endl;
 }
 
 void OldThermostat::off() {
-    setState(state->disengage());
+	cout << "Old | ";
+	setState(state->disengage());
 }
 
 void OldThermostat::on() {
-    setState(state->engage());
+	cout << "Old | ";
+	setState(state->engage());
 }
 
 void OldThermostat::toggle() {
-    setState(state->toggle());
+	cout << "Old | ";
+	setState(state->toggle());
 }
 
 void OldThermostat::setState(State* s) {
-    delete state;
-    state = s;
+	delete state;
+	state = s;
 }
