@@ -1,6 +1,5 @@
 #include "Alarm.h"
 
-
 Alarm::Alarm(std::string name) : device(name) {
 	state = new Locked();
 }

@@ -258,3 +258,32 @@ TEST_CASE("Section 5: Testing iterator") {
 	std::cout << colours::LIGHT_GREEN << "End of Section 5" << colours::RESET << std::endl;
 	std::cout << colours::LIGHT_BLUE << "============================================================" << colours::RESET << std::endl;
 }
+TEST_CASE("Section 6: Testing MacroRoutines") {
+    std::cout << colours::LIGHT_GREEN << "Section 6: Testing MacroRoutines" << colours::RESET << std::endl;
+    Group* dev1 = new Alarm("Alarm");
+    Group* dev2 = new Door("Door");
+    Group* dev3 = new Fridge("Fridge");
+    Group* dev4 = new Light("Light");
+    Group* dev5 = new Thermostat("Thermostat");
+    MacroRoutines* macro = new MacroRoutines("Test");
+    macro->addProcedure(new CommandOn(dev1));
+    macro->addProcedure(new CommandOn(dev2));
+    macro->addProcedure(new CommandOn(dev3));
+    macro->addProcedure(new CommandOn(dev4));
+    macro->addProcedure(new CommandOn(dev5));
+    ostringstream os;
+    streambuf* oldCoutStreamBuf = cout.rdbuf();
+    cout.rdbuf(os.rdbuf());
+    macro->execute();
+    CHECK(os.str() == "The device is already locked\nThe device is already locked\nThe device is now on\nThe device is now on\nThe device is now on\n");
+    os.str("");
+    cout.rdbuf(oldCoutStreamBuf);
+    delete macro;
+    delete dev1;
+    delete dev2;
+    delete dev3;
+    delete dev4;
+    delete dev5;
+    std::cout << colours::LIGHT_GREEN << "End of Section 6" << colours::RESET << std::endl;
+    std::cout << colours::LIGHT_BLUE << "============================================================" << colours::RESET << std::endl;
+}

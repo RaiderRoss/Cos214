@@ -6,6 +6,7 @@ device::device(std::string name) : Group(name) {
 }
 
 device::~device() {
+    delete state;
 }
 
 std::vector<unique_ptr<Group>>& device::getChildren() {
