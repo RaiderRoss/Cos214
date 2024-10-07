@@ -326,8 +326,30 @@ TEST_CASE("Section 6: Testing MacroRoutines") {
 	std::cout << colours::LIGHT_GREEN << "End of Section 6" << colours::RESET << std::endl;
 	std::cout << colours::LIGHT_BLUE << "============================================================" << colours::RESET << std::endl;
 }
-TEST_CASE("Section 7 : Testing senors "){
+TEST_CASE("Section 7 : Testing senors ") {
 	std::cout << colours::LIGHT_GREEN << "Section 7: Testing sensors" << colours::RESET << std::endl;
+	Group* dev1 = new Alarm("Alarm");
+	Group* dev2 = new Light("Light");
+	Group* house = new Section("house");
+	house->addGroup(dev1);
+	house->addGroup(dev2);
+	SensorLight* sensor1 = new SensorLight(dev2);
+	house->addSensor(sensor1);
+	SensorMotion* sensor2 = new SensorMotion(dev1);
+	house->addSensor(sensor2);
+	ostringstream os;
+	streambuf* oldCoutStreamBuf = cout.rdbuf();
+	cout.rdbuf(os.rdbuf());
+	house->movement();
+	cout.rdbuf(oldCoutStreamBuf);
+	CHECK(os.str() == "Detecting motion in group house\nThe device is already locked\nNo more movement\n");
+	os.str("");
+	cout.rdbuf(os.rdbuf());
+	house->light();
+	cout.rdbuf(oldCoutStreamBuf);
+	CHECK(os.str() == "Detecting light in group house\nThe device is now on\n");
+	os.str("");
+	delete house;
 	std::cout << colours::LIGHT_GREEN << "End of Section 7" << colours::RESET << std::endl;
 	std::cout << colours::LIGHT_BLUE << "============================================================" << colours::RESET << std::endl;
 }

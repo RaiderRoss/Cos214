@@ -35,9 +35,7 @@ void Group::movement() {
 		return;
 	}
 	std::cout << "Detecting motion in group " << getName() << std::endl;	
-	for (std::unique_ptr<SensorLight>& sensor : env->getLights()) {
-		sensor->detect();
-	}
+	env->notifyMotions();
 	std::cout << "No more movement" << std::endl;
 }
 
@@ -48,9 +46,7 @@ void Group::light() {
 		return;
 	}
 	std::cout << "Detecting light in group " << getName() << std::endl;
-	for (std::unique_ptr<SensorMotion>& sensor : env->getMotions()) {
-		sensor->detect();
-	}
+	env->notifyLights();
 }
 
 bool Group::addGroup(Group* gr) {

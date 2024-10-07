@@ -6,6 +6,9 @@ Section::Section(std::string name)
 }
 
 Section::~Section() {
+	for (std::unique_ptr<Group>& child : children) {
+		child.reset();
+	}
 }
 
 bool Section::addGroup(Group* gr) {

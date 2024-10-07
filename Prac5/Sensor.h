@@ -2,6 +2,8 @@
 #define SENSOR_H
 class Group;
 #include <string>
+#include <iostream>
+#include <sstream>
 class Sensor {
     protected :
         Group* group;

@@ -16,6 +16,9 @@ demoReset:
 
 testReset:
 	rm -f TestingMain && $(CC) $(CFLAGS) $(TEST_SRCS) -o TestingMain
+	
+test:
+	./TestingMain
 
 testCov:
 	rm -f TestingMain && $(CC) $(CFLAGS) --coverage $(TEST_SRCS) -o TestingMain && ./TestingMain

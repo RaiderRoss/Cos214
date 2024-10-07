@@ -8,8 +8,10 @@ Environment::~Environment() {
 
 void Environment::add(Sensor* light) {
     if(light->getSensorType() == "Light") {
+        std::cout << "Light sensor added" << std::endl;
         lightSensor.push_back(std::unique_ptr<SensorLight>(dynamic_cast<SensorLight*>(light)));
     } else {
+        std::cout << "Motion sensor added" << std::endl;
         motionSensor.push_back(std::unique_ptr<SensorMotion>(dynamic_cast<SensorMotion*>(light)));
     }
 }
