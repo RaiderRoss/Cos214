@@ -18,7 +18,6 @@ demoReset:
 testReset:
 	rm -f UnitTestingMain && $(CC) $(CFLAGS) $(UNIT_TEST_SRCS) -o UnitTestingMain
 
-
 testCov:
 	rm -f TestingMain && $(CC) $(CFLAGS) --coverage $(TEST_SRCS) -o TestingMain && ./TestingMain
 	mkdir -p $(OUTPUT_DIR)

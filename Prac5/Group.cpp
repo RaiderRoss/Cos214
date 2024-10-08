@@ -29,7 +29,6 @@ Environment* Group::getEnvirontment() {
 }
 
 void Group::movement() {
-
 	if(env->getMotions().empty()) {
 		std::cout << "No sensors in the environment" << std::endl;
 		return;

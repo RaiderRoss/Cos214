@@ -184,7 +184,7 @@ void addSensor() {
 					cout << "Select a sensor type : " << endl;
 					cout << colours::LIGHT_GREEN;
 					cout << "\t↳ Light : 1" << endl;
-					cout << "\t↳ Motion : 2 " << endl;
+					cout << "\t↳ Motion : 2 " << colours::RESET << endl;
 					input = "";
 					cout << "Input⤐ ";
 					getline(cin, input);
@@ -221,7 +221,7 @@ void triggerSensor() {
 			cout << "Select an action to trigger : " << endl;
 			cout << colours::LIGHT_GREEN;
 			cout << "\t↳ Light : 1" << endl;
-			cout << "\t↳ Motion : 2 " << endl;
+			cout << "\t↳ Motion : 2 " << colours::RESET << endl;
 			input = "";
 			cout << "Input⤐ ";
 			getline(cin, input);
@@ -434,6 +434,8 @@ void runUI() {
 		displayActions();
 		run();
 	}
+	system("clear");
+	cout << colours::BOLD + colours::RED << "🗝️ You have left the simulation 🗝️" << colours::RESET << endl;
 }
 int main(int argc, char const* argv[]) {
 	runUI();
